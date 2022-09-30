@@ -45,7 +45,7 @@ public class WordCounter {
         mainframe = new JFrame("TEST!");
         mainframe.setSize(1280, 720);
         mainframe.setLocation(320, 180);
-        //mainframe.setResizable(false);
+        mainframe.setResizable(false);
         //mainframe.setLayout(new GridLayout(3, 1));
         //mainframe.setLayout(new SpringLayout());
         /*
@@ -153,6 +153,7 @@ public class WordCounter {
             auto.mouseMove(950, 850);
             auto.mousePress(InputEvent.BUTTON1_DOWN_MASK); // press left click
             auto.mouseRelease(InputEvent.BUTTON1_DOWN_MASK); // release left click
+            auto.mouseMove(1100, 850);
         }
         );
         mainframe.add(header);

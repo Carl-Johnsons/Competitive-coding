@@ -144,6 +144,7 @@ public class WordCounter {
             notify.setText("Word Found: " + WordCounter + "\nCharacter Found: " + CharCounter + "\nPapagraph found: " + PapagraphCounter);
         });
         DemoButton.addActionListener((ActionEvent e) -> {
+            mainframe.setLocation(320, 180);
             Test.setText("author: Nguyen Le Tai Duc\nProject: Word Counter\nDay Created: 30/9/2022" + "\n" + RandomString());
             //auto.setAutoWaitForIdle(true);
             auto.delay(150);
@@ -176,7 +177,7 @@ public class WordCounter {
                 tempString = "\nAnother Bug to find ...";
                 break;
             case 4:
-                tempString= "\nThis project was made over 5 hours because the author didn't know about the syntax";
+                tempString = "\nThis project was made over 5 hours because the author didn't know about the syntax";
                 break;
             default:
                 tempString = "\nThe void?";

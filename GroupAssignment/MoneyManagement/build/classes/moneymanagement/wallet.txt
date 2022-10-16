@@ -1,3 +1,6 @@
+01-01-0201
+Make some money
+20000
 03-01-2019
 Pickpocket someone in the street!
 46000
@@ -46,6 +49,9 @@ Rob someone's purse
 10-01-2019
 Buy some new food!
 -38000
-01-01-0201
-Make some money
-20000
+11-01-2019
+Not passed an exam!
+-60000
+16-10-2022
+Mua dây treo cổ
+200000

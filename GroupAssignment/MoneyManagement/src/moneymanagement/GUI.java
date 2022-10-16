@@ -18,6 +18,12 @@ import java.io.IOException;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.DateTimeException;
+import java.time.LocalDate;
+import java.time.Month;
+import java.time.YearMonth;
+import java.time.ZoneId;
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.Collections;
 import java.util.Date;
@@ -40,9 +46,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.SwingUtilities;
 
 public final class GUI {
 
+    //<editor-fold defaultstate="collapsed" desc="Declaration">
     private JFrame mainframe;
     private JLabel header;
     private JTextArea notify;
@@ -54,7 +62,12 @@ public final class GUI {
     private JButton GenerateEvent;
     private JButton Save;
 
+    //
     private JPanel StatisticJPanel;
+    private DrawGraph graphIn;
+    private MoneyManagement SumMoneyPerDay = new MoneyManagement();
+    private JTextArea GraphHoldingArea;
+    private JTextArea StatisticNotifyArea;
 
     //
     private JPanel UpdateJPanel;
@@ -68,6 +81,7 @@ public final class GUI {
     private JButton UpdateDeleteButton;
     private final JTextField InputField[] = new JTextField[3];
     private JComponent[] UpdateAddInputComponents;
+    private JComponent[] UpdateDeleteElementComponents;
 
     //
     private JPanel MenuJPanel;
@@ -89,6 +103,8 @@ public final class GUI {
     private final Random rand = new Random();
     private final DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     private final Border BlackBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
+    private final Border BlackBorderWidth3 = BorderFactory.createLineBorder(Color.BLACK, 3);
+    //</editor-fold>
 
     public GUI() throws FileNotFoundException, ParseException, IOException {
         //Read a file
@@ -100,11 +116,23 @@ public final class GUI {
     }
 
     public static void main(String[] args) throws FileNotFoundException, ParseException, IOException {
-        new GUI().Start();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    new GUI().Start();
+                } catch (ParseException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (IOException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        });
     }
 
     public void prepareGUI() throws IOException {
-
+        //<editor-fold defaultstate="collapsed" desc="Initialize the frame">
         //Mainframe
         mainframe = new JFrame("Money Management");
         mainframe.setSize(1280, 720);
@@ -125,7 +153,9 @@ public final class GUI {
         CoordinateArea.setFont(NormalFont);
         CoordinateArea.setEditable(false);
         CoordinateArea.setBackground(mainframe.getBackground());
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="Menu Panel">
         //                               Menu PANEL
         MenuArea = new JTextArea("");
         MenuArea.setEditable(false);
@@ -143,7 +173,7 @@ public final class GUI {
         InteractiveMenuButton[0].setBounds(0, 600, 300, 80);
 
         temp = "<html><center>Update your "
-                + "<font color=#50F050>In</font>/<font color=#C83C3C>Out  &ensp; </font>" + "<img src=" + getClass().getResource("/res/_0_Update_Icon.png") + " height = " + 40 + " width = " + 40 + " /> " + "</html>";
+                + "<font color=#009600>In</font>/<font color=#C83C3C>Out  &ensp; </font>" + "<img src=" + getClass().getResource("/res/_0_Update_Icon.png") + " height = " + 40 + " width = " + 40 + " /> " + "</html>";
         InteractiveMenuButton[1] = new JButton(temp);
         InteractiveMenuButton[1].setBounds(300, 600, 680, 80);
 
@@ -181,6 +211,7 @@ public final class GUI {
         MenuJPanel.setVisible(true);
         MenuJPanel.setLayout(null);
 
+        //<editor-fold defaultstate="collapsed" desc="Other Button">
         //                               Other button
         GenerateEvent = new JButton();
         GenerateEvent.setText("<html><center>" + "Generating" + "<br>" + "random event" + "</center></html>");
@@ -196,6 +227,7 @@ public final class GUI {
         ReturnButton.setBorderPainted(false);
         ReturnButton.setBounds(50, 20, 50, 50);
         ReturnButton.setVisible(false);
+        //</editor-fold>
 
         //                               MENU PANEL ADD ELEMENTS
         MenuJPanel.add(MenuScrollPane);
@@ -208,6 +240,9 @@ public final class GUI {
         for (int i = 0; i < 4; i++) {
             MenuJPanel.add(SortMenu[i]);
         }
+        //</editor-fold>
+
+        //<editor-fold defaultstate="collapsed" desc="Update Panel">
         //                               UPDATE PANEL
         UpdateJPanel = new JPanel();
         UpdateJPanel.setSize(1280, 720);
@@ -268,6 +303,10 @@ public final class GUI {
             new JLabel("Reason"),
             InputField[2]
         };
+        UpdateDeleteElementComponents = new JComponent[]{
+            new JLabel("Input the date you want to delete"),
+            InputField[0]
+        };
 
         //                               UPDATE PANEL ADD ELEMENT
         UpdateJPanel.add(UpdateSearchInputArea);
@@ -280,12 +319,36 @@ public final class GUI {
         for (int i = 0; i < 4; i++) {
             UpdateJPanel.add(SearchByAtrButton[i]);
         }
+        //</editor-fold>
 
+        //<editor-fold defaultstate="collapsed" desc="Statistic panel">
         //                               STATISTIC PANEL
         StatisticJPanel = new JPanel();
         StatisticJPanel.setSize(1280, 720);
         StatisticJPanel.setLayout(null);
         StatisticJPanel.setVisible(false);
+
+        graphIn = new DrawGraph(SumMoneyPerDay);
+        graphIn.setBounds(240, 100, 800, 440);
+        graphIn.setOpaque(false);
+
+        GraphHoldingArea = new JTextArea("");
+        GraphHoldingArea.setEditable(false);
+        GraphHoldingArea.setBounds(graphIn.getBounds());
+        GraphHoldingArea.setBorder(BlackBorderWidth3);
+
+        StatisticNotifyArea = new JTextArea("");
+        StatisticNotifyArea.setBounds(240, 550, 800, 30);
+        StatisticNotifyArea.setFont(new Font("TimesRoman", Font.BOLD, 20));
+        StatisticNotifyArea.setMargin(new Insets(0, 240, 0, 0));
+        StatisticNotifyArea.setBackground(mainframe.getBackground());
+        StatisticNotifyArea.setEditable(false);
+
+        //                               STATISTIC PANEL ADD ELEMENTS
+        StatisticJPanel.add(graphIn);
+        StatisticJPanel.add(GraphHoldingArea);
+        StatisticJPanel.add(StatisticNotifyArea);
+        //</editor-fold>
 
         //                               MAIN FRAME ADD ELEMENTS
         mainframe.add(ReturnButton);
@@ -293,7 +356,6 @@ public final class GUI {
         mainframe.add(StatisticJPanel);
         mainframe.add(MenuJPanel);
         mainframe.add(CoordinateArea);
-
     }
 
     public void Start() {
@@ -356,10 +418,45 @@ public final class GUI {
         InteractiveMenuButton[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    SumMoneyPerDay.getList().clear();
+                    SortDateIncreasing();
+                    ME.Read();
+
+                    YearMonth yearMonth = YearMonth.of(ME.getList().get(ME.getList().size() - 1).getCurrentDate().getYear() + 1900, ME.getList().get(ME.getList().size() - 1).getCurrentDate().getMonth() + 1);
+                    LocalDate fistofMonth = yearMonth.atDay(1);
+                    LocalDate lastofMonth = yearMonth.atEndOfMonth();
+                    Date firstDate = Date.from(fistofMonth.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                    Date lastDate = Date.from(lastofMonth.atStartOfDay(ZoneId.systemDefault()).toInstant());
+                    StatisticNotifyArea.setText("Graph of my spending of " + new SimpleDateFormat("MM/yyyy").format(firstDate));
+                    for (int i = 0; i < ME.getList().size(); i++) {
+                        int sum = 0;
+                        MoneyManagement sumthuchi = new MoneyManagement();
+                        Date oldDay = ME.getList().get(i).getCurrentDate();
+                        if (oldDay.after(firstDate) || oldDay.equals(firstDate) || oldDay.equals(lastDate)) {
+                            sumthuchi.setCurrentDate(oldDay);
+                            while (i < ME.getList().size() && oldDay.compareTo(ME.getList().get(i).getCurrentDate()) == 0) {
+                                sum += ME.getList().get(i).getThuChi();
+                                i++;
+                            }
+                            sumthuchi.setThuChi(sum);
+                            i--;
+                            SumMoneyPerDay.getList().add(sumthuchi);
+                        }
+                    }
+                    graphIn.setList(SumMoneyPerDay);
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (DateTimeException ex) {
+                }
+
                 MenuJPanel.setVisible(false);
                 StatisticJPanel.setVisible(true);
                 ReturnButton.setVisible(true);
             }
+
         });
         InteractiveMenuButton[1].addActionListener(new ActionListener() {
             @Override
@@ -401,7 +498,7 @@ public final class GUI {
                     }
 
                 } else {
-                    UpdatenotifyArea.setText("\n          Input Required");
+                    UpdatenotifyArea.setText("\n\n          Input Required");
                 }
             }
         });
@@ -426,7 +523,7 @@ public final class GUI {
                         UpdatenotifyArea.setText("\n      Money can't \n       be a text!");
                     }
                 } else {
-                    UpdatenotifyArea.setText("\n          Input Required");
+                    UpdatenotifyArea.setText("\n\n          Input Required");
                 }
             }
         });
@@ -459,7 +556,7 @@ public final class GUI {
                     }
 
                 } else {
-                    UpdatenotifyArea.setText("\n          Input Required");
+                    UpdatenotifyArea.setText("\n\n          Input Required");
                 }
             }
         });
@@ -473,10 +570,7 @@ public final class GUI {
                         String temp = UpdateSearchInputArea.getText();
                         if (ME.getList().get(i).getReason().substring(0, temp.length()).equalsIgnoreCase(temp)) {
                             hasReason = true;
-                            String t = dateFormat.format(ME.getList().get(i).getCurrentDate()) + " ---- " + Math.abs(ME.getList().get(i).getThuChi()) + " ---- " + (ME.getList().get(i).isIn() ? "In    " : "Out") + " ---- ";
-
-                            String searchTemp = "<html><font color=#DC0000>" + ME.getList().get(i).getReason().substring(temp.length()) + "</></html>";
-                            UpdateSearchListArea.append(temp + "\n");
+                            UpdateSearchListArea.append(ME.PrintAllAtr(i) + "\n");
                         }
                     }
                     if (!hasReason) {
@@ -486,7 +580,7 @@ public final class GUI {
                     }
 
                 } else {
-                    UpdatenotifyArea.setText("\n          Input Required");
+                    UpdatenotifyArea.setText("\n\n          Input Required");
                 }
             }
         });
@@ -562,6 +656,84 @@ public final class GUI {
             }
 
         });
+        UpdateDeleteButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                boolean InputError = false;
+                boolean LeaveEmpty = false;
+                boolean hasDate = false;
+
+                do {
+                    int result = JOptionPane.showConfirmDialog(null, UpdateDeleteElementComponents, "Delete", JOptionPane.OK_CANCEL_OPTION);
+                    InputError = false;
+                    LeaveEmpty = false;
+                    hasDate = false;
+                    if (!IsOccupied(InputField[0].getText())) {
+                        LeaveEmpty = true;
+                        InputField[0].setText("Input required");
+                    }
+
+                    if (!LeaveEmpty) {
+                        if (result == JOptionPane.OK_OPTION) {
+                            try {
+
+                                InputField[0].setBackground(mainframe.getBackground());
+                                InputField[0].setEditable(false);
+                                InputField[0].setBorder(null);
+                                result = JOptionPane.showConfirmDialog(null, UpdateDeleteElementComponents, "Check", JOptionPane.OK_CANCEL_OPTION);
+                                if (result == JOptionPane.OK_OPTION) {
+
+                                    //DELETE
+                                    MoneyManagement tManagement = new MoneyManagement();
+                                    tManagement.setCurrentDate(dateFormat.parse(InputField[0].getText()));
+                                    SortDateIncreasing();
+                                    for (int i = 0; i < ME.getList().size(); i++) {
+                                        if (tManagement.getCurrentDate().equals(ME.getList().get(i).getCurrentDate())) {
+                                            hasDate = true;
+                                            ME.getList().remove(i);
+                                            i--;
+                                        }
+                                    }
+
+                                    InputField[0].setBackground(Color.WHITE);
+                                    InputField[0].setBorder(BlackBorder);
+                                    InputField[0].setEditable(true);
+                                    if (!hasDate) {
+                                        JOptionPane.showConfirmDialog(null, "Date not found!", "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                                    } else {
+                                        JOptionPane.showConfirmDialog(null, "Delete successfully", "", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE);
+                                    }
+                                    try {
+                                        ME.Save();
+                                    } catch (IOException ex) {
+                                        Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
+                                } else {
+                                    InputField[0].setBackground(Color.WHITE);
+                                    InputField[0].setBorder(BlackBorder);
+                                    InputField[0].setEditable(true);
+                                    break;
+                                }
+                            } catch (ParseException ex) {
+                                InputField[0].setBackground(Color.WHITE);
+                                InputField[0].setBorder(BlackBorder);
+                                InputField[0].setEditable(true);
+                                InputError = true;
+                                JOptionPane.showConfirmDialog(null, "Please input right date format (dd-mm-yyyy)", "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                            }
+                        }
+                    } else {
+                        InputField[0].setBackground(Color.WHITE);
+                        InputField[0].setBorder(BlackBorder);
+                        InputField[0].setEditable(true);
+                        InputError = true;
+                        JOptionPane.showConfirmDialog(null, "Please input all required information", "Error", JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE);
+                    }
+                } while (InputError);
+                InputField[0].setBackground(Color.WHITE);
+            }
+
+        });
         //Other Button
         GenerateEvent.addActionListener(new ActionListener() {
             @Override
@@ -587,6 +759,14 @@ public final class GUI {
         ReturnButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                try {
+                    ME.Read();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ParseException ex) {
+                    Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                MenuArea.setText(PrintList());
                 MenuJPanel.setVisible(true);
                 UpdateJPanel.setVisible(false);
                 StatisticJPanel.setVisible(false);
@@ -688,6 +868,7 @@ public final class GUI {
         return sb.toString();
     }
 
+    //<editor-fold defaultstate="collapsed" desc="Sort By attribute">
     public void SortDateIncreasing() {
         Collections.sort(ME.getList(), (MoneyManagement o1, MoneyManagement o2) -> {
             if (o1.getDate().compareTo(o2.getDate()) > 0) {
@@ -771,4 +952,5 @@ public final class GUI {
             }
         });
     }
+    //</editor-fold>
 }

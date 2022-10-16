@@ -170,6 +170,7 @@ public class MoneyManagement {
 
     public void Read() throws FileNotFoundException, ParseException {
         try {
+            Money.clear();
             Scanner read = new Scanner(new File("src\\moneymanagement\\wallet.txt"));
             while (read.hasNextLine()) {
                 MoneyManagement temp = new MoneyManagement();

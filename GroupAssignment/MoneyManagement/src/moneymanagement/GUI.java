@@ -355,7 +355,7 @@ public final class GUI {
         mainframe.add(UpdateJPanel);
         mainframe.add(StatisticJPanel);
         mainframe.add(MenuJPanel);
-        mainframe.add(CoordinateArea);
+        //mainframe.add(CoordinateArea);
     }
 
     public void Start() {

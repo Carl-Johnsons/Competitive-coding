@@ -1,0 +1,2457 @@
+01-01-2019
+Drop my wallet
+-84000
+01-01-2019
+Pickpocket someone in the street!
+28000
+01-01-2019
+Sell a product
+35000
+01-01-2019
+Rob someone's purse
+69000
+02-01-2019
+Rob someone's purse
+33000
+02-01-2019
+My Parent give me some money!
+95000
+03-01-2019
+Buy some new food!
+-87000
+03-01-2019
+Buy some new cloth
+-91000
+03-01-2019
+My Parent give me some money!
+24000
+03-01-2019
+My Parent give me some money!
+88000
+03-01-2019
+Not passed an exam!
+-33000
+03-01-2019
+Buy some new food!
+-67000
+03-01-2019
+Drop my wallet
+-71000
+04-01-2019
+Buy some new food!
+-43000
+04-01-2019
+Get caught cause of riding over 100km/h
+-33000
+04-01-2019
+Pickpocket someone in the street!
+91000
+04-01-2019
+Buy some new food!
+-80000
+04-01-2019
+Pickpocket someone in the street!
+99000
+04-01-2019
+Drop my wallet
+-43000
+04-01-2019
+Buy some new cloth
+-25000
+04-01-2019
+Buy some new cloth
+-24000
+05-01-2019
+Not passed an exam!
+-61000
+05-01-2019
+My Parent give me some money!
+85000
+05-01-2019
+Get caught cause of riding over 100km/h
+-49000
+06-01-2019
+Not passed an exam!
+-85000
+06-01-2019
+Sell a product
+61000
+06-01-2019
+Buy some new food!
+-82000
+06-01-2019
+Rob someone's purse
+71000
+06-01-2019
+My Parent give me some money!
+41000
+06-01-2019
+Not passed an exam!
+-36000
+06-01-2019
+Rob someone's purse
+92000
+06-01-2019
+Drop my wallet
+-66000
+06-01-2019
+Drop my wallet
+-68000
+07-01-2019
+Drop my wallet
+-27000
+08-01-2019
+Get caught cause of riding over 100km/h
+-55000
+08-01-2019
+Drop my wallet
+-34000
+09-01-2019
+Drop my wallet
+-28000
+09-01-2019
+Rob someone's purse
+83000
+09-01-2019
+Buy some new cloth
+-51000
+10-01-2019
+Pick up some money!
+59000
+10-01-2019
+Not passed an exam!
+-85000
+10-01-2019
+Get caught cause of riding over 100km/h
+-64000
+10-01-2019
+Buy some new food!
+-94000
+10-01-2019
+Not passed an exam!
+-83000
+10-01-2019
+Buy some new food!
+-99000
+10-01-2019
+Sell a product
+41000
+11-01-2019
+Sell a product
+31000
+11-01-2019
+Get caught cause of riding over 100km/h
+-61000
+11-01-2019
+Not passed an exam!
+-98000
+11-01-2019
+Pickpocket someone in the street!
+94000
+11-01-2019
+Buy some new food!
+-48000
+11-01-2019
+Buy some new cloth
+-54000
+11-01-2019
+Not passed an exam!
+-33000
+11-01-2019
+My Parent give me some money!
+88000
+12-01-2019
+My Parent give me some money!
+69000
+12-01-2019
+Get caught cause of riding over 100km/h
+-38000
+12-01-2019
+Pickpocket someone in the street!
+33000
+12-01-2019
+Sell a product
+23000
+12-01-2019
+Sell a product
+89000
+12-01-2019
+Buy some new cloth
+-92000
+12-01-2019
+Pickpocket someone in the street!
+82000
+12-01-2019
+Pickpocket someone in the street!
+85000
+12-01-2019
+Buy some new cloth
+-99000
+13-01-2019
+Get caught cause of riding over 100km/h
+-52000
+13-01-2019
+Drop my wallet
+-58000
+14-01-2019
+Pickpocket someone in the street!
+90000
+14-01-2019
+Drop my wallet
+-57000
+14-01-2019
+Pickpocket someone in the street!
+71000
+14-01-2019
+Buy some new cloth
+-93000
+14-01-2019
+My Parent give me some money!
+89000
+15-01-2019
+Buy some new cloth
+-98000
+15-01-2019
+Rob someone's purse
+67000
+15-01-2019
+Pick up some money!
+62000
+15-01-2019
+Pick up some money!
+93000
+15-01-2019
+Sell a product
+79000
+15-01-2019
+Buy some new cloth
+-63000
+15-01-2019
+Buy some new cloth
+-89000
+16-01-2019
+Buy some new cloth
+-56000
+16-01-2019
+Get caught cause of riding over 100km/h
+-85000
+16-01-2019
+Buy some new cloth
+-23000
+16-01-2019
+Get caught cause of riding over 100km/h
+-51000
+16-01-2019
+Not passed an exam!
+-92000
+16-01-2019
+Get caught cause of riding over 100km/h
+-99000
+16-01-2019
+Rob someone's purse
+34000
+16-01-2019
+Pick up some money!
+69000
+17-01-2019
+Buy some new food!
+-34000
+17-01-2019
+Get caught cause of riding over 100km/h
+-37000
+18-01-2019
+Not passed an exam!
+-51000
+18-01-2019
+Buy some new cloth
+-88000
+18-01-2019
+Not passed an exam!
+-83000
+18-01-2019
+Get caught cause of riding over 100km/h
+-32000
+18-01-2019
+Pick up some money!
+39000
+18-01-2019
+My Parent give me some money!
+81000
+18-01-2019
+Not passed an exam!
+-37000
+19-01-2019
+Buy some new food!
+-88000
+19-01-2019
+Sell a product
+35000
+19-01-2019
+Rob someone's purse
+59000
+19-01-2019
+Rob someone's purse
+86000
+19-01-2019
+My Parent give me some money!
+81000
+19-01-2019
+Pickpocket someone in the street!
+37000
+19-01-2019
+Pick up some money!
+84000
+19-01-2019
+My Parent give me some money!
+25000
+20-01-2019
+Pick up some money!
+35000
+20-01-2019
+Get caught cause of riding over 100km/h
+-53000
+20-01-2019
+Drop my wallet
+-84000
+20-01-2019
+Drop my wallet
+-89000
+20-01-2019
+My Parent give me some money!
+82000
+21-01-2019
+Drop my wallet
+-100000
+21-01-2019
+Pickpocket someone in the street!
+96000
+21-01-2019
+Drop my wallet
+-99000
+21-01-2019
+Buy some new food!
+-51000
+21-01-2019
+Buy some new food!
+-90000
+21-01-2019
+Rob someone's purse
+51000
+21-01-2019
+Pickpocket someone in the street!
+31000
+22-01-2019
+Get caught cause of riding over 100km/h
+-21000
+22-01-2019
+Rob someone's purse
+55000
+22-01-2019
+My Parent give me some money!
+23000
+22-01-2019
+Rob someone's purse
+52000
+22-01-2019
+Drop my wallet
+-87000
+22-01-2019
+Pick up some money!
+76000
+22-01-2019
+Sell a product
+73000
+22-01-2019
+Sell a product
+28000
+22-01-2019
+Pick up some money!
+87000
+23-01-2019
+Get caught cause of riding over 100km/h
+-52000
+23-01-2019
+Drop my wallet
+-32000
+23-01-2019
+Not passed an exam!
+-59000
+24-01-2019
+Buy some new cloth
+-35000
+24-01-2019
+Get caught cause of riding over 100km/h
+-47000
+24-01-2019
+Get caught cause of riding over 100km/h
+-90000
+24-01-2019
+Pick up some money!
+25000
+24-01-2019
+Buy some new cloth
+-89000
+25-01-2019
+Rob someone's purse
+26000
+25-01-2019
+Rob someone's purse
+98000
+25-01-2019
+Not passed an exam!
+-81000
+25-01-2019
+Get caught cause of riding over 100km/h
+-38000
+26-01-2019
+Rob someone's purse
+65000
+26-01-2019
+Pick up some money!
+44000
+26-01-2019
+Sell a product
+66000
+26-01-2019
+Not passed an exam!
+-34000
+26-01-2019
+My Parent give me some money!
+56000
+26-01-2019
+Pick up some money!
+86000
+27-01-2019
+Rob someone's purse
+42000
+27-01-2019
+Pickpocket someone in the street!
+94000
+27-01-2019
+Rob someone's purse
+82000
+28-01-2019
+Drop my wallet
+-76000
+28-01-2019
+Rob someone's purse
+56000
+28-01-2019
+Buy some new cloth
+-73000
+28-01-2019
+Buy some new food!
+-71000
+28-01-2019
+Sell a product
+62000
+28-01-2019
+Buy some new food!
+-50000
+29-01-2019
+Not passed an exam!
+-74000
+29-01-2019
+Pick up some money!
+62000
+30-01-2019
+Not passed an exam!
+-35000
+30-01-2019
+Pickpocket someone in the street!
+99000
+30-01-2019
+Buy some new food!
+-30000
+30-01-2019
+Not passed an exam!
+-62000
+30-01-2019
+Rob someone's purse
+94000
+30-01-2019
+Pick up some money!
+76000
+30-01-2019
+Drop my wallet
+-31000
+30-01-2019
+Drop my wallet
+-76000
+31-01-2019
+Buy some new cloth
+-54000
+31-01-2019
+Buy some new food!
+-38000
+31-01-2019
+My Parent give me some money!
+65000
+31-01-2019
+Get caught cause of riding over 100km/h
+-72000
+31-01-2019
+Pick up some money!
+34000
+31-01-2019
+Pickpocket someone in the street!
+47000
+31-01-2019
+Rob someone's purse
+74000
+31-01-2019
+Buy some new cloth
+-99000
+31-01-2019
+Pick up some money!
+40000
+01-02-2019
+Buy some new food!
+-87000
+01-02-2019
+Buy some new cloth
+-66000
+01-02-2019
+Sell a product
+22000
+01-02-2019
+Pickpocket someone in the street!
+81000
+01-02-2019
+Pick up some money!
+75000
+01-02-2019
+Not passed an exam!
+-35000
+01-02-2019
+Rob someone's purse
+53000
+02-02-2019
+Get caught cause of riding over 100km/h
+-87000
+02-02-2019
+Rob someone's purse
+83000
+02-02-2019
+Buy some new cloth
+-53000
+02-02-2019
+Not passed an exam!
+-51000
+02-02-2019
+Buy some new cloth
+-96000
+03-02-2019
+Sell a product
+64000
+03-02-2019
+Rob someone's purse
+85000
+03-02-2019
+Pick up some money!
+26000
+03-02-2019
+Sell a product
+46000
+04-02-2019
+Pick up some money!
+69000
+05-02-2019
+Sell a product
+57000
+06-02-2019
+Buy some new cloth
+-47000
+06-02-2019
+Sell a product
+91000
+06-02-2019
+Drop my wallet
+-70000
+07-02-2019
+Buy some new cloth
+-82000
+07-02-2019
+Buy some new cloth
+-80000
+07-02-2019
+My Parent give me some money!
+97000
+07-02-2019
+Pick up some money!
+26000
+07-02-2019
+Not passed an exam!
+-67000
+07-02-2019
+Buy some new cloth
+-73000
+07-02-2019
+Pick up some money!
+83000
+07-02-2019
+Rob someone's purse
+84000
+07-02-2019
+Pick up some money!
+59000
+08-02-2019
+My Parent give me some money!
+83000
+08-02-2019
+Drop my wallet
+-95000
+08-02-2019
+Not passed an exam!
+-63000
+08-02-2019
+Buy some new cloth
+-43000
+09-02-2019
+Buy some new cloth
+-25000
+09-02-2019
+Drop my wallet
+-65000
+09-02-2019
+Buy some new cloth
+-57000
+09-02-2019
+Rob someone's purse
+83000
+09-02-2019
+Rob someone's purse
+39000
+09-02-2019
+My Parent give me some money!
+73000
+09-02-2019
+Pick up some money!
+73000
+10-02-2019
+My Parent give me some money!
+55000
+10-02-2019
+Buy some new food!
+-46000
+10-02-2019
+Pick up some money!
+68000
+10-02-2019
+Rob someone's purse
+83000
+11-02-2019
+Buy some new food!
+-80000
+11-02-2019
+My Parent give me some money!
+69000
+11-02-2019
+Rob someone's purse
+64000
+11-02-2019
+Rob someone's purse
+90000
+11-02-2019
+Sell a product
+41000
+11-02-2019
+Buy some new food!
+-51000
+11-02-2019
+Not passed an exam!
+-53000
+12-02-2019
+My Parent give me some money!
+49000
+12-02-2019
+Buy some new cloth
+-56000
+12-02-2019
+Sell a product
+74000
+12-02-2019
+Not passed an exam!
+-31000
+12-02-2019
+Drop my wallet
+-42000
+12-02-2019
+Rob someone's purse
+71000
+13-02-2019
+Buy some new food!
+-66000
+13-02-2019
+Pickpocket someone in the street!
+43000
+13-02-2019
+Buy some new cloth
+-88000
+13-02-2019
+Sell a product
+69000
+13-02-2019
+Not passed an exam!
+-66000
+13-02-2019
+My Parent give me some money!
+54000
+13-02-2019
+Pick up some money!
+57000
+13-02-2019
+Get caught cause of riding over 100km/h
+-65000
+13-02-2019
+Sell a product
+25000
+14-02-2019
+Get caught cause of riding over 100km/h
+-43000
+14-02-2019
+My Parent give me some money!
+37000
+14-02-2019
+Drop my wallet
+-98000
+14-02-2019
+Buy some new food!
+-85000
+14-02-2019
+Buy some new cloth
+-26000
+14-02-2019
+Pickpocket someone in the street!
+60000
+14-02-2019
+Drop my wallet
+-64000
+15-02-2019
+Not passed an exam!
+-49000
+15-02-2019
+Get caught cause of riding over 100km/h
+-50000
+15-02-2019
+Buy some new cloth
+-26000
+15-02-2019
+Pick up some money!
+22000
+15-02-2019
+My Parent give me some money!
+91000
+15-02-2019
+Pick up some money!
+59000
+15-02-2019
+Sell a product
+72000
+16-02-2019
+Drop my wallet
+-76000
+16-02-2019
+Pick up some money!
+96000
+16-02-2019
+Get caught cause of riding over 100km/h
+-90000
+16-02-2019
+Drop my wallet
+-63000
+16-02-2019
+Rob someone's purse
+39000
+16-02-2019
+Rob someone's purse
+62000
+17-02-2019
+Pick up some money!
+61000
+17-02-2019
+Drop my wallet
+-73000
+17-02-2019
+Rob someone's purse
+94000
+17-02-2019
+Rob someone's purse
+43000
+17-02-2019
+Rob someone's purse
+44000
+17-02-2019
+Buy some new food!
+-26000
+17-02-2019
+Not passed an exam!
+-57000
+17-02-2019
+Sell a product
+22000
+18-02-2019
+Pickpocket someone in the street!
+43000
+18-02-2019
+Get caught cause of riding over 100km/h
+-45000
+18-02-2019
+Pickpocket someone in the street!
+30000
+18-02-2019
+My Parent give me some money!
+83000
+18-02-2019
+Buy some new food!
+-74000
+18-02-2019
+Buy some new cloth
+-80000
+18-02-2019
+Get caught cause of riding over 100km/h
+-80000
+18-02-2019
+Drop my wallet
+-88000
+19-02-2019
+Pickpocket someone in the street!
+56000
+20-02-2019
+My Parent give me some money!
+92000
+20-02-2019
+Get caught cause of riding over 100km/h
+-79000
+20-02-2019
+Pick up some money!
+87000
+20-02-2019
+Not passed an exam!
+-55000
+20-02-2019
+My Parent give me some money!
+27000
+20-02-2019
+Buy some new food!
+-58000
+20-02-2019
+Buy some new food!
+-80000
+20-02-2019
+My Parent give me some money!
+98000
+20-02-2019
+Buy some new cloth
+-63000
+21-02-2019
+Buy some new cloth
+-34000
+22-02-2019
+Pickpocket someone in the street!
+47000
+22-02-2019
+Rob someone's purse
+93000
+22-02-2019
+Sell a product
+40000
+22-02-2019
+My Parent give me some money!
+83000
+22-02-2019
+Pick up some money!
+92000
+22-02-2019
+Buy some new cloth
+-66000
+22-02-2019
+My Parent give me some money!
+40000
+22-02-2019
+Buy some new food!
+-62000
+22-02-2019
+Not passed an exam!
+-22000
+23-02-2019
+Rob someone's purse
+41000
+23-02-2019
+Not passed an exam!
+-58000
+23-02-2019
+Pick up some money!
+99000
+23-02-2019
+Pickpocket someone in the street!
+51000
+23-02-2019
+Drop my wallet
+-87000
+23-02-2019
+Pickpocket someone in the street!
+47000
+24-02-2019
+Pick up some money!
+45000
+24-02-2019
+Rob someone's purse
+80000
+24-02-2019
+Pickpocket someone in the street!
+36000
+24-02-2019
+Drop my wallet
+-92000
+24-02-2019
+My Parent give me some money!
+89000
+24-02-2019
+Rob someone's purse
+55000
+24-02-2019
+Rob someone's purse
+92000
+24-02-2019
+Drop my wallet
+-43000
+25-02-2019
+Buy some new food!
+-24000
+25-02-2019
+Pick up some money!
+25000
+25-02-2019
+Not passed an exam!
+-87000
+25-02-2019
+Sell a product
+70000
+25-02-2019
+Not passed an exam!
+-63000
+25-02-2019
+Buy some new food!
+-37000
+25-02-2019
+Rob someone's purse
+83000
+25-02-2019
+Buy some new cloth
+-91000
+25-02-2019
+Buy some new cloth
+-31000
+26-02-2019
+Buy some new cloth
+-39000
+27-02-2019
+Buy some new food!
+-36000
+27-02-2019
+Pick up some money!
+22000
+27-02-2019
+Sell a product
+95000
+27-02-2019
+My Parent give me some money!
+47000
+27-02-2019
+Pickpocket someone in the street!
+28000
+27-02-2019
+Buy some new cloth
+-70000
+28-02-2019
+Drop my wallet
+-94000
+28-02-2019
+Pickpocket someone in the street!
+100000
+28-02-2019
+Pickpocket someone in the street!
+42000
+28-02-2019
+Buy some new food!
+-52000
+28-02-2019
+Pick up some money!
+57000
+01-03-2019
+Sell a product
+96000
+01-03-2019
+Buy some new cloth
+-23000
+01-03-2019
+Pickpocket someone in the street!
+65000
+01-03-2019
+Pick up some money!
+48000
+01-03-2019
+Buy some new food!
+-95000
+01-03-2019
+Drop my wallet
+-74000
+01-03-2019
+Sell a product
+21000
+01-03-2019
+My Parent give me some money!
+66000
+02-03-2019
+My Parent give me some money!
+40000
+02-03-2019
+Buy some new cloth
+-45000
+02-03-2019
+Pick up some money!
+30000
+02-03-2019
+Pick up some money!
+83000
+02-03-2019
+Sell a product
+28000
+03-03-2019
+Pick up some money!
+43000
+03-03-2019
+Rob someone's purse
+45000
+03-03-2019
+Buy some new cloth
+-71000
+03-03-2019
+Pick up some money!
+74000
+03-03-2019
+Buy some new cloth
+-75000
+03-03-2019
+Buy some new food!
+-98000
+03-03-2019
+Sell a product
+40000
+03-03-2019
+My Parent give me some money!
+60000
+04-03-2019
+Sell a product
+80000
+05-03-2019
+Buy some new cloth
+-53000
+05-03-2019
+Buy some new food!
+-64000
+06-03-2019
+Pickpocket someone in the street!
+59000
+06-03-2019
+Drop my wallet
+-35000
+06-03-2019
+Pickpocket someone in the street!
+32000
+06-03-2019
+Rob someone's purse
+23000
+06-03-2019
+My Parent give me some money!
+80000
+06-03-2019
+Not passed an exam!
+-69000
+06-03-2019
+My Parent give me some money!
+41000
+07-03-2019
+Pick up some money!
+77000
+07-03-2019
+Sell a product
+33000
+07-03-2019
+Rob someone's purse
+26000
+07-03-2019
+Sell a product
+57000
+07-03-2019
+Not passed an exam!
+-64000
+07-03-2019
+Drop my wallet
+-66000
+07-03-2019
+Not passed an exam!
+-58000
+07-03-2019
+Buy some new food!
+-99000
+07-03-2019
+Drop my wallet
+-33000
+08-03-2019
+Not passed an exam!
+-64000
+08-03-2019
+Buy some new cloth
+-33000
+08-03-2019
+Drop my wallet
+-77000
+08-03-2019
+Rob someone's purse
+43000
+09-03-2019
+Get caught cause of riding over 100km/h
+-44000
+09-03-2019
+Buy some new cloth
+-65000
+09-03-2019
+Drop my wallet
+-66000
+09-03-2019
+Not passed an exam!
+-85000
+09-03-2019
+Get caught cause of riding over 100km/h
+-71000
+09-03-2019
+Not passed an exam!
+-96000
+09-03-2019
+Pickpocket someone in the street!
+100000
+09-03-2019
+Pickpocket someone in the street!
+81000
+09-03-2019
+Drop my wallet
+-77000
+10-03-2019
+Rob someone's purse
+41000
+10-03-2019
+My Parent give me some money!
+93000
+10-03-2019
+Get caught cause of riding over 100km/h
+-71000
+10-03-2019
+Not passed an exam!
+-25000
+10-03-2019
+Rob someone's purse
+33000
+10-03-2019
+Get caught cause of riding over 100km/h
+-55000
+10-03-2019
+Get caught cause of riding over 100km/h
+-33000
+11-03-2019
+Buy some new food!
+-91000
+11-03-2019
+Get caught cause of riding over 100km/h
+-96000
+11-03-2019
+Sell a product
+97000
+11-03-2019
+Buy some new cloth
+-60000
+11-03-2019
+Pickpocket someone in the street!
+52000
+11-03-2019
+Pickpocket someone in the street!
+100000
+12-03-2019
+My Parent give me some money!
+80000
+13-03-2019
+Pick up some money!
+62000
+13-03-2019
+Drop my wallet
+-29000
+13-03-2019
+Buy some new cloth
+-62000
+13-03-2019
+Buy some new cloth
+-58000
+14-03-2019
+Buy some new food!
+-31000
+14-03-2019
+Buy some new cloth
+-29000
+14-03-2019
+Not passed an exam!
+-40000
+15-03-2019
+Get caught cause of riding over 100km/h
+-63000
+15-03-2019
+Sell a product
+93000
+15-03-2019
+Pick up some money!
+79000
+15-03-2019
+Buy some new food!
+-68000
+15-03-2019
+Buy some new food!
+-26000
+15-03-2019
+Rob someone's purse
+99000
+16-03-2019
+Pickpocket someone in the street!
+73000
+16-03-2019
+Buy some new cloth
+-57000
+16-03-2019
+Buy some new food!
+-70000
+16-03-2019
+Pickpocket someone in the street!
+46000
+16-03-2019
+Pick up some money!
+92000
+16-03-2019
+Pick up some money!
+71000
+16-03-2019
+Drop my wallet
+-42000
+17-03-2019
+Pickpocket someone in the street!
+65000
+17-03-2019
+My Parent give me some money!
+72000
+17-03-2019
+Buy some new cloth
+-59000
+17-03-2019
+Rob someone's purse
+71000
+17-03-2019
+Pick up some money!
+43000
+17-03-2019
+Not passed an exam!
+-28000
+17-03-2019
+Pickpocket someone in the street!
+30000
+18-03-2019
+Buy some new food!
+-86000
+18-03-2019
+Get caught cause of riding over 100km/h
+-22000
+18-03-2019
+Drop my wallet
+-76000
+18-03-2019
+Buy some new cloth
+-98000
+18-03-2019
+Pick up some money!
+53000
+18-03-2019
+Get caught cause of riding over 100km/h
+-87000
+18-03-2019
+Rob someone's purse
+73000
+18-03-2019
+My Parent give me some money!
+45000
+18-03-2019
+Sell a product
+51000
+19-03-2019
+Rob someone's purse
+100000
+19-03-2019
+Buy some new cloth
+-42000
+19-03-2019
+My Parent give me some money!
+24000
+19-03-2019
+Get caught cause of riding over 100km/h
+-82000
+19-03-2019
+Rob someone's purse
+63000
+20-03-2019
+Get caught cause of riding over 100km/h
+-37000
+20-03-2019
+My Parent give me some money!
+84000
+20-03-2019
+Get caught cause of riding over 100km/h
+-99000
+20-03-2019
+Buy some new cloth
+-41000
+20-03-2019
+Not passed an exam!
+-25000
+20-03-2019
+Buy some new cloth
+-92000
+21-03-2019
+Pickpocket someone in the street!
+63000
+21-03-2019
+My Parent give me some money!
+79000
+21-03-2019
+Get caught cause of riding over 100km/h
+-39000
+21-03-2019
+Sell a product
+92000
+21-03-2019
+Rob someone's purse
+57000
+21-03-2019
+Buy some new food!
+-87000
+21-03-2019
+Buy some new food!
+-93000
+21-03-2019
+Drop my wallet
+-64000
+21-03-2019
+My Parent give me some money!
+57000
+22-03-2019
+Rob someone's purse
+48000
+22-03-2019
+Buy some new food!
+-58000
+22-03-2019
+Drop my wallet
+-28000
+22-03-2019
+Not passed an exam!
+-43000
+22-03-2019
+Get caught cause of riding over 100km/h
+-69000
+22-03-2019
+Buy some new food!
+-62000
+23-03-2019
+Drop my wallet
+-91000
+23-03-2019
+Rob someone's purse
+88000
+23-03-2019
+Buy some new food!
+-66000
+23-03-2019
+My Parent give me some money!
+37000
+23-03-2019
+Drop my wallet
+-66000
+23-03-2019
+Not passed an exam!
+-64000
+23-03-2019
+Buy some new food!
+-33000
+23-03-2019
+Not passed an exam!
+-80000
+24-03-2019
+Rob someone's purse
+99000
+24-03-2019
+Not passed an exam!
+-65000
+25-03-2019
+My Parent give me some money!
+78000
+25-03-2019
+Rob someone's purse
+80000
+25-03-2019
+Sell a product
+82000
+25-03-2019
+My Parent give me some money!
+56000
+25-03-2019
+Buy some new cloth
+-59000
+26-03-2019
+Drop my wallet
+-82000
+26-03-2019
+Drop my wallet
+-90000
+26-03-2019
+Buy some new food!
+-85000
+26-03-2019
+Drop my wallet
+-59000
+27-03-2019
+Buy some new food!
+-79000
+27-03-2019
+Sell a product
+25000
+27-03-2019
+Buy some new cloth
+-62000
+28-03-2019
+Sell a product
+25000
+28-03-2019
+Rob someone's purse
+63000
+28-03-2019
+Get caught cause of riding over 100km/h
+-31000
+28-03-2019
+Buy some new food!
+-84000
+28-03-2019
+Rob someone's purse
+37000
+28-03-2019
+Not passed an exam!
+-55000
+29-03-2019
+Buy some new cloth
+-74000
+29-03-2019
+Drop my wallet
+-27000
+29-03-2019
+Sell a product
+47000
+30-03-2019
+Drop my wallet
+-73000
+30-03-2019
+Buy some new food!
+-64000
+31-03-2019
+Pick up some money!
+89000
+31-03-2019
+Rob someone's purse
+87000
+01-04-2019
+Rob someone's purse
+97000
+01-04-2019
+Not passed an exam!
+-70000
+01-04-2019
+My Parent give me some money!
+87000
+01-04-2019
+Not passed an exam!
+-41000
+01-04-2019
+Pick up some money!
+94000
+01-04-2019
+Sell a product
+66000
+01-04-2019
+Sell a product
+81000
+02-04-2019
+Pickpocket someone in the street!
+23000
+02-04-2019
+Pickpocket someone in the street!
+68000
+03-04-2019
+Sell a product
+21000
+03-04-2019
+Get caught cause of riding over 100km/h
+-24000
+03-04-2019
+Pickpocket someone in the street!
+52000
+03-04-2019
+Buy some new cloth
+-100000
+03-04-2019
+Buy some new food!
+-68000
+03-04-2019
+Pickpocket someone in the street!
+94000
+03-04-2019
+Drop my wallet
+-95000
+04-04-2019
+Sell a product
+72000
+04-04-2019
+Sell a product
+92000
+04-04-2019
+Buy some new food!
+-46000
+04-04-2019
+Get caught cause of riding over 100km/h
+-47000
+05-04-2019
+Buy some new food!
+-72000
+05-04-2019
+Not passed an exam!
+-38000
+06-04-2019
+Buy some new food!
+-85000
+06-04-2019
+Not passed an exam!
+-26000
+06-04-2019
+Get caught cause of riding over 100km/h
+-31000
+07-04-2019
+Buy some new cloth
+-97000
+08-04-2019
+Buy some new cloth
+-24000
+08-04-2019
+My Parent give me some money!
+27000
+08-04-2019
+Not passed an exam!
+-80000
+08-04-2019
+Pickpocket someone in the street!
+61000
+08-04-2019
+My Parent give me some money!
+75000
+08-04-2019
+Not passed an exam!
+-32000
+08-04-2019
+Buy some new cloth
+-35000
+08-04-2019
+Get caught cause of riding over 100km/h
+-87000
+09-04-2019
+Buy some new food!
+-43000
+09-04-2019
+Pick up some money!
+81000
+09-04-2019
+Pick up some money!
+66000
+09-04-2019
+Get caught cause of riding over 100km/h
+-32000
+09-04-2019
+Get caught cause of riding over 100km/h
+-54000
+09-04-2019
+Not passed an exam!
+-78000
+09-04-2019
+Drop my wallet
+-55000
+09-04-2019
+Get caught cause of riding over 100km/h
+-21000
+09-04-2019
+Buy some new food!
+-50000
+10-04-2019
+Rob someone's purse
+99000
+10-04-2019
+Sell a product
+44000
+10-04-2019
+Drop my wallet
+-47000
+10-04-2019
+Pick up some money!
+65000
+10-04-2019
+Pick up some money!
+93000
+10-04-2019
+Pick up some money!
+58000
+10-04-2019
+Get caught cause of riding over 100km/h
+-33000
+10-04-2019
+Pickpocket someone in the street!
+97000
+11-04-2019
+Buy some new cloth
+-99000
+11-04-2019
+Pickpocket someone in the street!
+90000
+11-04-2019
+Pickpocket someone in the street!
+79000
+11-04-2019
+Rob someone's purse
+90000
+11-04-2019
+Drop my wallet
+-86000
+11-04-2019
+Rob someone's purse
+83000
+11-04-2019
+Pick up some money!
+89000
+11-04-2019
+Pick up some money!
+65000
+11-04-2019
+Pickpocket someone in the street!
+99000
+12-04-2019
+Pickpocket someone in the street!
+64000
+12-04-2019
+Buy some new food!
+-97000
+12-04-2019
+Drop my wallet
+-85000
+13-04-2019
+Sell a product
+36000
+13-04-2019
+Rob someone's purse
+66000
+13-04-2019
+Not passed an exam!
+-24000
+13-04-2019
+Not passed an exam!
+-83000
+13-04-2019
+My Parent give me some money!
+35000
+13-04-2019
+Drop my wallet
+-37000
+13-04-2019
+Pickpocket someone in the street!
+95000
+13-04-2019
+My Parent give me some money!
+25000
+14-04-2019
+Not passed an exam!
+-59000
+14-04-2019
+Drop my wallet
+-81000
+14-04-2019
+Drop my wallet
+-32000
+15-04-2019
+My Parent give me some money!
+88000
+15-04-2019
+Buy some new cloth
+-44000
+16-04-2019
+Rob someone's purse
+62000
+17-04-2019
+My Parent give me some money!
+90000
+17-04-2019
+Buy some new cloth
+-40000
+17-04-2019
+Buy some new cloth
+-65000
+17-04-2019
+Get caught cause of riding over 100km/h
+-84000
+17-04-2019
+Buy some new cloth
+-23000
+17-04-2019
+Buy some new cloth
+-32000
+17-04-2019
+Pickpocket someone in the street!
+32000
+17-04-2019
+My Parent give me some money!
+27000
+18-04-2019
+Buy some new cloth
+-69000
+18-04-2019
+Get caught cause of riding over 100km/h
+-64000
+18-04-2019
+Buy some new cloth
+-86000
+18-04-2019
+Sell a product
+86000
+18-04-2019
+Sell a product
+77000
+18-04-2019
+Rob someone's purse
+70000
+18-04-2019
+Sell a product
+56000
+18-04-2019
+Pickpocket someone in the street!
+60000
+18-04-2019
+Get caught cause of riding over 100km/h
+-61000
+19-04-2019
+My Parent give me some money!
+26000
+19-04-2019
+Drop my wallet
+-97000
+19-04-2019
+My Parent give me some money!
+99000
+19-04-2019
+Not passed an exam!
+-75000
+19-04-2019
+Buy some new cloth
+-39000
+19-04-2019
+Pickpocket someone in the street!
+89000
+19-04-2019
+Pickpocket someone in the street!
+75000
+19-04-2019
+Buy some new cloth
+-74000
+19-04-2019
+Buy some new food!
+-29000
+20-04-2019
+Drop my wallet
+-83000
+20-04-2019
+Pickpocket someone in the street!
+51000
+20-04-2019
+Buy some new food!
+-87000
+20-04-2019
+Buy some new cloth
+-64000
+20-04-2019
+Drop my wallet
+-100000
+20-04-2019
+Pick up some money!
+53000
+20-04-2019
+Buy some new food!
+-54000
+20-04-2019
+Drop my wallet
+-79000
+21-04-2019
+Pick up some money!
+99000
+21-04-2019
+Pickpocket someone in the street!
+82000
+21-04-2019
+My Parent give me some money!
+33000
+22-04-2019
+Sell a product
+37000
+22-04-2019
+Pickpocket someone in the street!
+65000
+22-04-2019
+Pickpocket someone in the street!
+44000
+22-04-2019
+Not passed an exam!
+-69000
+22-04-2019
+Rob someone's purse
+45000
+22-04-2019
+Pickpocket someone in the street!
+57000
+22-04-2019
+Drop my wallet
+-98000
+23-04-2019
+Not passed an exam!
+-82000
+23-04-2019
+Not passed an exam!
+-82000
+23-04-2019
+Buy some new cloth
+-65000
+23-04-2019
+Not passed an exam!
+-28000
+24-04-2019
+Rob someone's purse
+89000
+24-04-2019
+Pick up some money!
+52000
+24-04-2019
+Buy some new food!
+-75000
+24-04-2019
+Buy some new food!
+-37000
+25-04-2019
+Rob someone's purse
+26000
+25-04-2019
+Buy some new cloth
+-68000
+25-04-2019
+My Parent give me some money!
+62000
+25-04-2019
+Pickpocket someone in the street!
+58000
+25-04-2019
+Buy some new cloth
+-92000
+25-04-2019
+Get caught cause of riding over 100km/h
+-62000
+26-04-2019
+Pick up some money!
+56000
+27-04-2019
+Sell a product
+83000
+27-04-2019
+Drop my wallet
+-84000
+27-04-2019
+Not passed an exam!
+-45000
+28-04-2019
+Rob someone's purse
+100000
+28-04-2019
+Get caught cause of riding over 100km/h
+-77000
+28-04-2019
+Pick up some money!
+83000
+28-04-2019
+Sell a product
+96000
+28-04-2019
+Rob someone's purse
+76000
+28-04-2019
+My Parent give me some money!
+96000
+28-04-2019
+My Parent give me some money!
+67000
+28-04-2019
+Pick up some money!
+47000
+28-04-2019
+Not passed an exam!
+-22000
+29-04-2019
+Pick up some money!
+98000
+29-04-2019
+Buy some new food!
+-58000
+29-04-2019
+Drop my wallet
+-83000
+29-04-2019
+Not passed an exam!
+-68000
+30-04-2019
+Rob someone's purse
+46000
+30-04-2019
+Drop my wallet
+-54000
+30-04-2019
+Pickpocket someone in the street!
+78000
+01-05-2019
+Buy some new cloth
+-83000
+01-05-2019
+Rob someone's purse
+34000
+01-05-2019
+Drop my wallet
+-30000
+01-05-2019
+My Parent give me some money!
+32000
+01-05-2019
+Not passed an exam!
+-97000
+01-05-2019
+Not passed an exam!
+-42000
+01-05-2019
+Rob someone's purse
+93000
+01-05-2019
+Rob someone's purse
+69000
+02-05-2019
+Get caught cause of riding over 100km/h
+-59000
+02-05-2019
+Buy some new food!
+-84000
+02-05-2019
+Get caught cause of riding over 100km/h
+-98000
+02-05-2019
+Not passed an exam!
+-41000
+02-05-2019
+My Parent give me some money!
+91000
+02-05-2019
+My Parent give me some money!
+55000
+02-05-2019
+Buy some new food!
+-51000
+02-05-2019
+My Parent give me some money!
+24000
+02-05-2019
+Not passed an exam!
+-88000
+03-05-2019
+Sell a product
+25000
+04-05-2019
+Buy some new cloth
+-97000
+04-05-2019
+Buy some new cloth
+-52000
+04-05-2019
+Sell a product
+70000
+04-05-2019
+Sell a product
+88000
+04-05-2019
+Buy some new cloth
+-97000
+04-05-2019
+Rob someone's purse
+45000
+04-05-2019
+Drop my wallet
+-43000
+04-05-2019
+Get caught cause of riding over 100km/h
+-72000
+05-05-2019
+Sell a product
+61000
+05-05-2019
+Buy some new food!
+-79000
+05-05-2019
+Drop my wallet
+-35000
+05-05-2019
+My Parent give me some money!
+93000
+06-05-2019
+Pick up some money!
+21000
+06-05-2019
+Rob someone's purse
+67000
+06-05-2019
+Rob someone's purse
+23000
+06-05-2019
+Rob someone's purse
+46000
+07-05-2019
+Buy some new food!
+-55000
+08-05-2019
+Buy some new food!
+-39000
+08-05-2019
+Get caught cause of riding over 100km/h
+-68000
+09-05-2019
+Buy some new cloth
+-28000
+09-05-2019
+My Parent give me some money!
+24000
+09-05-2019
+Pickpocket someone in the street!
+67000
+09-05-2019
+Sell a product
+82000
+09-05-2019
+Pick up some money!
+97000
+09-05-2019
+Buy some new food!
+-47000
+10-05-2019
+My Parent give me some money!
+28000
+10-05-2019
+Rob someone's purse
+93000
+10-05-2019
+Sell a product
+51000
+10-05-2019
+My Parent give me some money!
+95000
+11-05-2019
+Drop my wallet
+-84000
+11-05-2019
+Pickpocket someone in the street!
+81000
+11-05-2019
+Rob someone's purse
+61000
+12-05-2019
+Drop my wallet
+-41000
+12-05-2019
+Rob someone's purse
+100000
+12-05-2019
+Rob someone's purse
+90000
+12-05-2019
+Drop my wallet
+-78000
+12-05-2019
+Drop my wallet
+-99000
+12-05-2019
+Pick up some money!
+33000
+12-05-2019
+Not passed an exam!
+-71000
+13-05-2019
+Rob someone's purse
+46000
+13-05-2019
+Pickpocket someone in the street!
+49000
+14-05-2019
+Buy some new food!
+-63000
+14-05-2019
+Pickpocket someone in the street!
+37000
+14-05-2019
+Not passed an exam!
+-63000
+15-05-2019
+Pick up some money!
+31000
+15-05-2019
+Buy some new cloth
+-45000
+15-05-2019
+Sell a product
+56000
+15-05-2019
+Get caught cause of riding over 100km/h
+-82000
+15-05-2019
+Drop my wallet
+-56000
+16-05-2019
+Not passed an exam!
+-38000
+16-05-2019
+Pick up some money!
+98000
+16-05-2019
+Pickpocket someone in the street!
+69000
+16-05-2019
+Rob someone's purse
+67000
+16-05-2019
+Sell a product
+43000
+16-05-2019
+Not passed an exam!
+-81000
+16-05-2019
+Buy some new food!
+-31000
+16-05-2019
+Drop my wallet
+-99000
+17-05-2019
+Get caught cause of riding over 100km/h
+-95000
+17-05-2019
+Buy some new cloth
+-28000
+17-05-2019
+Not passed an exam!
+-53000
+17-05-2019
+Buy some new cloth
+-60000
+17-05-2019
+My Parent give me some money!
+100000
+17-05-2019
+Sell a product
+84000
+17-05-2019
+Get caught cause of riding over 100km/h
+-63000
+19-05-2019
+WIN A LOTTERY
+100000000
+20-05-2019
+Drop my wallet
+-98000
+20-05-2019
+Pick up some money!
+81000
+20-05-2019
+Sell a product
+52000
+20-05-2019
+Buy some new food!
+-50000
+20-05-2019
+Sell a product
+22000
+20-05-2019
+My Parent give me some money!
+60000
+20-05-2019
+Drop my wallet
+-81000
+20-05-2019
+Drop my wallet
+-44000
+20-05-2019
+Pickpocket someone in the street!
+33000
+21-05-2019
+Pickpocket someone in the street!
+37000
+21-05-2019
+Sell a product
+46000
+22-05-2019
+Not passed an exam!
+-98000
+22-05-2019
+Buy some new cloth
+-89000
+22-05-2019
+Pick up some money!
+91000
+23-05-2019
+Pick up some money!
+64000
+24-05-2019
+Drop my wallet
+-33000
+24-05-2019
+Buy some new cloth
+-96000
+24-05-2019
+Rob someone's purse
+89000
+24-05-2019
+Buy some new food!
+-21000
+24-05-2019
+My Parent give me some money!
+23000
+24-05-2019
+Buy some new food!
+-82000
+24-05-2019
+Sell a product
+21000
+24-05-2019
+Drop my wallet
+-53000
+24-05-2019
+Pick up some money!
+83000
+25-05-2019
+Buy some new cloth
+-92000
+25-05-2019
+Drop my wallet
+-88000
+25-05-2019
+Buy some new cloth
+-30000
+25-05-2019
+My Parent give me some money!
+54000
+25-05-2019
+Drop my wallet
+-25000
+26-05-2019
+Pickpocket someone in the street!
+55000
+27-05-2019
+Drop my wallet
+-71000
+27-05-2019
+Pick up some money!
+58000
+27-05-2019
+My Parent give me some money!
+59000
+27-05-2019
+Buy some new cloth
+-59000
+27-05-2019
+My Parent give me some money!
+57000
+27-05-2019
+Pick up some money!
+30000
+27-05-2019
+Pick up some money!
+22000
+28-05-2019
+Drop my wallet
+-42000
+28-05-2019
+Buy some new cloth
+-33000
+28-05-2019
+My Parent give me some money!
+91000
+28-05-2019
+Not passed an exam!
+-45000
+28-05-2019
+Rob someone's purse
+99000
+28-05-2019
+My Parent give me some money!
+89000
+28-05-2019
+Get caught cause of riding over 100km/h
+-80000
+28-05-2019
+Pickpocket someone in the street!
+70000
+28-05-2019
+Pickpocket someone in the street!
+38000
+29-05-2019
+Buy some new cloth
+-35000
+29-05-2019
+Get caught cause of riding over 100km/h
+-87000
+29-05-2019
+Pick up some money!
+21000
+29-05-2019
+My Parent give me some money!
+22000
+29-05-2019
+Pickpocket someone in the street!
+56000
+29-05-2019
+Not passed an exam!
+-21000
+29-05-2019
+Buy some new cloth
+-22000
+29-05-2019
+Buy some new food!
+-96000
+30-05-2019
+Pickpocket someone in the street!
+75000
+30-05-2019
+My Parent give me some money!
+27000
+30-05-2019
+Drop my wallet
+-81000
+30-05-2019
+Pick up some money!
+25000
+30-05-2019
+Not passed an exam!
+-37000
+30-05-2019
+Buy some new cloth
+-31000
+30-05-2019
+Pick up some money!
+30000
+30-05-2019
+Rob someone's purse
+62000
+30-05-2019
+Rob someone's purse
+82000
+31-05-2019
+Pick up some money!
+88000
+31-05-2019
+Buy some new cloth
+-91000
+31-05-2019
+Get caught cause of riding over 100km/h
+-87000
+31-05-2019
+Drop my wallet
+-85000
+01-06-2019
+My Parent give me some money!
+23000
+01-06-2019
+My Parent give me some money!
+28000
+01-06-2019
+Buy some new food!
+-40000
+01-06-2019
+Buy some new food!
+-47000
+02-06-2019
+Pick up some money!
+68000
+02-06-2019
+Pick up some money!
+28000
+02-06-2019
+Not passed an exam!
+-86000
+02-06-2019
+Pickpocket someone in the street!
+70000
+02-06-2019
+Buy some new cloth
+-37000
+02-06-2019
+Drop my wallet
+-78000
+03-06-2019
+Not passed an exam!
+-59000
+03-06-2019
+My Parent give me some money!
+66000
+03-06-2019
+Pick up some money!
+24000
+03-06-2019
+Pick up some money!
+68000
+03-06-2019
+Sell a product
+53000
+03-06-2019
+Buy some new food!
+-88000
+03-06-2019
+Buy some new food!
+-89000
+03-06-2019
+Buy some new cloth
+-80000
+03-06-2019
+Buy some new food!
+-57000
+04-06-2019
+Get caught cause of riding over 100km/h
+-83000
+04-06-2019
+Sell a product
+75000
+04-06-2019
+Get caught cause of riding over 100km/h
+-79000
+04-06-2019
+My Parent give me some money!
+79000

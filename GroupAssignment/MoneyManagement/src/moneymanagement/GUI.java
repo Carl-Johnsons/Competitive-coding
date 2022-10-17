@@ -55,21 +55,22 @@ public final class GUI {
     private JLabel header;
     private JTextArea notify;
 
-    //
+    //              Other Button
     private final JButton SortMenu[] = new JButton[4];
     private final boolean IsSortMenuClicked[] = new boolean[4];
     private JButton ReturnButton;
     private JButton GenerateEvent;
     private JButton Save;
 
-    //
+    //              Statistic Panel
     private JPanel StatisticJPanel;
     private DrawGraph graphIn;
     private MoneyManagement SumMoneyPerDay = new MoneyManagement();
     private JTextArea GraphHoldingArea;
     private JTextArea StatisticNotifyArea;
+    private JTextArea StatisticAverageArea;
 
-    //
+    //              Update Panel
     private JPanel UpdateJPanel;
     private JTextArea UpdateSearchListArea;
     private JScrollPane UpdateSearchListJScrollPane;
@@ -83,16 +84,16 @@ public final class GUI {
     private JComponent[] UpdateAddInputComponents;
     private JComponent[] UpdateDeleteElementComponents;
 
-    //
+    //              Menu Panel
     private JPanel MenuJPanel;
     private JTextArea MenuArea;
     private JScrollPane MenuScrollPane;
     private JTextArea CoordinateArea;
     private final JButton InteractiveMenuButton[] = new JButton[3];
-
-    private final Font NormalFont = new Font("TimesRoman", Font.PLAIN, 30);
+    private JTextArea MyBalanceArea;
 
     private final MoneyManagement ME;
+
     //Image
     private final File[] allFile = new File("src\\res").listFiles();
     private final BufferedImage allImg[] = new BufferedImage[allFile.length];
@@ -104,6 +105,8 @@ public final class GUI {
     private final DateFormat dateFormat = new SimpleDateFormat("dd-MM-yyyy");
     private final Border BlackBorder = BorderFactory.createLineBorder(Color.BLACK, 1);
     private final Border BlackBorderWidth3 = BorderFactory.createLineBorder(Color.BLACK, 3);
+    private final Font NormalFont = new Font("TimesRoman", Font.PLAIN, 30);
+    private final long MyBalance = 1000000;
     //</editor-fold>
 
     public GUI() throws FileNotFoundException, ParseException, IOException {
@@ -132,6 +135,7 @@ public final class GUI {
     }
 
     public void prepareGUI() throws IOException {
+
         //<editor-fold defaultstate="collapsed" desc="Initialize the frame">
         //Mainframe
         mainframe = new JFrame("Money Management");
@@ -206,6 +210,14 @@ public final class GUI {
 
         IsSortMenuClicked[0] = true;
 
+        MyBalanceArea = new JTextArea("");
+        MyBalanceArea.setBounds(980, 400, 250, 100);
+        MyBalanceArea.setFont(new Font("Impact", Font.PLAIN, 30));
+        MyBalanceArea.setMargin(new Insets(0, 50, 0, 0));
+        MyBalanceArea.setBackground(mainframe.getBackground());
+        MyBalanceArea.setEditable(false);
+        UpdateBalance();
+
         MenuJPanel = new JPanel();
         MenuJPanel.setSize(1280, 720);
         MenuJPanel.setVisible(true);
@@ -230,6 +242,7 @@ public final class GUI {
         //</editor-fold>
 
         //                               MENU PANEL ADD ELEMENTS
+        MenuJPanel.add(MyBalanceArea);
         MenuJPanel.add(MenuScrollPane);
         MenuJPanel.add(GenerateEvent);
         MenuJPanel.add(Save);
@@ -329,7 +342,7 @@ public final class GUI {
         StatisticJPanel.setVisible(false);
 
         graphIn = new DrawGraph(SumMoneyPerDay);
-        graphIn.setBounds(240, 100, 800, 440);
+        graphIn.setBounds(240, 50, 800, 440);
         graphIn.setOpaque(false);
 
         GraphHoldingArea = new JTextArea("");
@@ -338,16 +351,24 @@ public final class GUI {
         GraphHoldingArea.setBorder(BlackBorderWidth3);
 
         StatisticNotifyArea = new JTextArea("");
-        StatisticNotifyArea.setBounds(240, 550, 800, 30);
+        StatisticNotifyArea.setBounds(240, 500, 800, 30);
         StatisticNotifyArea.setFont(new Font("TimesRoman", Font.BOLD, 20));
         StatisticNotifyArea.setMargin(new Insets(0, 240, 0, 0));
         StatisticNotifyArea.setBackground(mainframe.getBackground());
         StatisticNotifyArea.setEditable(false);
 
+        StatisticAverageArea = new JTextArea("");
+        StatisticAverageArea.setBounds(240, 540, 800, 30);
+        StatisticAverageArea.setFont(new Font("TimesRoman", Font.BOLD, 20));
+        StatisticAverageArea.setMargin(new Insets(0, 10, 0, 0));
+        StatisticAverageArea.setBackground(mainframe.getBackground());
+        StatisticAverageArea.setEditable(false);
+
         //                               STATISTIC PANEL ADD ELEMENTS
         StatisticJPanel.add(graphIn);
         StatisticJPanel.add(GraphHoldingArea);
         StatisticJPanel.add(StatisticNotifyArea);
+        StatisticJPanel.add(StatisticAverageArea);
         //</editor-fold>
 
         //                               MAIN FRAME ADD ELEMENTS
@@ -429,6 +450,7 @@ public final class GUI {
                     Date firstDate = Date.from(fistofMonth.atStartOfDay(ZoneId.systemDefault()).toInstant());
                     Date lastDate = Date.from(lastofMonth.atStartOfDay(ZoneId.systemDefault()).toInstant());
                     StatisticNotifyArea.setText("Graph of my spending of " + new SimpleDateFormat("MM/yyyy").format(firstDate));
+                    int sumMonth = 0;
                     for (int i = 0; i < ME.getList().size(); i++) {
                         int sum = 0;
                         MoneyManagement sumthuchi = new MoneyManagement();
@@ -439,11 +461,14 @@ public final class GUI {
                                 sum += ME.getList().get(i).getThuChi();
                                 i++;
                             }
+                            sumMonth += sum;
                             sumthuchi.setThuChi(sum);
                             i--;
                             SumMoneyPerDay.getList().add(sumthuchi);
                         }
                     }
+                    StatisticAverageArea.setText("Average " + ((sumMonth <= 0) ? "spending" : "income") + " this month is " + (sumMonth / SumMoneyPerDay.getList().size()) + "\n");
+
                     graphIn.setList(SumMoneyPerDay);
                 } catch (FileNotFoundException ex) {
                     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
@@ -741,6 +766,7 @@ public final class GUI {
                 try {
                     RandomEvent();
                     MenuArea.setText(PrintList());
+                    UpdateBalance();
                 } catch (ParseException ex) {
                     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -767,6 +793,7 @@ public final class GUI {
                     Logger.getLogger(GUI.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 MenuArea.setText(PrintList());
+                UpdateBalance();
                 MenuJPanel.setVisible(true);
                 UpdateJPanel.setVisible(false);
                 StatisticJPanel.setVisible(false);
@@ -866,6 +893,14 @@ public final class GUI {
             }
         }
         return sb.toString();
+    }
+
+    public void UpdateBalance() {
+        long sum = MyBalance;
+        for (int i = 0; i < ME.getList().size(); i++) {
+            sum += (ME.getList().get(i).getThuChi());
+        }
+        MyBalanceArea.setText("MY BALANCE:\n   " + sum);
     }
 
     //<editor-fold defaultstate="collapsed" desc="Sort By attribute">

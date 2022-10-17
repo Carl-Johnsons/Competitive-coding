@@ -236,11 +236,7 @@ public class MoneyManagement {
 
     public void setThuChi(int ThuChi) {
         this.ThuChi = ThuChi;
-        if (this.ThuChi < 0) {
-            this.In = false;
-        } else {
-            this.In = true;
-        }
+        this.In = this.ThuChi >= 0;
     }
 
     public void setMoney(ArrayList<MoneyManagement> Money) {

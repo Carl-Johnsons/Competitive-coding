@@ -43,6 +43,7 @@ public class DrawGraph extends JPanel {
 
     private static final int GRAPH_POINT_WIDTH = 12;
 
+    //Size of the graph
     private static final int PREF_WIDTH = 600;
     private static final int PREF_HEIGHT = 450;
 
@@ -79,7 +80,8 @@ public class DrawGraph extends JPanel {
 
         double xScale = ((double) getWidth() - 2 * BORDER_GAP) / (In.size() - 1);
         double yScale = ((double) getHeight() - 2 * BORDER_GAP) / (maxIn - 1);
-
+        
+        //Tao cac diem tren do thi
         List<Point> graphPoints = new ArrayList<Point>();
         for (int i = 0; i < In.size(); i++) {
             int x1 = (int) (i * xScale + BORDER_GAP);
@@ -92,6 +94,7 @@ public class DrawGraph extends JPanel {
         g2.drawLine(BORDER_GAP, (getHeight()) / 2, getWidth() - BORDER_GAP, (getHeight()) / 2);
 
         Stroke oldStroke = g2.getStroke();
+        
         //Y hatch
         int lastPoint = 0;
         int e = 0;
@@ -117,7 +120,7 @@ public class DrawGraph extends JPanel {
                 lastPoint -= maxIn / Y_HATCH * 11 / 4;
                 t = Integer.toString(-lastPoint).toCharArray();
             }
-            g2.drawChars(t, 0, t.length, x0 - 45, y0);
+            g2.drawChars(t, 0, t.length, x0 - 50, y0);
 
         }
         // X hatch

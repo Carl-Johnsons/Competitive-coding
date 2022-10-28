@@ -1,0 +1,62 @@
+[PRO192][SE17XX] Hashtable
+Các cá nhân sinh viên thực hiện nhiệm vụ sau 
+Viết chương trình tra cứu từ điển Anh-Việt
+Khai báo Hashtable<String, String>, trong đó:
++++ String đầu là Key, sẽ lưu giữ từ tiếng Anh
++++ String thứ 2 là Value, sẽ lưu giữ nghĩa tiếng Việt
+Viết chương trình Console, thực hiện quản lý từ điển Anh-Việt với các chức năng sau:
+1. Tra cứu nghĩa tiếng Việt
+	Cho phép nhập keyword sau đó liệt kê tất cả các từ tiếng Anh có chứa keyword, nếu không tìm thấy thì phải hiển thị thông báo
+	Nếu keyword giống hệt (không phân biệt hoa thường) với một từ tiếng Anh thì hiển thị nghĩa tiếng Việt của từ đó ra màn hình
+	Hỏi xem người dùng có muốn tiếp tục tra cứu hay không
+2. Tra cứu từ tiếng Anh
+	Cho phép nhập keyword sau đó liệt kê tất cả các từ tiếng Việt có chứa keyword, nếu không tìm thấy thì phải hiển thị thông báo
+	Nếu keyword giống hệt (không phân biệt hoa thường) với một nghĩa tiếng Việt thì hiển thị từ tiếng Anh ra màn hình
+	Hỏi xem người dùng có muốn tiếp tục tra cứu hay không
+3. Thêm từ mới vào từ điển
+	Nhập từ tiếng Anh (không được trùng với các từ đã có)
+	Nhập nghĩa tiếng Việt (không dấu) của từ tiếng Anh
+	Hiển thị thông báo thêm thành công
+	In lại danh sách các từ trong từ điển để kiểm chứng việc thêm từ thành công
+	Dừng màn hình để xem kết quả, sau khi nhấn Enter thì chương trình mới chạy tiếp tục
+4. Kiểm tra từ vựng
+	Sinh ngẫu nhiên 10 từ
+	Cho hiển thị ra màn hình mỗi lần 1 từ:
+		Hiển thị nghĩa tiếng Việt
+		Yêu cầu nhập từ tiếng Anh (không phân biệt hoa thường)
+		Kiểm tra xem người dùng nhập đúng không
+			Nếu nhập đúng thì thông báo chúc mừng và hiển thị điểm số
+			Nếu sai thì thông báo chia buồn và hiển thị điểm số => lưu lại từ sai
+	Kết thúc bài kiểm tra, in ra điểm số và danh sách từ làm sai: 
+		1. nghĩa tiếng Việt
+		2. từ tiếng Anh đúng
+		3. từ tiếng Anh mà người dùng đã nhập bị sai
+	Dừng màn hình để xem kết quả, sau khi nhấn Enter thì chương trình mới chạy tiếp tục
+5. Thoát
+
+2 chức năng ẩn: đọc tập tin, và lưu vào tập tin
+- Lưu vào tập tin txt, có tên EnVn.txt
+*** Dữ liệu từ file EnVn.txt được đọc và nạp vào HashTable ngay khi chương trình bắt đầu chạy
+*** Khi chọn chức năng 5 để thoát, chương trình tự động lưu toàn bộ từ điển vào file EnVn.txt
+
+# Tất cả các input phải validation, khi nhập sai sẽ dùng vòng lặp để yêu cầu nhập lại cho đến khi nào đúng mới được thực hiện tiếp => không được dừng chương trình khi userInput sai.
+# English only
+# Chương trình chạy mới chấm điểm => không chạy do lỗi cú pháp => 0 điểm
+
+Làm bài theo cá nhân, được phép nhờ nhóm + lớp debug giúp khi bị lỗi, 
+Nộp qua Email: quylt9@fpt.edu.vn
+Subject: PRO192_SE1706_Lab07_MSSV
+#1. Happyline: 17:00 trưa ngày 27/10/2022
+	+ Tạo tập tin EnVn.txt theo cấu trúc quy ước + nhập dữ liệu cho ít nhất 20 từ
+	+ Thực hiện được chức năng đọc dữ liệu từ file EnVn.txt và lưu vào HashTable
+	+ Hiển thị được menu
+	+ Thực hiện được các chức năng: 1,2,3,4,5
+	+ Thực hiện được chức năng lưu dữ liệu từ HashTable vào file EnVn.txt
+
+Menu: tự suy nghĩ
+
+Cấu trúc tập tin EnVn.txt:
+Dòng 1 lưu số lượng từ => N
+Cứ mỗi 2 dòng tiếp theo sẽ lưu thông tin của 1 từ:
+#1. từ tiếng Anh
+#2. nghĩa tiếng Việt

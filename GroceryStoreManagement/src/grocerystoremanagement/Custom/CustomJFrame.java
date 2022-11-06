@@ -62,7 +62,7 @@ public class CustomJFrame extends JFrame {
 
         BackgroundDecorate01 = new JLabel();
         BackgroundDecorate01.setIcon(new ImageIcon("src\\grocerystoremanagement\\res\\_007_BackGround_MainFrame_Deco1.gif"));
-        BackgroundDecorate01.setBounds(-20, 30, 200, 200);
+        BackgroundDecorate01.setBounds(-20, -230, 200, 200);
         //                                  MENU BAR
         JMenuBar mb = new JMenuBar();
 

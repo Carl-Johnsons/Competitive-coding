@@ -100,7 +100,7 @@ public class CustomJFrame extends JFrame {
 
                 JTextArea AboutArea = new JTextArea("Grocery Store manageMent version 0.0\n\n"
                         + "                                                        Group 2:\n"
-                        + "             Nguyen Le Tai Duc (Leader) working with GUI\n"
+                        + "             Nguyen Le Tai Duc (Leader) \n"
                         + "                 Le Quoc Vuong\n"
                         + "                     Le Ba Thinh\n"
                         + "                         Huynh Duy Khang\n");

@@ -17,9 +17,14 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
+import java.util.Hashtable;
 import java.util.Random;
+import java.util.Scanner;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -44,6 +49,7 @@ public class Login {
     //<editor-fold defaultstate="collapsed" desc="Declaration">
     private JFrame LogInframe;
     private GUI Program;
+    private Hashtable<String, String> listAccount;
     //                  LOG IN PANEL
     private JPanel LogInPanel;
     private LogInTextField Username;
@@ -73,6 +79,7 @@ public class Login {
     //</editor-fold>
 
     public Login() throws IOException, FontFormatException {
+        listAccount = readAccount();
         createGUI();
     }
 
@@ -251,6 +258,42 @@ public class Login {
 
     }
 
+    public Hashtable<String, String> readAccount() throws FileNotFoundException, IOException {
+        Hashtable<String, String> read = new Hashtable<String, String>();
+        try {
+            Scanner reader = new Scanner(new File("src\\grocerystoremanagement\\Account.txt"));
+            String line = "";
+
+            while (reader.hasNextLine()) {
+                line = reader.nextLine();
+                String[] part = line.split(",");
+
+                String account = part[0];
+                String password = part[1];
+                read.put(account.trim(), password.trim());
+            }
+
+        } catch (Exception e) {
+
+        }
+        return read;
+    }
+
+    public boolean signIn() {
+        boolean check = false;
+        String Username = this.Username.getText();
+        String Password = String.valueOf(this.Password.getPassword());
+
+        if (listAccount.containsKey(Username)
+                && listAccount.containsValue(Password)) {
+            check = true;
+        } else {
+   
+            JOptionPane.showMessageDialog(null, "Wrong email or password!\nPlease try again!", "ERROR", JOptionPane.ERROR_MESSAGE);
+        }
+        return check;
+    }
+
     public void Start() {
         Timer AnimationColor = new Timer();
         AnimationColor.schedule(new TimerTask() {
@@ -274,77 +317,79 @@ public class Login {
         LogInButton[0].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                for (int i = "Welcome user ".length(); i < WelcomeLabel.length; i++) {
-                    char t[] = Username.getText().toCharArray();
-                    WelcomeLabel[i].setBounds(25 + (i % WelcomeLabel.length) * 25, -45, 30, 30);
-                    int j = i - "Welcome user ".length();
-                    if (j < t.length) {
-                        WelcomeLabel[i].setText(t[j] + "");
-                    } else {
-                        WelcomeLabel[i].setText("");
+                if (signIn()) {
+                    for (int i = "Welcome user ".length(); i < WelcomeLabel.length; i++) {
+                        char t[] = Username.getText().toCharArray();
+                        WelcomeLabel[i].setBounds(25 + (i % WelcomeLabel.length) * 25, -45, 30, 30);
+                        int j = i - "Welcome user ".length();
+                        if (j < t.length) {
+                            WelcomeLabel[i].setText(t[j] + "");
+                        } else {
+                            WelcomeLabel[i].setText("");
+                        }
                     }
+
+                    Timer timer = new Timer();
+                    timer.schedule(moveComponentTopToBottom(LogInPanel, 720, 10), 0, 5);
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            LoginSuccessfulPanel.setVisible(true);
+                        }
+                    }, 200, 1);
+
+                    //LOADING
+                    Timer LoadingTimer = new Timer();
+                    LoadingTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            loadingContainer.setVisible(true);
+                        }
+                    }, 200, 1);
+
+                    LoadingTimer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            loadingContainer.setVisible(false);
+                            LoadingTimer.cancel();
+                        }
+                    }, 1200, 1);
+                    //LOADING
+
+                    // +1000
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            CheckContainer.setVisible(true);
+                            notifyJLabel.setVisible(true);
+                        }
+                    }, 1200, 1);
+                    timer.schedule(moveComponentTopToBottom(TitleBackground, 0, 1), 2000, 10);
+                    timer.schedule(moveComponentTopToBottom(SettingButton, 0, 2), 2500, 10);
+                    timer.schedule(moveComponentTopToBottom(SettingLabel, 0, 2), 2500, 10);
+                    // +1800
+                    timer.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            CheckContainer.setVisible(false);
+                            notifyJLabel.setVisible(false);
+                            StartProgramButton.setVisible(true);
+                            StartProgramLabel.setVisible(true);
+                            timer.cancel();
+                        }
+                    }, 3000, 1);
+                    int delay = 2300;
+                    Timer timer2 = new Timer();
+                    for (int i = 0; i < WelcomeLabel.length; i++) {
+                        timer2.schedule(moveComponentTopToBottom(WelcomeLabel[i], 5, 5), delay + (i % WelcomeLabel.length) * 50, 10);
+                    }
+                    timer2.schedule(new TimerTask() {
+                        @Override
+                        public void run() {
+                            timer2.cancel();
+                        }
+                    }, 4000, 1);
                 }
-
-                Timer timer = new Timer();
-                timer.schedule(moveComponentTopToBottom(LogInPanel, 720, 10), 0, 5);
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        LoginSuccessfulPanel.setVisible(true);
-                    }
-                }, 200, 1);
-
-                //LOADING
-                Timer LoadingTimer = new Timer();
-                LoadingTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        loadingContainer.setVisible(true);
-                    }
-                }, 200, 1);
-
-                LoadingTimer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        loadingContainer.setVisible(false);
-                        LoadingTimer.cancel();
-                    }
-                }, 1200, 1);
-                //LOADING
-
-                // +1000
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        CheckContainer.setVisible(true);
-                        notifyJLabel.setVisible(true);
-                    }
-                }, 1200, 1);
-                timer.schedule(moveComponentTopToBottom(TitleBackground, 0, 1), 2000, 10);
-                timer.schedule(moveComponentTopToBottom(SettingButton, 0, 2), 2500, 10);
-                timer.schedule(moveComponentTopToBottom(SettingLabel, 0, 2), 2500, 10);
-                // +1800
-                timer.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        CheckContainer.setVisible(false);
-                        notifyJLabel.setVisible(false);
-                        StartProgramButton.setVisible(true);
-                        StartProgramLabel.setVisible(true);
-                        timer.cancel();
-                    }
-                }, 3000, 1);
-                int delay = 2300;
-                Timer timer2 = new Timer();
-                for (int i = 0; i < WelcomeLabel.length; i++) {
-                    timer2.schedule(moveComponentTopToBottom(WelcomeLabel[i], 5, 5), delay + (i % WelcomeLabel.length) * 50, 10);
-                }
-                timer2.schedule(new TimerTask() {
-                    @Override
-                    public void run() {
-                        timer2.cancel();
-                    }
-                }, 4000, 1);
             }
         });
         LogInPanel.addMouseListener(new MouseAdapter() {

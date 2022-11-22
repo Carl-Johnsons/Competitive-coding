@@ -8,6 +8,8 @@ import java.awt.event.KeyEvent;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.Set;
+
 import javax.swing.BorderFactory;
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -23,6 +25,7 @@ public class FilterSearchTextField extends JTextField {
     private final int MAXLIST = 6;
     private String option;
     private boolean showingHint;
+    private FocusListener FocusShowHint;
 
     public FilterSearchTextField(String option) {
         this.option = option;
@@ -41,7 +44,7 @@ public class FilterSearchTextField extends JTextField {
         myList.setModel(defaultListModel);
         myList.setVisible(false);
 
-        addFocusListener(new FocusListener() {
+        FocusShowHint = new FocusListener() {
             @Override
             public void focusGained(FocusEvent e) {
                 if (getText().isEmpty() && showingHint) {
@@ -61,7 +64,9 @@ public class FilterSearchTextField extends JTextField {
                 }
                 myList.setVisible(false);
             }
-        });
+        };
+
+        addFocusListener(FocusShowHint);
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyReleased(KeyEvent e) {
@@ -85,14 +90,25 @@ public class FilterSearchTextField extends JTextField {
     }
 
     public void addData(ArrayList<String> a) {
-        for (String i : a) {
-            arrayList.add(i);
-        }
-
+        arrayList.addAll(a);
     }
 
     public void addData(String a) {
         arrayList.add(a);
+    }
+
+    public void addData(Set<String> a) {
+        arrayList.addAll(a);
+    }
+
+    public void setData(ArrayList<String> a) {
+        arrayList.clear();
+        arrayList.addAll(a);
+    }
+
+    public void setData(Set<String> a) {
+        arrayList.clear();
+        arrayList.addAll(a);
     }
 
     private void Filter(String t, String option) {
@@ -110,8 +126,21 @@ public class FilterSearchTextField extends JTextField {
         myList.setSize(myList.getWidth(), (myList.getModel().getSize() > MAXLIST) ? 30 * MAXLIST : 30 * myList.getModel().getSize());
     }
 
+    public void setDisableFocusListener() {
+        showingHint = false;
+        removeFocusListener(this.FocusShowHint);
+    }
+
+    public String getOption() {
+        return option;
+    }
+
     public void setHint(String hint) {
         this.hint = hint;
+    }
+
+    public String getHint() {
+        return hint;
     }
 
     @Override

@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.Image;
+import java.awt.Insets;
 import java.awt.Point;
 import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
@@ -28,6 +29,7 @@ import java.io.File;
 import java.io.IOException;
 import java.rmi.server.UID;
 import java.util.ArrayList;
+import java.util.EventObject;
 
 import javax.imageio.ImageIO;
 
@@ -69,6 +71,7 @@ public final class GUI {
     private JTable AnswerEditPath;
     private JScrollPane AnswerEditScrollPane;
     private JTextArea AnswerFromLabel[] = new JTextArea[2];
+    private JTextArea Result;
 
     private Dijkstra_Algorithm_Draw Dijkstra;
     private Dijkstra_Edit_Path_Draw Dijkstra_Edit;
@@ -222,8 +225,8 @@ public final class GUI {
             DrawingArea[i].setBorder(BorderFactory.createMatteBorder(3, 3, 3, 3, Color.black));
         }
 
-        DrawingArea[0].setBounds(240, 150, 900, 300);
-        DrawingArea[1].setBounds(600, 490, 540, 150);
+        DrawingArea[0].setBounds(240, 70, 900, 300);
+        DrawingArea[1].setBounds(600, 480, 540, 150);
 
         for (int i = 0; i < AnswerButton.length; i++) {
             AnswerButton[i] = new JButton();
@@ -266,7 +269,17 @@ public final class GUI {
             AnswerComboBox[4].addItem(i + " ");
         }
 
-        AnswerEditPath = new JTable();
+        AnswerEditPath = new JTable() {
+
+            @Override
+            public boolean editCellAt(int row, int column, EventObject e) {
+                if (column == 0) {
+                    return false;
+                }
+                return super.editCellAt(row, column, e); //To change body of generated methods, choose Tools | Templates.
+            }
+
+        };
         DefaultTableModel AnswerEditPathModel = (DefaultTableModel) AnswerEditPath.getModel();
         AnswerEditPathModel.addColumn("To");
         AnswerEditPathModel.addColumn("Distance");
@@ -285,7 +298,7 @@ public final class GUI {
         AnswerEditScrollPane.setViewportView(AnswerEditPath);
         AnswerEditScrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         AnswerEditScrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
-        AnswerEditScrollPane.setBounds(AnswerComboBox[4].getX(), AnswerComboBox[4].getY() + AnswerComboBox[4].getHeight() + 5, 200, 100);
+        AnswerEditScrollPane.setBounds(AnswerComboBox[4].getX(), AnswerComboBox[4].getY() + AnswerComboBox[4].getHeight() + 5, 200, 200);
         for (int i = 0; i < 2; i++) {
             AnswerFromLabel[i] = new JTextArea();
             AnswerFromLabel[i].setBounds(AnswerLabel[4].getBounds());
@@ -300,6 +313,17 @@ public final class GUI {
         AnswerFromLabel[1].setBackground(Color.WHITE);
         AnswerFromLabel[0].setText("From");
         AnswerFromLabel[1].setText("A");
+
+        Result = new JTextArea();
+        Result.setText("The shortest path from " + AnswerComboBox[2].getSelectedItem() + " to " + AnswerComboBox[3].getSelectedItem() + "\n");
+        Result.append("A\n");
+        Result.append("Shortest distance : 0");
+        Result.setFont(new Font("TimesRoman", Font.PLAIN, 15));
+        Result.setBounds(DrawingArea[1].getX(), DrawingArea[1].getY() - 70, DrawingArea[1].getWidth(), 90);
+        Result.setEditable(false);
+        Result.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createMatteBorder(2, 2, 2, 2, Color.BLACK), BorderFactory.createEmptyBorder(0, 20, 0, 20)));
+        Result.setWrapStyleWord(true);
+        Result.setLineWrap(true);
 
         //<editor-fold defaultstate="collapsed" desc="Dijkstra algorithm">
         Dijkstra = new Dijkstra_Algorithm_Draw();
@@ -335,7 +359,7 @@ public final class GUI {
             AnswerPanels[0].add(AnswerFromLabel[i]);
         }
         AnswerPanels[0].add(AnswerEditScrollPane);
-
+        AnswerPanels[0].add(Result);
         //</editor-fold>
         //</editor-fold>
         //                              MAINFRAME ADD ELEMENTS
@@ -636,6 +660,22 @@ public final class GUI {
                 updateData();
             }
         });
+        AnswerComboBox[2].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (AnswerComboBox[2].getItemCount() == Dijkstra_Edit.getNumberOfPoint()) {
+                    updateResult();
+                }
+            }
+        });
+        AnswerComboBox[3].addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (AnswerComboBox[3].getItemCount() == Dijkstra_Edit.getNumberOfPoint()) {
+                    updateResult();
+                }
+            }
+        });
         AnswerComboBox[4].addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -685,7 +725,6 @@ public final class GUI {
                 }
             }
         });
-
         AnswerEditPath.addPropertyChangeListener(new PropertyChangeListener() {
             @Override
             public void propertyChange(PropertyChangeEvent evt) {
@@ -702,7 +741,17 @@ public final class GUI {
                     int cell = 0;
                     for (int i = 0; i < tempData.length; i++) {
                         if (i != temp) {
-                            tempData[i] = Integer.parseInt(model.getValueAt(cell, 1).toString());
+                            int t = 0;
+                            try {
+                                t = Integer.parseInt(model.getValueAt(cell, 1).toString());
+                                if (t < 0) {
+                                    throw new Exception();
+                                }
+                            } catch (Exception e) {
+                                t = 0;
+                                model.setValueAt(0, cell, 1);
+                            }
+                            tempData[i] = t;
                             cell++;
                         }
                     }
@@ -727,8 +776,10 @@ public final class GUI {
                 } catch (Exception ex) {
                     System.out.println("Error has occured");
                 }
+                updateResult();
             }
         });
+       
 
         mainFrame.setVisible(true);
     }
@@ -780,33 +831,129 @@ public final class GUI {
     }
 
     private void updateData() {
-
+        AnswerComboBox[2].removeAllItems();
+        AnswerComboBox[3].removeAllItems();
         AnswerComboBox[4].removeAllItems();
 
         DefaultTableModel tempModel = (DefaultTableModel) AnswerEditPath.getModel();
-        tempModel.setRowCount(0);
 
         if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.ALPHABET) {
+            clearTable();
+
             for (int i = 0; i < Dijkstra_Edit.getNumberOfPoint(); i++) {
-                AnswerComboBox[4].addItem((char) (i + 'A') + "");
+                String t = (char) (i + 'A') + "";
+                System.out.println(AnswerComboBox[2].getItemCount());
+                if (AnswerComboBox[2].getItemCount() > Dijkstra_Edit.getNumberOfPoint()) {
+                    AnswerComboBox[2].removeAllItems();
+                }
+                if (AnswerComboBox[3].getItemCount() > Dijkstra_Edit.getNumberOfPoint()) {
+                    AnswerComboBox[3].removeAllItems();
+                }
+                AnswerComboBox[2].addItem(t);
+                AnswerComboBox[3].addItem(t);
+                AnswerComboBox[4].addItem(t);
+
                 if ((char) (i + 'A') != Dijkstra_Edit.getSelected_Point()) {
+                    if (tempModel.getRowCount() > Dijkstra_Edit.getNumberOfPoint() - 2) {
+                        clearTable();
+                    }
                     tempModel.addRow(new Object[]{(char) (i + 'A'), 0});
                 }
             }
 
         } else if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.NUMBER) {
             for (int i = 0; i < Dijkstra_Edit.getNumberOfPoint(); i++) {
+                if (AnswerComboBox[2].getItemCount() > Dijkstra_Edit.getNumberOfPoint()) {
+                    AnswerComboBox[2].removeAllItems();
+                }
+                if (AnswerComboBox[3].getItemCount() > Dijkstra_Edit.getNumberOfPoint()) {
+                    AnswerComboBox[3].removeAllItems();
+                }
+                AnswerComboBox[2].addItem(i + "");
+                AnswerComboBox[3].addItem(i + "");
                 AnswerComboBox[4].addItem(i + "");
+
                 if ((char) (i + '0') != Dijkstra_Edit.getSelected_Point()) {
+                    if (tempModel.getRowCount() > Dijkstra_Edit.getNumberOfPoint() - 2) {
+                        clearTable();
+                    }
                     tempModel.addRow(new Object[]{i, 0});
                 }
             }
         }
-
         AnswerFromLabel[1].setText(Dijkstra_Edit.getSelected_Point() + "");
+
+        Result.setText("");
 
         Dijkstra.repaint();
         Dijkstra_Edit.repaint();
+
+        System.gc();
+    }
+
+    private void updateResult() {
+        int temp = TransformIndex(AnswerComboBox[2].getSelectedItem().toString());
+
+        Result.setText("The shortest path from " + AnswerComboBox[2].getSelectedItem() + " to " + AnswerComboBox[3].getSelectedItem() + "\n");
+        int t[][] = Dijkstra_Edit.getProblem().dijkstra(Dijkstra_Edit.getProblem().ReadData(), temp);
+        Dijkstra.setProblem(Dijkstra_Edit.getProblem());
+        Dijkstra.setSelected_Point(AnswerComboBox[2].getSelectedItem().toString().toCharArray()[0]);
+        Dijkstra.setEnd_Point(AnswerComboBox[3].getSelectedItem().toString().toCharArray()[0]);
+        Dijkstra.repaint();
+
+        temp = TransformIndex(AnswerComboBox[3].getSelectedItem().toString());
+        int dis = (t[temp][1] == Integer.MAX_VALUE ? 0 : t[temp][1]);
+
+        boolean first = true;
+        if (dis > 0) {
+            Result.append("Path Way:");
+            for (Integer i : Dijkstra_Edit.getProblem().Path.get(temp)) {
+                if (first) {
+                    Result.append(TransformVertex(i) + " ");
+                    first = false;
+                } else {
+                    Result.append(" -> " + TransformVertex(i));
+                }
+            }
+            Result.append("\n");
+            Result.append("Total Distance: " + dis);
+        } else {
+            Result.append("Path not found!");
+        }
+
+    }
+
+    private void clearTable() {
+        DefaultTableModel model = (DefaultTableModel) AnswerEditPath.getModel();
+        model.setRowCount(0);
+    }
+
+    private int TransformIndex(int index) {
+        int temp = index;
+        if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.ALPHABET) {
+            temp -= 'A';
+        }
+        return temp;
+    }
+
+    private int TransformIndex(String index) {
+        int temp = 0;
+        if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.ALPHABET) {
+            temp = (index.toCharArray()[0]) - 'A';
+        } else if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.NUMBER) {
+            temp = Integer.parseInt(index);
+        }
+        return temp;
+    }
+
+    private Object TransformVertex(Object o) {
+        Object temp = 0;
+        if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.ALPHABET) {
+            temp = (char) ((int) o + 'A');
+        } else if (Dijkstra_Edit.getMODE() == Dijkstra_Edit.NUMBER) {
+            temp = Integer.parseInt(o.toString());
+        }
+        return temp;
     }
 }
 

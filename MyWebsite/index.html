@@ -9,33 +9,55 @@
 
     <title>Document</title>
 </head>
-<div class="container">
-    <div class="result">
-        <p id="number">
-        </p>
-    </div>
-    <button id="button1">1</button>
-    <button id="button2">2</button>
-    <button id="button3">3</button>
-    <button id="button4">4</button>
-    <button id="button5">5</button>
-    <button id="button6">6</button>
-    <button id="button7">7</button>
-    <button id="button8">8</button>
-    <button id="button9">9</button>
-    <button id="button0">0</button>
-    <button id="buttonEqual">=</button>
-    <button id="buttonAdd">+</button>
-    <button id="buttonSub">-</button>
-    <button id="buttonMul">x</button>
-    <button id="buttonDiv">/</button>
-</div>
-<script>
-    src = "main.js"
-</script>
+
+
 
 <body>
+    <div class="container">
+        <div id="lol" class="result">
+            <p id="number">
 
+            </p>
+        </div>
+        <button onclick="addToResult()" id="button1">1</button>
+        <button onclick="addToResult()" id="button2">2</button>
+        <button onclick="addToResult()" id="button3">3</button>
+        <button onclick="addToResult()" id="button4">4</button>
+        <button onclick="addToResult()" id="button5">5</button>
+        <button onclick="addToResult()" id="button6">6</button>
+        <button onclick="addToResult()" id="button7">7</button>
+        <button onclick="addToResult()" id="button8">8</button>
+        <button onclick="addToResult()" id="button9">9</button>
+        <button onclick="addToResult()" id="button0">0</button>
+        <button onclick="addToResult()" id="buttonEqual">=</button>
+        <button onclick="addToResult()" id="buttonAdd">+</button>
+        <button onclick="addToResult()" id="buttonSub">-</button>
+        <button onclick="addToResult()" id="buttonMul">x</button>
+        <button onclick="addToResult()" id="buttonDiv">/</button>
+        <button onclick="clearAll()" id="buttonClear">C</button>
+        <button onclick="addToResult()" id="buttonBack"> < </button>
+
+    </div>
+    <script>
+        function addToResult() {
+            let b;
+            let number = 0;
+            for (let i = 0; i < 10; i++) {
+                b = document.querySelector(`#button${i}`);
+                b.onclick = function() {
+                    number = i;
+                    console.log(i);
+
+                }
+            }
+            document.getElementById("number").innerText += number;
+        }
+
+        function clearAll() {
+            document.getElementById("number").innerText = "";
+
+        }
+    </script>
 </body>
 
 </html>

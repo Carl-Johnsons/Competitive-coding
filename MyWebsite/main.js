@@ -1,5 +1,6 @@
 let Numa = "";
 let Numb = "";
+let Ans = "";
 let OPERATOR;
 let result;
 
@@ -166,6 +167,7 @@ function handle2op(op) {
     Numb = "";
 }
 
+// KEY BINDING
 document.onkeydown = function(e) {
     let num = e.which - 48;
     let isShift = !!window.event.shiftKey;

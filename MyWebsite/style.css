@@ -1,0 +1,119 @@
+body {
+    background-color: black;
+}
+
+.container {
+    position: absolute;
+    left: 450px;
+    top: 70px;
+    width: 500px;
+    height: 500px;
+    border: 1px solid orange;
+    border-radius: 10px;
+}
+
+.result {
+    position: absolute;
+    top: 20px;
+    left: 30px;
+    right: 30px;
+    width: 440px;
+    height: 150px;
+    border-radius: 10px;
+    border: 2px solid bisque;
+}
+
+button {
+    position: absolute;
+    width: 100px;
+    height: 50px;
+    background-color: black;
+    color: bisque;
+    border: 1px solid rgb(93, 95, 70);
+}
+
+button:active {
+    background-color: rgb(234, 142, 66);
+}
+
+button:hover {
+    cursor: pointer;
+    border-color: orange;
+}
+
+#button1 {
+    left: 20px;
+    top: 260px;
+}
+
+#button2 {
+    left: 125px;
+    top: 260px;
+}
+
+#button3 {
+    left: 230px;
+    top: 260px;
+}
+
+#button4 {
+    left: 20px;
+    top: 315px;
+}
+
+#button5 {
+    left: 125px;
+    top: 315px;
+}
+
+#button6 {
+    left: 230px;
+    top: 315px;
+}
+
+#button7 {
+    left: 20px;
+    top: 370px;
+}
+
+#button8 {
+    left: 125px;
+    top: 370px;
+}
+
+#button9 {
+    left: 230px;
+    top: 370px;
+}
+
+#button0 {
+    width: 205px;
+    left: 20px;
+    top: 425px;
+}
+
+#buttonEqual {
+    left: 230px;
+    top: 425px;
+    background-color: goldenrod;
+}
+
+#buttonAdd {
+    left: 335px;
+    top: 260px;
+}
+
+#buttonSub {
+    left: 335px;
+    top: 315px;
+}
+
+#buttonMul {
+    left: 335px;
+    top: 370px;
+}
+
+#buttonDiv {
+    left: 335px;
+    top: 425px;
+}

@@ -2,13 +2,22 @@ body {
     background-color: black;
 }
 
-p {
+#number {
     text-align: right;
     position: absolute;
     top: 50px;
     right: 30px;
     font-size: 30px;
     color: white;
+}
+
+#saveNumber {
+    text-align: right;
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 20px;
+    color: rgb(147, 147, 147);
 }
 
 .container {

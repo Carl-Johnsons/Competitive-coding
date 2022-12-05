@@ -14,10 +14,9 @@
 
 <body>
     <div class="container">
-        <div id="lol" class="result">
-            <p id="number">
-
-            </p>
+        <div class="result">
+            <p id="saveNumber"></p>
+            <p id="number"></p>
         </div>
         <button onclick="addToResult()" id="button1">1</button>
         <button onclick="addToResult()" id="button2">2</button>
@@ -29,35 +28,16 @@
         <button onclick="addToResult()" id="button8">8</button>
         <button onclick="addToResult()" id="button9">9</button>
         <button onclick="addToResult()" id="button0">0</button>
-        <button onclick="addToResult()" id="buttonEqual">=</button>
-        <button onclick="addToResult()" id="buttonAdd">+</button>
-        <button onclick="addToResult()" id="buttonSub">-</button>
-        <button onclick="addToResult()" id="buttonMul">x</button>
-        <button onclick="addToResult()" id="buttonDiv">/</button>
+        <button onclick="Equal()" id="buttonEqual">=</button>
+        <button onclick="Add()" id="buttonAdd">+</button>
+        <button onclick="Sub()" id="buttonSub">-</button>
+        <button onclick="Mul()" id="buttonMul">x</button>
+        <button onclick="Div()" id="buttonDiv">/</button>
         <button onclick="clearAll()" id="buttonClear">C</button>
         <button onclick="addToResult()" id="buttonBack"> < </button>
 
     </div>
-    <script>
-        function addToResult() {
-            let b;
-            let number = 0;
-            for (let i = 0; i < 10; i++) {
-                b = document.querySelector(`#button${i}`);
-                b.onclick = function() {
-                    number = i;
-                    console.log(i);
-
-                }
-            }
-            document.getElementById("number").innerText += number;
-        }
-
-        function clearAll() {
-            document.getElementById("number").innerText = "";
-
-        }
-    </script>
+    <script src="main.js"></script>
 </body>
 
 </html>

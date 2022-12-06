@@ -13,7 +13,7 @@ function addToResult() {
     console.log("Result is :" + result);
     for (let i = 0; i < 10; i++) {
         b = document.getElementById(`button${i}`);
-        b.onclick = function() {
+        b.onclick = function () {
             number = i;
             document.getElementById("number").innerText += number;
         }

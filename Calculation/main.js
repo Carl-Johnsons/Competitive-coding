@@ -1,3 +1,8 @@
+// MENU FUNCTIONALITY
+let MenuList = document.querySelector(".MenuList");
+let MenuIcon = document.querySelector(".MenuIcon");
+let Menubtns = document.querySelectorAll(".Menubtn");
+// COMPUTER FUNCTIONALITY
 const numbers = document.querySelectorAll(".number");
 let Add = document.querySelector(".add");
 let Sub = document.querySelector(".sub");
@@ -260,4 +265,42 @@ document.onkeydown = function(e) {
         addToNumber(num);
     }
 
+}
+
+//MENU FUNCTIONALITY
+//DEFAULT MODE: STANDARD
+setDefaultMode();
+
+
+MenuIcon.addEventListener("mouseenter", () => {
+    MenuList.classList.remove("MenuListMoveOut");
+    if (MenuList.classList.contains("MenuListMoveIn")) {
+        MenuList.style.animation = 'none';
+        MenuList.offsetHeight;
+        MenuList.style.animation = null;
+    }
+    MenuList.classList.add("MenuListMoveIn");
+});
+MenuList.addEventListener("mouseleave", () => {
+    MenuList.classList.remove("MenuListMoveIn");
+    MenuList.classList.add("MenuListMoveOut");
+});
+
+for (let i = 0; i < Menubtns.length; i++) {
+    Menubtns[i].addEventListener('click', () => {
+        //Reset active mode
+        for (let j = 0; j < Menubtns.length; j++) {
+            Menubtns[j].classList.remove("MenuListStayActive");
+        }
+        if (i === 1) {
+            alert("Unsupported feature! Please stay tune!");
+            setDefaultMode();
+        } else {
+            Menubtns[i].classList.add("MenuListStayActive");
+        }
+    });
+}
+
+function setDefaultMode() {
+    Menubtns[0].classList.add("MenuListStayActive");
 }

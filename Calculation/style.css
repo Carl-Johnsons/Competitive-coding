@@ -197,3 +197,107 @@ body {
         background-color: rgb(255, 115, 0);
     }
 }
+
+
+/* MENU */
+
+.MenuIcon {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.MenuIcon :hover {
+    animation: MenuIconAnim 1s ease-in-out forwards;
+}
+
+.MenuList {
+    position: absolute;
+    left: -13.5%;
+    width: 12.5%;
+    height: 100%;
+    background-color: black;
+    border: 3px solid orange;
+    border-radius: 10px;
+    opacity: 1;
+}
+
+.MenuListMoveIn {
+    animation: MenuListMoveIn 300ms ease-in forwards;
+}
+
+.Menubtn {
+    position: relative;
+    top: 20%;
+    width: 100%;
+    height: 5%;
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    font-size: 150%;
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 5%;
+}
+
+.Menubtn:hover {
+    background-color: rgba(255, 255, 255, 0.094);
+    animation: MenuButtonAnim 300ms ease-in-out forwards;
+}
+
+.Menubtn:active {
+    background-color: rgba(255, 255, 255, 0.37);
+    animation: MenuButtonAnim 300ms ease-in-out forwards;
+}
+
+.MenuListMoveOut {
+    animation: MenuListMoveOut 300ms ease-in forwards;
+}
+
+@keyframes MenuIconAnim {
+    33% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes MenuListMoveIn {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes MenuListMoveOut {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes MenuButtonAnim {
+    100% {
+        border-bottom: 1px solid orange;
+    }
+}
+
+.MenuListStayActive {
+    animation: MenuListStayActive 200ms ease-in-out forwards;
+}
+
+@keyframes MenuListStayActive {
+    100% {
+        background-color: gray;
+        color: black;
+    }
+}

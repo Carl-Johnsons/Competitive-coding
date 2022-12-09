@@ -81,12 +81,22 @@
 <body>
 
     <section class="container">
-        <select class="customSelect" id="item" style="width:200px;">
-            <option value="Difference">Difference between dates</option>
-            <option value="DateCalculate">Add or subtract days</option>
+        <!-- CUSTOM COMBO BOX -->
+        <div class="custom-select">
+            <select>
+            <option value="0 ">Difference between dates</option>
+            <option value="0 ">Difference between dates</option>
+            <option value="2 ">Add or subtract days</option>
         </select>
+        </div>
+        <div class="Label "> <strong>From</strong></div>
+        <button class="btn From "></button>
+        <div class="Label "> <strong>To</strong></div>
+        <button class="btn To "></button>
+        <div class="Calendar hidden From" id="_1"></div>
+        <div class="Calendar hidden To" id="_2"></div>
     </section>
 </body>
-<script src="script/Date.js"></script>
+<script src="script/Date.js "></script>
 
 </html>

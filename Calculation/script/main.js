@@ -2,6 +2,7 @@
 let MenuList = document.querySelector(".MenuList");
 let MenuIcon = document.querySelector(".MenuIcon");
 let Menubtns = document.querySelectorAll(".Menubtn");
+
 // COMPUTER FUNCTIONALITY
 const numbers = document.querySelectorAll(".number");
 let Add = document.querySelector(".add");

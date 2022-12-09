@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Calculation</title>
+    <link rel="stylesheet" href="style/Date.css">
+    <title>Date Calculation</title>
     <section class="Menu">
         <div class="MenuList">
             <div class="MenuType">Calculator</div>
-            <button class="Menubtn Standard">Standard</button>
+
+            <a href="index.html">
+                <button class="Menubtn Standard">Standard</button>
+            </a>
+
             <!-- FEATURE UNSUPPORTED -->
             <a href="Scientific.html">
                 <button class="Menubtn Scientific">Scientific</button>
@@ -77,38 +81,12 @@
 <body>
 
     <section class="container">
-        <div class="NumberContainer">
-            <p id="textNumber">0</p>
-            <p id="saveNumber"></p>
-        </div>
-        <div class="BlackBoxCover"></div>
-        <div class="containerButton"></div>
-        <button class="btn special clear" type="button"><strong>AC</strong></button>
-        <button class="btn special opposite" type="button"><strong>+ / -</strong></button>
-        <button class="btn special modulo" type="button"><strong>%</strong></button>
-        <button class="btn op add" type="button">+</button>
-        <br>
-        <button class="btn number" type="button" value="1">1</button>
-        <button class="btn number" type="button" value="2">2</button>
-        <button class="btn number" type="button" value="3">3</button>
-        <button class="btn op sub" type="button">-</button>
-        <br>
-        <button class="btn number" type="button" value="4">4</button>
-        <button class="btn number" type="button" value="5">5</button>
-        <button class="btn number" type="button" value="6">6</button>
-        <button class="btn op mul" type="button">x</button>
-        <br>
-        <button class="btn number" type="button" value="7">7</button>
-        <button class="btn number" type="button" value="8">8</button>
-        <button class="btn number" type="button" value="9">9</button>
-        <button class="btn op div" type="button">/</button>
-        <br>
-        <button class="btn number zero" type="button" value="0">0</button>
-        <button class="btn float">.</button>
-        <button class="btn op equal" type="button">=</button>
-        <a href=""></a>
+        <select class="customSelect" id="item" style="width:200px;">
+            <option value="Difference">Difference between dates</option>
+            <option value="DateCalculate">Add or subtract days</option>
+        </select>
     </section>
 </body>
-<script src="script/main.js"></script>
+<script src="script/Date.js"></script>
 
 </html>

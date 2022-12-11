@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style/style.css">
-    <title>Calculation</title>
+    <link rel="stylesheet" href="style/Prog.css">
+    <title>For Programer</title>
     <section class="Menu">
         <div class="MenuList">
             <div class="MenuType">Calculator</div>
-            <button class="Menubtn Standard">Standard</button>
+
+            <a href="index.html">
+                <button class="Menubtn Standard">Standard</button>
+            </a>
+
             <!-- FEATURE UNSUPPORTED -->
             <a href="Scientific.html">
                 <button class="Menubtn Scientific">Scientific</button>
@@ -79,35 +83,54 @@
     <section class="container">
         <div class="NumberContainer">
             <p id="textNumber">0</p>
-            <p id="saveNumber"></p>
+            <p id="saveNumber">Another Hello</p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelHex"><strong>HEX</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelDec"><strong>DEC</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelOct"><strong>OCT</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelBin"><strong>BIN</strong></p>
+            <button class="ModeBtn" value="HEX"><strong>0</strong></button>
+            <button class="ModeBtn" value="DEC"><strong>0</strong></button>
+            <button class="ModeBtn" value="OCT"><strong>0</strong></button>
+            <button class="ModeBtn" value="BIN"><strong>0</strong></button>
         </div>
-        <div class="BlackBoxCover"></div>
-        <div class="containerButton"></div>
-        <button class="btn special clear" type="button"><strong>AC</strong></button>
-        <button class="btn special opposite" type="button"><strong>+ / -</strong></button>
-        <button class="btn special modulo" type="button"><strong>%</strong></button>
-        <button class="btn op add" type="button">+</button>
+        <button class="btn number HEX">A</button>
+        <button class="btn op">&lt;&lt;</button>
+        <button class="btn op">&gt;&gt;</button>
+        <button class="btn op clear">CE</button>
+        <button class="btn op delete">del</button>
         <br>
-        <button class="btn number" type="button" value="1">1</button>
-        <button class="btn number" type="button" value="2">2</button>
-        <button class="btn number" type="button" value="3">3</button>
-        <button class="btn op sub" type="button">-</button>
+        <button class="btn number HEX">B</button>
+        <button class="btn op">(</button>
+        <button class="btn op">)</button>
+        <button class="btn op">%</button>
+        <button class="btn op">%</button>
         <br>
-        <button class="btn number" type="button" value="4">4</button>
-        <button class="btn number" type="button" value="5">5</button>
-        <button class="btn number" type="button" value="6">6</button>
-        <button class="btn op mul" type="button">x</button>
+        <button class="btn number HEX">C</button>
+        <button class="btn number OCT DEC HEX">7</button>
+        <button class="btn number DEC HEX">8</button>
+        <button class="btn number DEC HEX">9</button>
+        <button class="btn op">x</button>
         <br>
-        <button class="btn number" type="button" value="7">7</button>
-        <button class="btn number" type="button" value="8">8</button>
-        <button class="btn number" type="button" value="9">9</button>
-        <button class="btn op div" type="button">/</button>
+        <button class="btn number HEX">D</button>
+        <button class="btn number OCT DEC HEX">4</button>
+        <button class="btn number OCT DEC HEX">5</button>
+        <button class="btn number OCT DEC HEX">6</button>
+        <button class="btn op">-</button>
         <br>
-        <button class="btn number zero" type="button" value="0">0</button>
-        <button class="btn float">.</button>
-        <button class="btn op equal" type="button">=</button>
+        <button class="btn number HEX">E</button>
+        <button class="btn number BIN OCT DEC HEX">1</button>
+        <button class="btn number OCT DEC HEX">2</button>
+        <button class="btn number OCT DEC HEX">3</button>
+        <button class="btn op">+</button>
+        <br>
+        <button class="btn number HEX">F</button>
+        <button class="btn op">+/-</button>
+        <button class="btn number BIN DEC OCT HEX">0</button>
+        <button class="btn op">.</button>
+        <button class="btn equal">=</button>
+        <br>
     </section>
 </body>
-<script src="script/main.js"></script>
+<script src="script/Prog.js "></script>
 
 </html>

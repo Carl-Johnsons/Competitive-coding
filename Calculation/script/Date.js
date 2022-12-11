@@ -7,7 +7,9 @@ MenuList.classList.add("MenuListMoveOut");
 // DATE FUNCTIONALITY
 let dates = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 let Months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-
+let SelectedDay = "";
+let SelectedMonth = "";
+let SelectedYear = "";
 
 let CalendarBtns = document.querySelectorAll(".btn");
 
@@ -20,12 +22,22 @@ for (i = 0; i < CalendarBtns.length; i++) {
     let date = dd + "/" + mm + "/" + yyyy;
     CalendarBtns[i].innerText = date;
 }
-CalendarBtns[0].addEventListener("click", () => {
-    ToggleCalendar(0);
-});
-CalendarBtns[1].addEventListener("click", () => {
-    ToggleCalendar(1);
-});
+// CalendarBtns[0].addEventListener("click", () => {
+//     ToggleCalendar(0);
+// });
+// CalendarBtns[1].addEventListener("click", () => {
+//     ToggleCalendar(1);
+// });
+for (i = 0; i < CalendarBtns.length; i++) {
+    CalendarBtns[i].addEventListener("click", (e) => {
+        let temp = e.target.getAttribute("class");
+        let pos = temp.substring(4, temp.length - 1);
+        if (pos === "From")
+            ToggleCalendar(0);
+        else if (pos === "To")
+            ToggleCalendar(1);
+    });
+}
 
 
 
@@ -64,13 +76,13 @@ function createCalendar(i) {
         day[j] = document.createElement("BUTTON");
         day[j].setAttribute("class", "Datebtn");
         day[j].innerHTML = (j % 30) + 1;
-        day[j].onclick = function() {
+        day[j].addEventListener("click", (e) => {
             ToggleCalendar(i);
-            console.log(j);
-            let dd = String(j).padStart(2, 0);
+            let value = e.target.innerText;
+            let dd = String(value).padStart(2, 0);
             day[j].classList.add("Date-Selected");
             CalendarBtns[i].innerHTML = dd;
-        };
+        });
         Datecontainer.appendChild(day[j]);
     }
     CALENDAR[i].appendChild(Datecontainer);

@@ -8,21 +8,12 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.BlackBoxCover {
-    position: absolute;
-    left: 6.5%;
-    top: 34%;
-    width: 85.5%;
-    height: 20%;
-    background-color: black;
-}
-
 .container {
     position: absolute;
-    left: 25%;
-    top: 15%;
-    width: 50%;
-    height: 70%;
+    left: 15%;
+    top: 10%;
+    width: 70%;
+    height: 82.5%;
     border-radius: 5%;
     border: 3px solid rgba(215, 168, 49, 0.651);
 }
@@ -32,42 +23,72 @@ body {
     left: 6.5%;
     top: 5%;
     width: 85.5%;
-    height: 27.5%;
+    height: 30%;
     text-align: right;
     color: white;
     border-radius: 10px;
     border: 2px solid rgba(109, 103, 11, 0.386);
 }
 
-#textNumber {
+.ModeBtn {
     position: relative;
-    font-weight: 30px;
-    font-size: 40px;
-    top: 50%;
-    right: 5%;
+    top: 25%;
+    width: 100%;
+    background-color: transparent;
+    border: transparent;
+    color: white;
+    font-size: 100%;
+    text-align: left;
+    padding-left: 8%;
 }
 
-#saveNumber {
+.ModeBtn:hover {
+    background-color: rgba(106, 105, 105, 0.5);
+}
+
+.ModeBtn:active {
+    background-color: rgba(106, 105, 105, 0.9);
+}
+
+.ModeBtn-StayActive {
+    background-color: rgba(106, 105, 105, 0.6);
+}
+
+.ModeBtnLabel {
     position: absolute;
-    font-weight: 30px;
-    font-size: 20px;
-    color: rgb(165, 165, 165);
-    top: 25%;
-    right: 5%;
+    text-align: left;
+    left: 2%;
+}
+
+#ModeBtnLabelHex {
+    top: 51%;
+}
+
+#ModeBtnLabelDec {
+    top: 61%;
+}
+
+#ModeBtnLabelOct {
+    top: 71%;
+}
+
+#ModeBtnLabelBin {
+    top: 81%;
 }
 
 .btn {
     position: relative;
-    top: 37.5%;
+    top: 40%;
     left: 6.5%;
-    border-radius: 10%;
-    width: 20%;
-    height: 10%;
+    width: 16.82%;
+    height: 7.5%;
+    border-radius: 10px;
     border: transparent;
     color: white;
+    font-size: 125%;
+    font-weight: bolder;
     background-color: rgb(51, 51, 51);
-    margin-top: 1%;
-    margin-left: 1%;
+    margin-bottom: 1%;
 }
 
 .btn:hover {
@@ -80,33 +101,36 @@ body {
     color: black;
 }
 
-.op:hover {
-    background-color: rgb(255, 77, 0);
-    color: black;
+#textNumber {
+    position: relative;
+    font-weight: 30px;
+    font-size: 40px;
+    top: 25%;
+    right: 5%;
+}
+
+#saveNumber {
+    position: absolute;
+    font-weight: 30px;
+    font-size: 20px;
+    color: rgb(165, 165, 165);
+    top: 5%;
+    right: 5%;
 }
 
 .op {
-    background-color: rgb(254, 149, 5);
-    border: transparent;
-    font-size: 15px;
-    opacity: 0.9;
+    background-color: #555;
 }
 
-.special {
-    background-color: gray;
-    color: black;
-    border: 1px solid black;
+.equal {
+    background-color: orange;
 }
 
-.zero {
-    width: 41.5%;
+.disable-button {
+    pointer-events: none;
+    color: rgba(128, 128, 128, 0.71);
+    background-color: rgba(46, 46, 46, 0.726);
 }
-
-
-/* ANIMATION */
-
-
-/* Code animation chat luong thi thong js -> css */
 
 .moveUp {
     position: relative;
@@ -206,6 +230,90 @@ body {
 
 
 /* MENU */
+
+
+/* CUSTOM SELECT TAG */
+
+.custom-select {
+    position: relative;
+    width: 25%;
+    height: 10%;
+    left: 70%;
+    top: 5%;
+    font-family: Arial;
+}
+
+.custom-select select {
+    display: none;
+    /*hide original SELECT element:*/
+}
+
+.select-selected {
+    background-color: rgba(222, 155, 101, 0.806);
+    border-radius: 10px;
+}
+
+
+/*style the arrow inside the select element:*/
+
+.select-selected:after {
+    position: absolute;
+    content: "";
+    top: 45%;
+    right: 5%;
+    width: 0;
+    height: 0;
+    border: 6px solid transparent;
+    border-color: #fff transparent transparent transparent;
+}
+
+
+/*point the arrow upwards when the select box is open (active):*/
+
+.select-selected.select-arrow-active:after {
+    border-color: transparent transparent #fff transparent;
+    top: 30%;
+}
+
+
+/*style the items (options), including the selected item:*/
+
+.select-items div,
+.select-selected {
+    color: #ffffff;
+    padding: 8px 16px;
+    border: 1px solid transparent;
+    border-color: transparent transparent rgba(234, 141, 49, 0.655) transparent;
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+}
+
+
+/*style items (options):*/
+
+.select-items {
+    position: absolute;
+    background-color: rgba(196, 111, 75, 0.705);
+    top: 110%;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    border-radius: 10px;
+}
+
+
+/*hide the items when the select box is closed:*/
+
+.select-hide {
+    display: none;
+}
+
+.select-items div:hover,
+.same-as-selected {
+    background-color: rgba(0, 0, 0, 0.53);
+    border-radius: 10px;
+}
 
 
 /* Custome ScrollBar */

@@ -8,12 +8,49 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.tips {
+    position: absolute;
+    left: 60%;
+    top: 10%;
+    width: 20%;
+    height: 82.5%;
+    border-radius: 5%;
+    border: 3px solid rgba(215, 168, 49, 0.651);
+}
+
+.Tutorial {
+    position: relative;
+    padding-top: 10%;
+    padding-left: 50%;
+    color: white;
+    font-size: 90%;
+}
+
+.Turtial-close {
+    position: absolute;
+    background-color: transparent;
+    border: transparent;
+    top: -1%;
+    left: 93%;
+}
+
+.CloseImg {
+    border-top-right-radius: 81%;
+    width: 100%;
+}
+
+li {
+    color: white;
+    padding-left: 50%;
+}
+
 .container {
     position: absolute;
     left: 15%;
     top: 10%;
     width: 70%;
     height: 82.5%;
+    background-color: black;
     border-radius: 5%;
     border: 3px solid rgba(215, 168, 49, 0.651);
 }
@@ -31,15 +68,16 @@ body {
 }
 
 .ModeBtn {
-    position: relative;
-    top: 25%;
+    position: absolute;
+    top: 50%;
+    right: 0%;
     width: 100%;
     background-color: transparent;
     border: transparent;
     color: white;
     font-size: 100%;
     text-align: left;
-    padding-left: 8%;
+    padding-left: 10%;
 }
 
 .ModeBtn:hover {
@@ -52,6 +90,8 @@ body {
 
 .ModeBtn-StayActive {
     background-color: rgba(106, 105, 105, 0.6);
+    border: 2px solid white;
+    border-width: 0px 0px 0px 5px;
 }
 
 .ModeBtnLabel {
@@ -60,19 +100,23 @@ body {
     left: 2%;
 }
 
-#ModeBtnLabelHex {
+#ModeBtnLabelHex,
+.HEXbtn {
     top: 51%;
 }
 
-#ModeBtnLabelDec {
+#ModeBtnLabelDec,
+.DECbtn {
     top: 61%;
 }
 
-#ModeBtnLabelOct {
+#ModeBtnLabelOct,
+.OCTbtn {
     top: 71%;
 }
 
-#ModeBtnLabelBin {
+#ModeBtnLabelBin,
+.BINbtn {
     top: 81%;
 }
 
@@ -97,6 +141,11 @@ body {
 }
 
 .btn:active {
+    background-color: yellow;
+    color: black;
+}
+
+.active {
     background-color: yellow;
     color: black;
 }
@@ -148,6 +197,32 @@ body {
 
 .delayAC {
     animation: delayAC 1s ease-in-out forwards;
+}
+
+.Tutorial-ShowHint {
+    animation: Tutorial-ShowHint 200ms ease-in-out forwards;
+}
+
+.Tutorial-CloseHint {
+    animation: Tutorial-CloseHint 200ms ease-in-out forwards;
+}
+
+@keyframes Tutorial-ShowHint {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(80%);
+    }
+}
+
+@keyframes Tutorial-CloseHint {
+    0% {
+        transform: translateX(80%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
 }
 
 @keyframes moveUp {

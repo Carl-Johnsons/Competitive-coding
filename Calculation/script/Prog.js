@@ -8,6 +8,8 @@ MenuList.classList.add("MenuListMoveOut");
 // TUTORIAL CONTAINER
 let tutorialContainer = document.querySelector(".tips");
 let TurCloseBtn = document.querySelector(".Turtial-close");
+let TurBtns = document.querySelector(".Tur-btn-showHint");
+
 // CONTAINER
 let MODEs = ["HEX", "DEC", "OCT", "BIN"];
 let currentMODE = "DEC";
@@ -17,6 +19,7 @@ let OCTbtns = document.querySelectorAll(".OCT");
 let BINbtns = document.querySelectorAll(".BIN");
 let numbers = document.querySelectorAll(".number");
 let MODEbtns = document.querySelectorAll(".ModeBtn");
+let Unsupported = document.querySelectorAll(".NotSupported");
 let btns = document.querySelectorAll(".btn");
 // TEXT
 let textNumber = document.querySelector("#textNumber");
@@ -32,9 +35,42 @@ let Mod = document.querySelector(".mod");
 let Equal = document.querySelector(".equal");
 //HANDLING DATA
 let OPERATOR;
-let firstValue;
-let secondValue;
-let RESULT;
+let firstValue = {
+    value: "",
+    mode: "DEC",
+    setData: function(value, mode) {
+        this.value = value;
+        this.mode = mode;
+    },
+    setDefault: function() {
+        this.value = "";
+        this.mode = "DEC";
+    }
+};
+let secondValue = {
+    value: "",
+    mode: "DEC",
+    setData: function(value, mode) {
+        this.value = value;
+        this.mode = mode;
+    },
+    setDefault: function() {
+        this.value = "";
+        this.mode = "DEC";
+    }
+};
+let RESULT = {
+    value: "",
+    mode: "DEC",
+    setData: function(value, mode) {
+        this.value = value;
+        this.mode = mode;
+    },
+    setDefault: function() {
+        this.value = "";
+        this.mode = "DEC";
+    }
+};
 //STATE
 let isShowingResult = false;
 let isOPpressed = false;
@@ -44,6 +80,7 @@ let isKeyPressed = false;
 
 // INITIAL MODE
 ChangeMODE(currentMODE);
+disableSpecificButton(Unsupported);
 
 
 for (i = 0; i < numbers.length; i++) {
@@ -61,7 +98,12 @@ clear.addEventListener("click", () => {
 });
 TurCloseBtn.addEventListener("click", () => {
     CloseHintAnimation();
-
+});
+TurBtns.addEventListener("mouseenter", () => {
+    ShowHintAnimation();
+});
+tutorialContainer.addEventListener("mouseleave", () => {
+    CloseHintAnimation();
 });
 
 function addToResult(value) {
@@ -91,12 +133,7 @@ function addToResult(value) {
         textNumber.innerText += value;
     }
     if (isKeyPressed) {
-        for (i = 0; i < numbers.length; i++) {
-            if (numbers[i].innerText == value) {
-                ButtonActive(numbers[i]);
-                break;
-            }
-        }
+
         isKeyPressed = false;
     }
 
@@ -122,29 +159,10 @@ Equal.addEventListener("click", () => {
 });
 
 function op(op) {
-    firstValue = +textNumber.innerText;
+    firstValue.setData(textNumber.innerText, currentMODE);
     textNumber.innerText += " " + op;
     OPERATOR = op;
-    if (isKeyPressed) {
-        switch (op) {
-            case "+":
-                ButtonActive(Add);
-                break;
-            case "-":
-                ButtonActive(Sub);
-                break;
-            case "x":
-                ButtonActive(Mul);
-                break;
-            case "/":
-                ButtonActive(Div);
-                break;
-            case "%":
-                ButtonActive(Mod);
-                break;
-        }
-        isKeyPressed = false;
-    }
+
     opPressedAnimation();
     ResetData();
     isShowingResult = false;
@@ -152,48 +170,61 @@ function op(op) {
 
 function EqualOP() {
     if (isShowingResult) {
-        textNumber.innerText = RESULT;
+        textNumber.innerText = convertTo(RESULT.value, currentMODE);
     } else {
-        secondValue = +textNumber.innerText;
-        RESULT = calculate();
-        saveNumber.innerText += (" " + secondValue + " = ");
-        textNumber.innerText = RESULT;
+        secondValue.setData(textNumber.innerText, currentMODE);
+        RESULT.setData(calculate(), currentMODE);
+        // Transform RESULT to current mode
+        textNumber.innerText = convertTo(RESULT.value, currentMODE);
+        // End Transform
+        saveNumber.innerText += (" " + secondValue.value + " = ");
+
         isShowingResult = true;
     }
     opPressedAnimation();
-    UpdateData();
+    if (RESULT != null)
+        UpdateData(RESULT.value);
 }
 
 function calculate() {
     let result;
+    let first, second;
+    if (currentMODE != "DEC") {
+        first = +convertToDec(firstValue.value);
+        second = +convertToDec(secondValue.value);
+
+    } else {
+        first = +firstValue.value;
+        second = +secondValue.value;
+    }
     switch (OPERATOR) {
         case "+":
-            result = firstValue + secondValue;
+            result = first + second;
             break;
         case "-":
-            result = firstValue - secondValue;
+            result = first - second;
             break;
         case "x":
-            result = firstValue * secondValue;
+            result = first * second;
             break;
         case "/":
-            if (secondValue != 0)
-                result = firstValue / secondValue;
+            if (second != 0)
+                result = first / second;
             else {
                 result = "undefined";
                 isUndefined = true;
             }
             break;
         case "%":
-            if (secondValue != 0)
-                result = firstValue % secondValue;
+            if (secondValue.value != 0)
+                result = first % second;
             else {
                 result = "undefined";
                 isUndefined = true;
             }
             break;
     }
-    return result;
+    return Math.floor(result);
 }
 
 function Delete() {
@@ -208,19 +239,24 @@ function Delete() {
 
 function ClrAll() {
     OPERATOR = null;
-    firstValue = null;
-    secondValue = null;
     textNumber.innerText = 0;
     saveNumber.innerText = "";
     isShowingResult = false;
     isOPpressed = false;
+    firstValue.setDefault;
+    secondValue.setDefault;
+    RESULT.setDefault;
     UpdateData();
 }
 
-function convertToDec(value) {
+function convertToDec(value, mode) {
+    if (mode === undefined) {
+        mode = currentMODE;
+    }
     let dec = 0;
     let mul;
-    switch (currentMODE) {
+    value = value.toString();
+    switch (mode) {
         case "HEX":
             mul = 16;
             break;
@@ -246,45 +282,57 @@ function convertToDec(value) {
 }
 
 function convertTo(value, MODE) {
-    let division;
-    switch (MODE) {
-        case "HEX":
-            division = 16;
-            break;
-        case "OCT":
-            division = 8;
-            break;
-        case "BIN":
-            division = 2;
-            break;
-        default:
-            return;
-    }
-    let res = "";
-    let DecValue = +convertToDec(value);
-    if (DecValue != 0) {
-        while (DecValue > 0) {
-            let temp = DecValue % division;
-            if (temp >= 10) {
-                temp = String.fromCharCode(temp + 55);
-            }
-            res += temp;
-            DecValue /= division;
-            DecValue = Math.floor(DecValue);
+    if (MODE != "DEC") {
+        let res = "";
+        let division;
+        value = value.toString();
+        switch (MODE) {
+            case "HEX":
+                division = 16;
+                break;
+            case "OCT":
+                division = 8;
+                break;
+            case "BIN":
+                division = 2;
+                break;
+            default:
+                return;
         }
-        res = res.split("").reverse().join("");
+        let DecValue = +convertToDec(value, "DEC");
+        if (DecValue != 0) {
+            while (DecValue > 0) {
+                let temp = DecValue % division;
+                if (temp >= 10) {
+                    temp = String.fromCharCode(temp + 55);
+                }
+                res += temp;
+                DecValue /= division;
+                DecValue = Math.floor(DecValue);
+            }
+            res = res.split("").reverse().join("");
+        } else {
+            res = DecValue;
+        }
+        return res;
     } else {
-        res = DecValue;
+        return value;
     }
-    return res;
 }
 
-function UpdateData() {
-    MODEbtns[0].innerText = convertTo(textNumber.innerText, "HEX");
-    MODEbtns[1].innerText = convertToDec(textNumber.innerText);
-    MODEbtns[2].innerText = convertTo(textNumber.innerText, "OCT");
-    MODEbtns[3].innerText = convertTo(textNumber.innerText, "BIN");
-    console.log(textNumber.innerText.length);
+
+function UpdateData(value) {
+    if (value === undefined) {
+        value = textNumber.innerText;
+    }
+    let temp = currentMODE;
+    currentMODE = "DEC";
+    value = convertToDec(value);
+    MODEbtns[0].innerText = convertTo(value, "HEX");
+    MODEbtns[1].innerText = convertToDec(value);
+    MODEbtns[2].innerText = convertTo(value, "OCT");
+    MODEbtns[3].innerText = convertTo(value, "BIN");
+    currentMODE = temp;
 }
 
 function ResetData() {
@@ -296,7 +344,7 @@ function ButtonActive(button) {
     button.classList.toggle("active");
 }
 
-function AllButtonInActive() {
+function AllButtonInactive() {
     for (i = 0; i < btns.length; i++) {
         btns[i].classList.remove("active");
     }
@@ -306,11 +354,15 @@ function AllButtonInActive() {
 function ShowHintAnimation() {
     tutorialContainer.classList.remove("Tutorial-CloseHint");
     tutorialContainer.classList.add("Tutorial-ShowHint");
+    TurBtns.classList.remove("visible");
+    TurBtns.classList.add("hidden");
 }
 
 function CloseHintAnimation() {
     tutorialContainer.classList.remove("Tutorial-ShowHint");
     tutorialContainer.classList.add("Tutorial-CloseHint");
+    TurBtns.classList.add("visible");
+    TurBtns.classList.remove("hidden");
 }
 
 function opPressedAnimation() {
@@ -332,7 +384,6 @@ for (i = 0; i < MODEbtns.length; i++) {
     MODEbtns[i].addEventListener("click", (e) => {
         isClickedChangeModeTooMuch++;
         currentMODE = e.target.getAttribute("value").substring(0, 3);
-        console.log(currentMODE);
         ChangeMODE(currentMODE);
         if (isClickedChangeModeTooMuch === 5) {
             ShowHintAnimation();
@@ -342,6 +393,7 @@ for (i = 0; i < MODEbtns.length; i++) {
 
 function ChangeMODE(m) {
     textNumber.innerText = 0;
+    currentMODE = m;
     disableAllButton();
     switch (m) {
         case "HEX":
@@ -363,6 +415,12 @@ function ChangeMODE(m) {
 function disableAllButton() {
     for (i = 0; i < numbers.length; i++) {
         numbers[i].classList.add("disable-button");
+    }
+}
+
+function disableSpecificButton(btns) {
+    for (i = 0; i < btns.length; i++) {
+        btns[i].classList.add("disable-button");
     }
 }
 
@@ -389,15 +447,13 @@ function enableButton(Mbtns) {
     }
 }
 
-
-
 //KEY BINDING
 document.onkeydown = (e) => {
     let alphabet = String.fromCharCode(e.which);
     let isAlt = !!e.altKey;
     let isShift = !!e.shiftKey;
     let isAllowed = false;
-    console.log(e.which);
+
     //MODE CHANGING
     if (isAlt) {
         switch (e.which) {
@@ -418,18 +474,23 @@ document.onkeydown = (e) => {
         switch (e.which) {
             case 187:
                 op("+");
+                ButtonActive(Add);
                 break;
             case 56:
                 op("x");
+                ButtonActive(Mul);
                 break;
             case 53:
                 op("%");
+                ButtonActive(Mod);
                 break;
         }
     } else if (e.which === 189) {
         op("-");
+        ButtonActive(Sub);
     } else if (e.which === 191) {
         op("/");
+        ButtonActive(Div);
     } else if (e.which === 187) {
         EqualOP();
     } else if (e.which === 8) { //BackSpace
@@ -451,9 +512,20 @@ document.onkeydown = (e) => {
         addToResult(alphabet);
     }
     isKeyPressed = true;
+    if (!isShift) {
+        for (i = 0; i < numbers.length; i++) {
+            if (numbers[i].innerText == alphabet) {
+                ButtonActive(numbers[i]);
+                break;
+            }
+        }
+    }
 };
 document.onkeyup = (e) => {
-    AllButtonInActive();
+    AllButtonInactive();
+    setTimeout(function() {
+        isKeyPressed = false;
+    }, 100);
 };
 //MENU FUNCTIONALITY
 //DEFAULT MODE: PROG

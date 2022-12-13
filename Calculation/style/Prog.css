@@ -3,9 +3,24 @@
     margin: 0px;
 }
 
+html {
+    font-size: 100%;
+}
+
 body {
     background-color: black;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+.Tur-btn-showHint {
+    position: absolute;
+    left: 85.30%;
+    top: 25%;
+    width: 1%;
+    height: 50%;
+    background-color: rgba(228, 99, 30, 0.598);
+    border-top-right-radius: 100%;
+    border-bottom-right-radius: 100%;
 }
 
 .tips {
@@ -197,6 +212,14 @@ li {
 
 .delayAC {
     animation: delayAC 1s ease-in-out forwards;
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
 }
 
 .Tutorial-ShowHint {

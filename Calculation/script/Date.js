@@ -1,3 +1,5 @@
+import CustomDay from "./CustomDay.js"
+
 // MENU FUNCTIONALITY
 let MenuList = document.querySelector(".MenuList");
 let MenuIcon = document.querySelector(".MenuIcon");
@@ -5,181 +7,246 @@ let Menubtns = document.querySelectorAll(".Menubtn");
 MenuList.classList.add("MenuListMoveOut");
 
 // DATE FUNCTIONALITY
-let dates = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
-let Months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-let SelectedDay = "";
-let SelectedMonth = "";
-let SelectedYear = "";
-
+const dates = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+const Months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 let CalendarBtns = document.querySelectorAll(".btn");
-
+let Container = document.querySelector(".container");
 let CALENDAR = document.querySelectorAll(".Calendar");
-for (i = 0; i < CalendarBtns.length; i++) {
-    let today = new Date();
+let today = new Date();
+// STATE
+let isShowCalendar = false;
+// DATA
+let DateSelected = [];
+DateSelected[0] = new CustomDay();
+DateSelected[1] = new CustomDay();
+console.log({ DateSelected })
+
+for (let i = 0; i < CalendarBtns.length; i++) {
     let dd = String(today.getDate()).padStart(2, 0);
     let mm = String(today.getMonth()).padStart(2, 0);
-    let yyyy = String(today.getFullYear());
-    let date = dd + "/" + mm + "/" + yyyy;
-    CalendarBtns[i].innerText = date;
+    let yyyy = String(today.getFullYear()).padStart(4, 0);
+    let temp = new CustomDay(dd, mm, yyyy);
+    DateSelected[i].setDateFormat(temp);
+    CalendarBtns[i].innerText = DateSelected[i].getDateFormat();
 }
-// CalendarBtns[0].addEventListener("click", () => {
-//     ToggleCalendar(0);
-// });
-// CalendarBtns[1].addEventListener("click", () => {
-//     ToggleCalendar(1);
-// });
-for (i = 0; i < CalendarBtns.length; i++) {
+
+for (let i = 0; i < CalendarBtns.length; i++) {
     CalendarBtns[i].addEventListener("click", (e) => {
         let temp = e.target.getAttribute("class");
         let pos = temp.substring(4, temp.length - 1);
-        if (pos === "From")
-            ToggleCalendar(0);
-        else if (pos === "To")
-            ToggleCalendar(1);
+        setCalendarDefault();
+        if (!isShowCalendar) {
+            if (pos === "From")
+                ToggleCalendar(i);
+            else if (pos === "To")
+                ToggleCalendar(i);
+            isShowCalendar = true;
+            setCalendarDefault();
+        } else {
+            setCalendarDefault();
+        }
     });
 }
 
-
-
 function ToggleCalendar(i) {
-    CALENDAR[i].classList.toggle("hidden");
-    CALENDAR[i].classList.toggle("visible");
+
+    setTimeout(() => {
+        CALENDAR[i].classList.toggle("hidden");
+    }, 300);
+    setTimeout(() => {
+        CALENDAR[i].classList.toggle("visible");
+    }, 100);
+    CALENDAR[i].classList.toggle("Calendar-Appear-Animation");
+    CALENDAR[i].classList.toggle("Calendar-Disappear-Animation");
 }
 
-let date, month, year, Datecontainer;
+function setCalendarDefault() {
+    for (let i = 0; i < CALENDAR.length; i++) {
+        if (CALENDAR[i].classList.contains("visible")) {
+            ToggleCalendar(i);
+        }
+    }
+    isShowCalendar = false;
+};
+
+let date, month, year, Datecontainer, CalenderImg, linebreak;
 let day = [];
 createCalendar(0);
 createCalendar(1);
 
 function createCalendar(i) {
-
     //CREATE DATE CONTAINER
     Datecontainer = document.createElement("DIV");
     Datecontainer.setAttribute("class", "DateContainer");
 
+    //CREATE CALENDAR ICON
+    CalenderImg = document.createElement("img");
+    CalenderImg.src = 'res/CalenderIcon.png';
+    CalenderImg.width = 25;
+    CalenderImg.setAttribute("class", "CalenderImg");
+    CalendarBtns[i].appendChild(CalenderImg);
     //CREATE MONTH BUTTON
     month = document.createElement("BUTTON");
     month.setAttribute("class", "Monthbtn");
     console.log(new Date().getMonth);
     month.innerHTML = Months[parseInt(new Date().getMonth()) - 1] + " " + String(new Date().getFullYear());
+
+    linebreak = createLineBreak();
     CALENDAR[i].appendChild(month);
-    CALENDAR[i].appendChild(createLineBreak());
+    CALENDAR[i].appendChild(linebreak);
     //CREATE DATE 
-    for (j = 0; j < 7; j++) {
+    for (let j = 0; j < 7; j++) {
         date = document.createElement("BUTTON");
         date.setAttribute("class", "DateLabel");
         date.innerHTML = dates[j];
         Datecontainer.appendChild(date);
     }
     //CREATE DAY BUTTON FOR CALENDAR
-    for (j = 0; j < 42; j++) {
+    for (let j = 0; j < 42; j++) {
         day[j] = document.createElement("BUTTON");
+    }
+    let limit = +DayLimit(DateSelected[i].getMonth(), DateSelected[i].getYear());
+    for (let j = 0; j < 42; j++) {
         day[j].setAttribute("class", "Datebtn");
-        day[j].innerHTML = (j % 30) + 1;
+        day[j].innerHTML = (j % limit) + 1;
+        if (j >= limit) {
+            day[j].classList.add("Datebtn-overLimit");
+        }
         day[j].addEventListener("click", (e) => {
-            ToggleCalendar(i);
+            let tempCalendar = document.querySelectorAll(".Datebtn");
+            for (let k = 0; k < tempCalendar.length; k++) {
+                tempCalendar[k].classList.remove("Date-Selected");
+            }
             let value = e.target.innerText;
-            let dd = String(value).padStart(2, 0);
-            day[j].classList.add("Date-Selected");
-            CalendarBtns[i].innerHTML = dd;
+            DateSelected[i].setDay(value);
+            e.target.classList.add("Date-Selected");
+            if (e.target.classList.contains("Datebtn-overLimit")) {
+                let tempD = e.target;
+                let tempM = DateSelected[i].getMonth();
+                let tempY = DateSelected[i].getYear();
+                DateSelected[i].setMonth((+tempM % 12) + 1);
+                if (+tempM === 12) {
+                    DateSelected[i].setYear(+tempY + 1);
+                }
+                CALENDAR[i].removeChild(Datecontainer);
+                CALENDAR[i].removeChild(month);
+                CALENDAR[i].removeChild(linebreak);
+                createCalendar(i);
+            }
+            console.log({ DateSelected });
+            UpdateData();
         });
         Datecontainer.appendChild(day[j]);
     }
     CALENDAR[i].appendChild(Datecontainer);
-}
 
+}
 
 function createLineBreak() {
     let linebreak = document.createElement("HR");
     return linebreak;
 }
 
+function DayLimit(mm, yyyy) {
+    let isLeapYear = false,
+        daylimit;
+    if (yyyy % 400 === 0 || (yyyy % 4 === 0 && yyyy % 100 != 0)) {
+        isLeapYear = true;
+    }
+    switch (+mm) {
+        case 1:
+        case 3:
+        case 5:
+        case 7:
+        case 8:
+        case 10:
+        case 12:
+            daylimit = 31;
+            break;
+        case 2:
+            daylimit = 28 + (isLeapYear ? 1 : 0);
+            break;
+        case 4:
+        case 6:
+        case 8:
+        case 9:
+        case 11:
+            daylimit = 30;
+            break;
+    }
+    return daylimit;
+}
 
 
-//CUSTOM COMBO BOX, Not understand much sad
-var x, i, j, l, ll, selElmnt, a, b, c;
-let isClicked = 0;
-/*look for any elements with the class "custom-select":*/
-x = document.getElementsByClassName("custom-select");
-l = x.length;
-for (i = 0; i < l; i++) {
-    selElmnt = x[i].getElementsByTagName("select")[0];
-    ll = selElmnt.length;
-    /*for each element, create a new DIV that will act as the selected item:*/
-    a = document.createElement("DIV");
-    a.setAttribute("class", "select-selected");
-    a.innerHTML = selElmnt.options[selElmnt.selectedIndex].innerHTML;
-    x[i].appendChild(a);
-    /*for each element, create a new DIV that will contain the option list:*/
-    b = document.createElement("DIV");
-    b.setAttribute("class", "select-items select-hide");
-    for (j = 1; j < ll; j++) {
-        /*for each option in the original select element,
-        create a new DIV that will act as an option item:*/
-        c = document.createElement("DIV");
-        c.innerHTML = selElmnt.options[j].innerHTML;
-        c.addEventListener("click", function(e) {
-            /*when an item is clicked, update the original select box,
-            and the selected item:*/
-            var y, i, k, s, h, sl, yl;
-            s = this.parentNode.parentNode.getElementsByTagName("select")[0];
-            sl = s.length;
-            h = this.parentNode.previousSibling;
-            for (i = 0; i < sl; i++) {
-                if (s.options[i].innerHTML == this.innerHTML) {
-                    s.selectedIndex = i;
-                    h.innerHTML = this.innerHTML;
-                    y = this.parentNode.getElementsByClassName("same-as-selected");
-                    yl = y.length;
-                    for (k = 0; k < yl; k++) {
-                        y[k].removeAttribute("class");
-                    }
-                    this.setAttribute("class", "same-as-selected");
-                    break;
-                }
-            }
-            h.click();
+
+//CUSTOM COMBO BOX
+let comboBoxOption = document.querySelector(".custom-combo-box > select").querySelectorAll("option");
+let comboBoxContainer, selectItem, choiceContainer, choice, arrow;
+createComboBox();
+
+function createComboBox() {
+    document.querySelector(".custom-combo-box > select").classList.add("hidden");
+    comboBoxContainer = document.createElement("DIV");
+    comboBoxContainer.setAttribute("class", "combo-box");
+    // Creating p tag inside combobox
+    selectItem = document.createElement("p");
+    selectItem.setAttribute("class", "combo-box-label");
+    selectItem.innerText = comboBoxOption[0].innerText;
+    comboBoxContainer.appendChild(selectItem);
+    //Creating arrow inside select item
+    arrow = document.createElement("DIV");
+    arrow.setAttribute("class", "combo-box-arrow");
+    // Creating div class outsite combobox
+    choiceContainer = document.createElement("DIV");
+    choiceContainer.setAttribute("class", "choice-container");
+    choiceContainer.classList.add("hidden");
+    choiceContainer.classList.add("Calendar-Disappear-Animation");
+    for (let i = 0; i < comboBoxOption.length; i++) {
+        choice = document.createElement("DIV");
+        choice.setAttribute("class", "choice");
+        choice.innerText = comboBoxOption[i].innerText;
+        choice.addEventListener("click", (e) => {
+
+            let value = e.target.innerText;
+            selectItem.innerText = value;
+            ToggleComboBox();
         });
-        b.appendChild(c);
+        choiceContainer.appendChild(choice);
     }
-    x[i].appendChild(b);
-    a.addEventListener("click", function(e) {
-        /*when the select box is clicked, close any other select boxes,
-        and open/close the current select box:*/
-        e.stopPropagation();
-        closeAllSelect(this);
-        this.nextSibling.classList.toggle("select-hide");
-        this.classList.toggle("select-arrow-active");
+    comboBoxContainer.addEventListener("click", () => {
+        choice = document.querySelectorAll(".choice");
     });
-}
+    Container.appendChild(comboBoxContainer);
+    Container.appendChild(choiceContainer);
+    comboBoxContainer.appendChild(arrow);
 
-function closeAllSelect(elmnt) {
-    console.log(document.getElementsByTagName("select")[0].selectedIndex);
-    /*a function that will close all select boxes in the document,
-    except the current select box:*/
-    var x, y, i, xl, yl, arrNo = [];
-    x = document.getElementsByClassName("select-items");
-    y = document.getElementsByClassName("select-selected");
-    xl = x.length;
-    yl = y.length;
-    for (i = 0; i < yl; i++) {
-        if (elmnt == y[i]) {
-            arrNo.push(i)
-        } else {
-            y[i].classList.remove("select-arrow-active");
-        }
-    }
-    for (i = 0; i < xl; i++) {
-        if (arrNo.indexOf(i)) {
-            x[i].classList.add("select-hide");
-        }
-    }
 }
-/*if the user clicks anywhere outside the select box,
-then close all select boxes:*/
-document.addEventListener("click", closeAllSelect);
+comboBoxContainer.addEventListener("click", ToggleComboBox);
+
+function ToggleComboBox() {
+    setTimeout(() => {
+        choiceContainer.classList.toggle("hidden");
+    }, 200);
+    setTimeout(() => {
+        choiceContainer.classList.toggle("visible");
+    }, 100);
+    choiceContainer.classList.toggle("Calendar-Appear-Animation");
+    choiceContainer.classList.toggle("Calendar-Disappear-Animation");
+    arrow.classList.toggle("combo-box-arrow");
+    arrow.classList.toggle("combo-box-arrow-selecting");
+};
+document.onmousedown = (e) => {};
+
+function UpdateData() {
+    for (let i = 0; i < CalendarBtns.length; i++) {
+        CalendarBtns[i].innerText = DateSelected[i].getDateFormat();
+        month.innerText = Months[+DateSelected[i].getMonth() - 1] + " " + DateSelected[i].getYear();
+    }
+};
+
 //MENU FUNCTIONALITY
 //DEFAULT MODE: Date
+
 setDefaultMode();
 
 MenuIcon.addEventListener("mouseenter", () => {

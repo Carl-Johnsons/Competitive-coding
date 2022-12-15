@@ -67,7 +67,13 @@ body {
     top: 20%;
     left: 8%;
     color: white;
+    margin-top: 1%;
     margin-bottom: 1%;
+}
+
+.Result {
+    margin-top: 2%;
+    font-size: 250%;
 }
 
 .btn {

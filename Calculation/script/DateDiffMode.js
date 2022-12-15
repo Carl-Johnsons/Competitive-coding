@@ -2,53 +2,58 @@ import CustomDay from "./CustomDay.js"
 export default class DateDiffMode {
 
     constructor() {
+        const cssFile = document.createElement("link");
+        cssFile.rel = "stylesheet";
+        cssFile.href = "style/DateDiffMode.css";
+        document.head.appendChild(cssFile);
         this.init();
     }
     init() {
         const dates = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         const Months = ["January", "Febuary", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-        let Container = document.querySelector(".container");
-        if (Container === undefined) {
-            Container = document.createElement("Div");
-            Container.setAttribute("class", "container");
+        this.Container = document.querySelector(".container");
+        if (this.Container === undefined) {
+            this.Container = document.createElement("Div");
+            this.Container.setAttribute("class", "container");
+            document.body.appendChild(this.Container);
         }
-        let btnFromLabel = document.createElement("Div");
-        btnFromLabel.setAttribute("class", "Label");
-        btnFromLabel.innerText = "From";
-        let btnFrom = document.createElement("button");
-        btnFrom.setAttribute("class", "btn From");
-        let btnToLabel = document.createElement("Div");
-        btnToLabel.setAttribute("class", "Label");
-        btnToLabel.innerText = "To";
-        let btnTo = document.createElement("button");
-        btnTo.setAttribute("class", "btn To");
-        let DiffLabel = document.createElement("Div");
-        DiffLabel.setAttribute("class", "Label");
-        DiffLabel.innerText = "Difference";
-        let ResultLabel = document.createElement("Div");
-        ResultLabel.setAttribute("class", "Label");
-        ResultLabel.classList.add("Result");
-        ResultLabel.innerText = "Same Dates";
-        let ResultInDayLabel = document.createElement("Div");
-        ResultInDayLabel.setAttribute("class", "Label");
-        ResultInDayLabel.classList.add("ResultInDay");
-        ResultInDayLabel.innerText = "lol";
-        let FirstCalendar = document.createElement("Div");
-        FirstCalendar.setAttribute("class", "Calendar Calendar-Disappear-Animation hidden From");
-        FirstCalendar.setAttribute("id", "_1");
-        let SecondCalendar = document.createElement("Div");
-        SecondCalendar.setAttribute("class", "Calendar Calendar-Disappear-Animation hidden To");
-        SecondCalendar.setAttribute("id", "_2");
+        this.btnFromLabel = document.createElement("Div");
+        this.btnFromLabel.setAttribute("class", "Label");
+        this.btnFromLabel.innerText = "From";
+        this.btnFrom = document.createElement("button");
+        this.btnFrom.setAttribute("class", "btn From");
+        this.btnToLabel = document.createElement("Div");
+        this.btnToLabel.setAttribute("class", "Label");
+        this.btnToLabel.innerText = "To";
+        this.btnTo = document.createElement("button");
+        this.btnTo.setAttribute("class", "btn To");
+        this.DiffLabel = document.createElement("Div");
+        this.DiffLabel.setAttribute("class", "Label");
+        this.DiffLabel.innerText = "Difference";
+        this.ResultLabel = document.createElement("Div");
+        this.ResultLabel.setAttribute("class", "Label");
+        this.ResultLabel.classList.add("Result");
+        this.ResultLabel.innerText = "Same Dates";
+        this.ResultInDayLabel = document.createElement("Div");
+        this.ResultInDayLabel.setAttribute("class", "Label");
+        this.ResultInDayLabel.classList.add("ResultInDay");
+        this.ResultInDayLabel.innerText = "lol";
+        this.FirstCalendar = document.createElement("Div");
+        this.FirstCalendar.setAttribute("class", "Calendar Calendar-Disappear-Animation hidden From");
+        this.FirstCalendar.setAttribute("id", "_1");
+        this.SecondCalendar = document.createElement("Div");
+        this.SecondCalendar.setAttribute("class", "Calendar Calendar-Disappear-Animation hidden To");
+        this.SecondCalendar.setAttribute("id", "_2");
         //              CONTAINER ADD ELEMENT
-        Container.appendChild(btnFromLabel);
-        Container.appendChild(btnFrom);
-        Container.appendChild(btnToLabel);
-        Container.appendChild(btnTo);
-        Container.appendChild(DiffLabel);
-        Container.appendChild(ResultLabel);
-        Container.appendChild(ResultInDayLabel);
-        Container.appendChild(FirstCalendar);
-        Container.appendChild(SecondCalendar);
+        this.Container.appendChild(this.btnFromLabel);
+        this.Container.appendChild(this.btnFrom);
+        this.Container.appendChild(this.btnToLabel);
+        this.Container.appendChild(this.btnTo);
+        this.Container.appendChild(this.DiffLabel);
+        this.Container.appendChild(this.ResultLabel);
+        this.Container.appendChild(this.ResultInDayLabel);
+        this.Container.appendChild(this.FirstCalendar);
+        this.Container.appendChild(this.SecondCalendar);
 
         let CalendarBtns = document.querySelectorAll(".btn");
         let CALENDAR = document.querySelectorAll(".Calendar");
@@ -228,8 +233,8 @@ export default class DateDiffMode {
     }
 
     destroyDateDiffMode() {
-        this.Container.removeChild(this.btnFromLabel);
         this.Container.removeChild(this.btnFrom);
+        this.Container.removeChild(this.btnFromLabel);
         this.Container.removeChild(this.btnToLabel);
         this.Container.removeChild(this.btnTo);
         this.Container.removeChild(this.DiffLabel);

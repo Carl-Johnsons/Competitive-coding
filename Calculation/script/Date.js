@@ -1,6 +1,6 @@
-import CustomComboBox from "./ComboBox.js";
-import DateDiffMode from "./DateDiffMode.js";
 import test from "./test.js";
+import DateDiffMode from "./DateMode/DateDiffMode.js";
+import CustomComboBox from "./ComboBox";
 
 // MENU FUNCTIONALITY
 let MenuList = document.querySelector(".MenuList");
@@ -13,9 +13,7 @@ const Container = document.querySelector(".container");
 let Diff = new DateDiffMode();
 // Diff.destroy();
 //CUSTOM COMBO BOX
-let t = new test();
 const combobox = new CustomComboBox();
-combobox.destroy();
 
 //MENU FUNCTIONALITY
 //DEFAULT MODE: Date

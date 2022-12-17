@@ -232,7 +232,7 @@ export default class DateDiffMode {
         };
     }
 
-    destroyDateDiffMode() {
+    destroy() {
         this.Container.removeChild(this.btnFrom);
         this.Container.removeChild(this.btnFromLabel);
         this.Container.removeChild(this.btnToLabel);

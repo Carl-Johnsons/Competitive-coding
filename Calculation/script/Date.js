@@ -1,5 +1,6 @@
 import CustomComboBox from "./ComboBox.js";
 import DateDiffMode from "./DateDiffMode.js";
+import test from "./test.js";
 
 // MENU FUNCTIONALITY
 let MenuList = document.querySelector(".MenuList");
@@ -10,7 +11,9 @@ MenuList.classList.add("MenuListMoveOut");
 // DATE FUNCTIONALITY
 const Container = document.querySelector(".container");
 let Diff = new DateDiffMode();
+// Diff.destroy();
 //CUSTOM COMBO BOX
+let t = new test();
 const combobox = new CustomComboBox();
 combobox.destroy();
 

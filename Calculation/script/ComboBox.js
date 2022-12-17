@@ -1,11 +1,9 @@
 export default class CustomComboBox {
-
     constructor() {
         const cssFile = document.createElement("link");
         cssFile.rel = "stylesheet";
         cssFile.href = "style/ComboBox.css";
         document.head.appendChild(cssFile);
-        this.name = "lol"; // lol :)?  
         this.createComboBox();
     }
 
@@ -13,58 +11,53 @@ export default class CustomComboBox {
         this.Container = document.querySelector(".container");
         this.comboBoxOption = document.querySelector(".custom-combo-box > select").querySelectorAll("option");
         document.querySelector(".custom-combo-box > select").classList.add("hidden");
-        this.comboBoxContainer = document.createElement("DIV");
-        this.comboBoxContainer.setAttribute("class", "combo-box");
+
+        // Fix Undefined value => local variable declaration
+        let comboBoxContainer, selectItem, arrow, choiceContainer, choice;
+        comboBoxContainer = document.createElement("DIV");
+        comboBoxContainer.setAttribute("class", "combo-box");
         // Creating p tag inside combobox
-        this.selectItem = document.createElement("p");
-        this.selectItem.setAttribute("class", "combo-box-label");
-        this.selectItem.innerText = this.comboBoxOption[0].innerText;
-        this.comboBoxContainer.appendChild(this.selectItem);
+        selectItem = document.createElement("p");
+        selectItem.setAttribute("class", "combo-box-label");
+        selectItem.innerText = this.comboBoxOption[0].innerText;
+        comboBoxContainer.appendChild(selectItem);
         //Creating arrow inside select item
-        this.arrow = document.createElement("DIV");
-        this.arrow.setAttribute("class", "combo-box-arrow");
+        arrow = document.createElement("DIV");
+        arrow.setAttribute("class", "combo-box-arrow");
         // Creating div class outsite combobox
-        this.choiceContainer = document.createElement("DIV");
-        this.choiceContainer.setAttribute("class", "choice-container");
-        this.choiceContainer.classList.add("hidden");
-        this.choiceContainer.classList.add("Disappear-Animation");
+        choiceContainer = document.createElement("DIV");
+        choiceContainer.setAttribute("class", "choice-container");
+        choiceContainer.classList.add("hidden");
+        choiceContainer.classList.add("Disappear-Animation");
         for (let i = 0; i < this.comboBoxOption.length; i++) {
-            this.choice = document.createElement("DIV");
-            this.choice.setAttribute("class", "choice");
-            this.choice.innerText = this.comboBoxOption[i].innerText;
-            this.choice.addEventListener("click", (e) => {
+            choice = document.createElement("DIV");
+            choice.setAttribute("class", "choice");
+            choice.innerText = this.comboBoxOption[i].innerText;
+            choice.addEventListener("click", (e) => {
                 let value = e.target.innerText;
-                this.selectItem.innerText = value;
-                this.ToggleComboBox();
+                selectItem.innerText = value;
+                ToggleComboBox();
 
             });
-            this.choiceContainer.appendChild(this.choice);
+            choiceContainer.appendChild(choice);
         }
-        this.comboBoxContainer.addEventListener("click", () => {
-            this.choice = document.querySelectorAll(".choice");
-        });
-        this.Container.appendChild(this.comboBoxContainer);
-        this.Container.appendChild(this.choiceContainer);
-        this.comboBoxContainer.appendChild(this.arrow);
-        this.comboBoxContainer.addEventListener("click", this.ToggleComboBox);
+        this.Container.appendChild(comboBoxContainer);
+        this.Container.appendChild(choiceContainer);
+        comboBoxContainer.appendChild(arrow);
+        comboBoxContainer.addEventListener("click", ToggleComboBox);
 
-        console.log(this.choiceContainer); // Ra class
+        function ToggleComboBox() {
+            setTimeout(() => {
+                choiceContainer.classList.toggle("hidden");
+            }, 200);
+            setTimeout(() => {
+                choiceContainer.classList.toggle("visible");
+            }, 100);
+            choiceContainer.classList.toggle("Appear-Animation");
+            choiceContainer.classList.toggle("Disappear-Animation");
+            arrow.classList.toggle("combo-box-arrow");
+            arrow.classList.toggle("combo-box-arrow-selecting");
+        };
     }
-    ToggleComboBox() {
-        console.log(this.name); // ?? djt me thang nay cung undefined
-        console.log(this.choiceContainer); // undefined
-        console.log(this.Container);
-        console.log(this.comboBoxContainer);
-        setTimeout(() => {
-            this.choiceContainer.classList.toggle("hidden");
-        }, 200);
-        setTimeout(() => {
-            this.choiceContainer.classList.toggle("visible");
-        }, 100);
-        this.choiceContainer.classList.toggle("Appear-Animation");
-        this.choiceContainer.classList.toggle("Disappear-Animation");
-        this.arrow.classList.toggle("combo-box-arrow");
-        this.arrow.classList.toggle("combo-box-arrow-selecting");
-    };
     destroy() {}
 }

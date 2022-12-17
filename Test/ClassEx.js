@@ -19,6 +19,9 @@ export default class ClassEx {
     eventclicked() {
         if (this.loc === undefined)
             this.loc = "Im a local variable";
+        if (this.context === undefined) {
+            this.context = "Im not a global varible :(";
+        }
         console.log("I make it through the function");
         console.log("this.context = " + this.context);
         console.log("this.loc = " + this.loc);

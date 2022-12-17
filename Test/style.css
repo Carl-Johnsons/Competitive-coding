@@ -1,0 +1,15 @@
+.container {
+    position: absolute;
+    width: 10%;
+    height: 10%;
+    border: 1px solid black;
+    left: 45%;
+    top: 40%;
+}
+
+button {
+    position: absolute;
+    width: 10%;
+    left: 45%;
+    top: 30%;
+}

@@ -1,6 +1,7 @@
-import test from "./test.js";
 import DateDiffMode from "./DateMode/DateDiffMode.js";
-import CustomComboBox from "./ComboBox";
+import CustomComboBox from "./ComboBox.js";
+import ConvertDateMode from "./DateMode/ConvertDateMode.js";
+import AddSubMode from "./DateMode/AddSubMode.js";
 
 // MENU FUNCTIONALITY
 let MenuList = document.querySelector(".MenuList");
@@ -9,11 +10,50 @@ let Menubtns = document.querySelectorAll(".Menubtn");
 MenuList.classList.add("MenuListMoveOut");
 
 // DATE FUNCTIONALITY
+const MODE = ["Difference between dates", "Add or subtract days", "Convert Days to Full Year"];
+let currentMode = MODE[0];
 const Container = document.querySelector(".container");
 let Diff = new DateDiffMode();
-// Diff.destroy();
-//CUSTOM COMBO BOX
-const combobox = new CustomComboBox();
+let AddSub = new AddSubMode();
+let Convert = new ConvertDateMode();
+let combobox = new CustomComboBox();
+//Initial mode
+Diff.init();
+
+document.addEventListener("click", (e) => {
+    if (combobox.getSelectItem() !== currentMode)
+        check();
+});
+
+
+function check() {
+    DestroyAll();
+    console.log(combobox.getSelectItem());
+    switch (combobox.getSelectItem()) {
+        case "Difference between dates":
+            Diff.init();
+            break;
+        case "Add or subtract days":
+            AddSub.init();
+            break;
+        case "Convert Days to Full Year":
+            Convert.init();
+            break;
+    }
+    currentMode = combobox.getSelectItem();
+}
+
+
+function DestroyAll() {
+    if (Diff.isExited)
+        Diff.destroy();
+    if (AddSub.isExited)
+        AddSub.destroy();
+    if (Convert.isExited)
+        Convert.destroy();
+}
+
+
 
 //MENU FUNCTIONALITY
 //DEFAULT MODE: Date

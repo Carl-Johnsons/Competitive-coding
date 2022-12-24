@@ -62,6 +62,7 @@ body {
     height: 10%;
     background-color: rgb(255, 183, 48);
     border-radius: 10px;
+    cursor: pointer;
 }
 
 .combo-box-label {

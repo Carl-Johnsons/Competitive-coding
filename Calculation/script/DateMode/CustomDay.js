@@ -9,11 +9,11 @@ export default class CustomDay extends Date {
 
     DateSum(date1, date2) {
         this.res = date1 + date2;
-        return this.MiliToDay(this.res);
+        return this.res;
     }
     DateDiff(date1, date2) {
         this.res = Math.abs(date1 - date2);
-        return this.MiliToDay(this.res);
+        return this.res;
     }
     getResult() {
         return this.res;
@@ -25,8 +25,9 @@ export default class CustomDay extends Date {
     MiliToDay(value) {
         return value / 1000 / 60 / 60 / 24;
     }
-    DaysToFullYear(value) {
-        value = this.MiliToDay(value);
+    DaysToFullYear(value, mode) {
+        if (mode === 0)
+            value = this.MiliToDay(value);
         let y = 0,
             m = 0,
             w = 0,

@@ -1,0 +1,123 @@
+body {
+    --initial-left: 14%;
+    --initial-width: 35%;
+    --modeBtn-width: 10%;
+    --modeBtn-_1-left: 5%;
+    --modeBtn-_2-left: calc( 5% + var(--modeBtn-width)*1.2);
+    --modeBtn-_3-left: calc( 5% + var(--modeBtn-width)*5);
+    --modeBtn-_4-left: calc( 5% + var(--modeBtn-width)*6.2);
+}
+
+.container {
+    position: absolute;
+    width: 35%;
+    height: 50%;
+    border: 2px solid black;
+    font-size: 200%;
+}
+
+.Mode {
+    position: absolute;
+    left: var(--initial-left);
+    height: 5%;
+    width: calc(var(--initial-width) * 2 + 4.15%);
+    top: 24.8%;
+    border-bottom: 1px solid rgba(99, 99, 99, 0.3);
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+}
+
+.LineAnim#line1 {
+    position: absolute;
+    top: 100%;
+    width: 10%;
+    height: 2.5%;
+    background-color: blue;
+    transition: all .2s ease-in-out;
+}
+
+.LineAnim#line2 {
+    position: absolute;
+    top: 100%;
+    width: 10%;
+    height: 2.5%;
+    background-color: blue;
+    transition: all .2s ease-in-out;
+}
+
+#_1 {
+    position: absolute;
+    left: var(--initial-left);
+    top: 30%;
+    border-top: 1px solid rgba(99, 99, 99, 0.3);
+    border-right: 1px solid rgba(99, 99, 99, 0.3);
+    border-bottom-left-radius: 20px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#_2 {
+    position: absolute;
+    left: calc( var(--initial-left) +var(--initial-width) + 2.21%);
+    top: 30%;
+    border-top: 1px solid rgba(99, 99, 99, 0.3);
+    border-left: 1px solid rgba(99, 99, 99, 0.3);
+    border-bottom-right-radius: 20px;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+p {
+    outline: none;
+    height: 90%;
+    overflow: auto;
+}
+
+.Modebtn {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: large;
+    font-weight: bold;
+    cursor: pointer;
+    width: var(--modeBtn-width);
+    border: transparent;
+    background: white;
+    height: 80%;
+}
+
+.Modebtn:hover {
+    background: rgb(234, 234, 234);
+}
+
+.Modebtn#__1 {
+    left: var(--modeBtn-_1-left);
+}
+
+.Modebtn#__2 {
+    left: var(--modeBtn-_2-left);
+}
+
+.Modebtn#__3 {
+    left: var(--modeBtn-_3-left);
+}
+
+.Modebtn#__4 {
+    left: var(--modeBtn-_4-left);
+}
+
+.changeMode_1 {
+    left: var(--modeBtn-_2-left);
+}
+
+.changeMode_2 {
+    left: var(--modeBtn-_3-left);
+}
+
+.changeBack_1 {
+    left: var(--modeBtn-_1-left);
+}
+
+.changeBack_2 {
+    left: var(--modeBtn-_4-left);
+}

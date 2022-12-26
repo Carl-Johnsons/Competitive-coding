@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/Prog.css">
+    <title>For Programer</title>
+    <section class="Menu">
+        <div class="MenuList">
+            <div class="MenuType">Calculator</div>
+
+            <a href="index.html">
+                <button class="Menubtn Standard">Standard</button>
+            </a>
+
+            <!-- FEATURE UNSUPPORTED -->
+            <a href="Scientific.html">
+                <button class="Menubtn Scientific">Scientific</button>
+            </a>
+            <!-- FEATURE UNSUPPORTED -->
+            <a href="Prog.html">
+                <button class="Menubtn Programer">Programer</button>
+            </a>
+            <!-- WORKING WITH -->
+            <a href="DateCalc.html">
+                <button class="Menubtn Date">Date calculation</button>
+            </a>
+            <div class="MenuType">Converter</div>
+            <!-- WORKING WITH -->
+            <a href="Currency.html">
+                <button class="Menubtn Currency">Currency</button>
+            </a>
+            <a href="Volume.html">
+                <button class="Menubtn Volume">Volume</button>
+            </a>
+            <a href="Length.html">
+                <button class="Menubtn Length">Length</button>
+            </a>
+            <a href="WeightAndMass.html">
+                <button class="Menubtn WeightAndMass">Weight and Mass</button>
+            </a>
+            <a href="Temperature.html">
+                <button class="Menubtn Temperature">Temperature</button>
+            </a>
+            <a href="Energy.html">
+                <button class="Menubtn Energy">Energy</button>
+            </a>
+            <a href="Area.html">
+                <button class="Menubtn Area">Area</button>
+            </a>
+            <a href="Speed.html">
+                <button class="Menubtn Speed">Speed</button>
+            </a>
+            <a href="Time.html">
+                <button class="Menubtn Time">Time</button>
+            </a>
+            <a href="Power.html">
+                <button class="Menubtn Power">Power</button>
+            </a>
+            <a href="Data.html">
+                <button class="Menubtn Data">Data</button>
+            </a>
+            <a href="Energy.html">
+                <button class="Menubtn Energy">Energy</button>
+            </a>
+            <a href="Pressure.html">
+                <button class="Menubtn Pressure">Pressure</button>
+            </a>
+            <a href="Angle.html">
+                <button class="Menubtn Angle">Angle</button>
+            </a>
+        </div>
+        <button class="MenuIcon">
+            <img  src="res/MenuIcon.png" width="50px" height="50px">
+        </button>
+    </section>
+</head>
+
+<body>
+    <button class="Tur-btn-showHint"></button>
+    <section class="tips">
+        <p class="Tutorial">
+            <button class="Turtial-close"><img class="CloseImg" src="res/CloseIcon.png" ></button>
+            <strong style="font-weight: bolder; font-size: larger;"> Tired of Clicking? </strong>
+            <br>
+            <br>
+            <br>
+            <strong> For Changing Mode:</strong>
+            <br>
+            <br>
+            <ul>
+                <li> Alt + H: <span style="color: rgb(216, 95, 95);"> Hex </span> Mode</li>
+                <li> Alt + D: <span style="color: rgb(239, 159, 67);"> Dec </span> Mode</li>
+                <li> Alt + O: <span style="color: rgb(242, 206, 64);"> Oct </span> Mode</li>
+                <li> Alt + B: <span style="color: rgb(226, 244, 90);"> Bin </span> Mode</li>
+            </ul>
+        </p>
+    </section>
+    <section class="container">
+        <div class="NumberContainer">
+            <p id="textNumber">0</p>
+            <p id="saveNumber"></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelHex"><strong>HEX</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelDec"><strong>DEC</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelOct"><strong>OCT</strong></p>
+            <p class="ModeBtnLabel" id="ModeBtnLabelBin"><strong>BIN</strong></p>
+            <button class="ModeBtn HEXbtn " value="HEX"><strong>0</strong></button>
+            <button class="ModeBtn DECbtn" value="DEC"><strong>0</strong></button>
+            <button class="ModeBtn OCTbtn" value="OCT"><strong>0</strong></button>
+            <button class="ModeBtn BINbtn" value="BIN"><strong>0</strong></button>
+        </div>
+        <button class="btn number HEX">A</button>
+        <button class="btn op NotSupported">&lt;&lt;</button>
+        <button class="btn op NotSupported">&gt;&gt;</button>
+        <button class="btn op clear">CE</button>
+        <button class="btn op delete">del</button>
+        <br>
+        <button class="btn number HEX">B</button>
+        <button class="btn op NotSupported">(</button>
+        <button class="btn op NotSupported">)</button>
+        <button class="btn op mod">%</button>
+        <button class="btn op div">/</button>
+        <br>
+        <button class="btn number HEX">C</button>
+        <button class="btn number OCT DEC HEX">7</button>
+        <button class="btn number DEC HEX">8</button>
+        <button class="btn number DEC HEX">9</button>
+        <button class="btn op mul">x</button>
+        <br>
+        <button class="btn number HEX">D</button>
+        <button class="btn number OCT DEC HEX">4</button>
+        <button class="btn number OCT DEC HEX">5</button>
+        <button class="btn number OCT DEC HEX">6</button>
+        <button class="btn op sub">-</button>
+        <br>
+        <button class="btn number HEX">E</button>
+        <button class="btn number BIN OCT DEC HEX">1</button>
+        <button class="btn number OCT DEC HEX">2</button>
+        <button class="btn number OCT DEC HEX">3</button>
+        <button class="btn op add">+</button>
+        <br>
+        <button class="btn number HEX">F</button>
+        <button class="btn op NotSupported">+/-</button>
+        <button class="btn number BIN DEC OCT HEX">0</button>
+        <button class="btn op NotSupported">.</button>
+        <button class="btn equal">=</button>
+        <br>
+    </section>
+</body>
+<script src="script/Prog.js "></script>
+
+</html>

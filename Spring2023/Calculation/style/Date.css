@@ -1,0 +1,274 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+body {
+    background-color: black;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+    position: absolute;
+    left: 25%;
+    top: 15%;
+    width: 50%;
+    height: 70%;
+    border-radius: 5%;
+    border: 3px solid rgba(215, 168, 49, 0.651);
+}
+
+.moveUp {
+    position: relative;
+    top: 100%;
+    animation: moveUp 100ms ease-in-out forwards;
+}
+
+.smaller {
+    animation: smaller 100ms ease-in-out forwards;
+}
+
+.shake {
+    animation: shake 200ms ease-in-out;
+}
+
+.delayAC {
+    animation: delayAC 1s ease-in-out forwards;
+}
+
+@keyframes moveUp {
+    0% {
+        translate: 0% 100%;
+        font-size: 20px;
+    }
+    100% {
+        translate: 0% -20%;
+        font-size: 40px;
+    }
+}
+
+@keyframes smaller {
+    0% {
+        translate: 0% 50%;
+        font-size: 40px;
+        color: white;
+    }
+    100% {
+        translate: 0% -25%;
+        color: gray;
+        font-size: 20px;
+    }
+}
+
+@keyframes shake {
+    0% {
+        transform: translate(1px, 1px) rotate(0deg);
+    }
+    10% {
+        transform: translate(-1px, -2px) rotate(-1deg);
+    }
+    30% {
+        transform: translate(3px, 2px) rotate(0deg);
+    }
+    50% {
+        transform: translate(-1px, 2px) rotate(-1deg);
+    }
+    70% {
+        transform: translate(3px, 1px) rotate(-1deg);
+    }
+    90% {
+        transform: translate(1px, 2px) rotate(0deg);
+    }
+    100% {
+        transform: translate(1px, -2px) rotate(-1deg);
+    }
+}
+
+@keyframes delayAC {
+    10% {
+        background-color: rgb(255, 115, 0);
+    }
+    20% {
+        background-color: gray;
+    }
+    30% {
+        background-color: rgb(255, 115, 0);
+    }
+    40% {
+        background-color: gray;
+    }
+    50% {
+        background-color: rgb(255, 115, 0);
+    }
+    60% {
+        background-color: gray;
+    }
+    70% {
+        background-color: rgb(255, 115, 0);
+    }
+    80% {
+        background-color: gray;
+    }
+    100% {
+        background-color: rgb(255, 115, 0);
+    }
+}
+
+
+/* MENU */
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+
+/* Custome ScrollBar */
+
+
+/* width */
+
+::-webkit-scrollbar {
+    width: 5px;
+}
+
+
+/* Track */
+
+ ::-webkit-scrollbar-track {
+    background: #000000;
+}
+
+
+/* Handle */
+
+ ::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+
+/* Handle on hover */
+
+ ::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+.MenuType {
+    position: relative;
+    text-align: center;
+    top: 12.5%;
+    width: 100%;
+    height: 5%;
+    color: rgb(219, 154, 23);
+    font-size: large;
+    font-weight: bolder;
+    font-size: 150%;
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 5%;
+}
+
+.MenuIcon {
+    position: absolute;
+    left: 1%;
+    top: 1%;
+    width: 50px;
+    height: 50px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+.MenuIcon :hover {
+    animation: MenuIconAnim 1s ease-in-out forwards;
+}
+
+.MenuList {
+    position: absolute;
+    left: -20%;
+    width: 15%;
+    height: 100%;
+    background-color: black;
+    border: 3px solid orange;
+    border-radius: 10px;
+    opacity: 1;
+    overflow-y: scroll;
+}
+
+.MenuListMoveIn {
+    animation: MenuListMoveIn 300ms ease-in forwards;
+}
+
+.Menubtn {
+    position: relative;
+    top: 12.5%;
+    width: 100%;
+    height: 5%;
+    color: white;
+    font-size: large;
+    font-weight: bolder;
+    font-size: 125%;
+    background-color: transparent;
+    border: transparent;
+    margin-bottom: 5%;
+}
+
+.Menubtn:hover {
+    background-color: rgba(255, 255, 255, 0.094);
+    animation: MenuButtonAnim 300ms ease-in-out forwards;
+}
+
+.Menubtn:active {
+    background-color: rgba(255, 255, 255, 0.37);
+    animation: MenuButtonAnim 300ms ease-in-out forwards;
+}
+
+.MenuListMoveOut {
+    animation: MenuListMoveOut 300ms ease-in forwards;
+}
+
+@keyframes MenuIconAnim {
+    33% {
+        transform: rotate(360deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes MenuListMoveIn {
+    0% {
+        transform: translateX(0%);
+    }
+    100% {
+        transform: translateX(125%);
+    }
+}
+
+@keyframes MenuListMoveOut {
+    0% {
+        transform: translateX(125%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes MenuButtonAnim {
+    100% {
+        border-bottom: 1px solid orange;
+    }
+}
+
+.MenuListStayActive {
+    animation: MenuListStayActive 200ms ease-in-out forwards;
+}
+
+@keyframes MenuListStayActive {
+    100% {
+        background-color: gray;
+        color: black;
+    }
+}

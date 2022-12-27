@@ -31,7 +31,7 @@ inu
 con cua (crab)
 kani
 cá (Fish)
-Sakana
+sakana
 cát (Sand)
 suna
 quỷ (demon)
@@ -54,3 +54,119 @@ cai bụng (navel)
 heso
 ngôi sao (star)
 hoshi
+mẹ (mother)
+mama
+lễ hội (festival)
+matsuri
+lỗ tai (ear)
+mimi
+quýt (mandarin orange)
+mikan
+bọ (incest or bug)
+mushi
+ngôi làng(village)
+mura
+màu đỏ (Red)
+aka
+màu vàng (yellow)
+kiiro
+màu xanh lá (Green)
+midori
+màu xanh dương (blue)
+ao
+màu tím (purple)
+murasaki
+màu nâu (Brown)
+chairo
+màu trắng (white)
+shiro
+màu đen (black)
+kuro
+con gái (female)
+mesu
+ghi chú (memo)
+memo
+bánh gạo (rice cake)
+mochi
+trái đào (peach)
+momo
+giá đỗ (bean sprouts)
+moyashi
+núi (mountain)
+yama
+rau củ (vegetable)
+vegetable
+mái nhà (roof)
+yane
+bóng chày (baseball)
+yakyuu
+tuyết (snow)
+yuki
+sàn nhà (floor)
+yuka
+áo yukata
+yukata
+ban đêm (night)
+yoru
+ban ngày (day)
+nicchi
+đọc (read)
+yomu
+con sư tử (lion)
+raion
+con sóc (squirrel)
+risu
+quả chanh (lemon)
+remon
+củ sen (lotus root)
+renkon
+hành lang (corridor)
+rouka
+ngọn nến (candle)
+rousoku
+cá sấu (crocodile)
+wani
+đạii bàng (eagle)
+washi
+rong biển (seaweed)
+wakame
+cô-tông (cotton)
+wata
+dây sợi (straw)
+wara
+rửa bàn tay (wash hand)
+te o arau
+rửa mắt (wash eyes)
+me o arau
+rửa (wash or clean)
+arau
+leo núi (climb the mountain)
+yama o noburu
+leo dốc (climb the hill/slope)
+saka o noburu
+cuốn sách (book)
+Hon
+cái này (this)
+kore
+mọi người (everyone)
+minna
+1
+ichi
+2
+ni
+3
+san
+4
+yon or shi
+5
+go
+6
+roku
+7
+nana or shichi
+8
+hachi
+9
+kyu or ku
+10
+jū

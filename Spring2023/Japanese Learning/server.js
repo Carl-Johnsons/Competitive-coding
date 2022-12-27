@@ -13,14 +13,12 @@ let result = "";
 let translation = "";
 for (let i = 0; i < VietnameseSrc.length; i++) {
     coverter[i] = new Language("Viet-Jap", VietnameseSrc[i], JapaneseSrc[i]);
-    // console.log(`${i} | ` + coverter[i].Romanji + " | " + coverter[i].Hiragana);
 }
 //Get all file to code in public folder
 app.use(express.static('public'));
 app.use(express.json())
 
 app.get('/result', (req, res) => {
-    // res.sendFile(__dirname + '/result.html');
     res.status(200).json({
         result: translation,
         VieSrc: VietnameseSrc,
@@ -33,13 +31,8 @@ app.post('/', (req, res) => {
     if (!search) {
         return res.status(400).send({ status: "failed" })
     } else {
-        result = coverter.findIndex((l) => l.Romanji === (search.search.trim().toLowerCase()))
-        if (result === -1) {
-            translation = search.search
-        } else {
-            translation = coverter[result].Vietnamese + "\n" + coverter[result].Hiragana;
-        }
-        console.log({ result: result });
+        translation = handleSearch(search.search);
+
         return res.status(200).send({ status: "ok" })
     }
 })
@@ -49,3 +42,14 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on ${port}`);
 });
+
+
+function handleSearch(value) {
+    result = coverter.findIndex((l) => l.Romanji.toLowerCase() === (value.trim().toLowerCase()))
+    if (result === -1) {
+        translation = value
+    } else {
+        translation = coverter[result].Vietnamese + "\n" + coverter[result].Hiragana;
+    }
+    return translation;
+}

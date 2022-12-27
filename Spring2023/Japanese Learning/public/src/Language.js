@@ -21,7 +21,7 @@
              "ma", "mi", "mu", "me", "mo",
              "ya", "yu", "yo",
              "ra", "ri", "ru", "re", "ro",
-             "wa", "o",
+             "wa", "wo",
              "n"
          ];
          this.language = language;
@@ -33,13 +33,12 @@
      covertRoToHi(Romanji) {
          Romanji = Romanji.trim().toLowerCase();
          let translation = "",
-             temp;
+             temp, index;
          let start_i = 0;
-         let end_i = 1;
-         for (let i = 0; i < Romanji.length; i++) {
+         for (let end_i = 1; end_i <= Romanji.length; end_i++) {
              temp = Romanji.substring(start_i, end_i);
-             temp = this.RomanjiCharacter.findIndex((e) => { return e === temp });
-             if (temp === 45) {
+             index = this.RomanjiCharacter.findIndex((e) => { return e === temp });
+             if (index === 45) {
                  // Handle "n" characters with na ni ne nu no
                  end_i++;
                  let temp_2 = Romanji.substring(start_i, end_i)
@@ -50,11 +49,17 @@
                      start_i = end_i;
                      translation += this.HiraganaCharacter[r];
                  }
-             } else if (temp !== -1) {
+             } else if (temp === "ky") {
+                 // Handle "ki" go with "ya yu yo" 
+                 temp = temp[0] + "i";
+                 index = this.RomanjiCharacter.findIndex((e) => { return e === temp });
+                 translation += this.HiraganaCharacter[index];
+                 end_i--;
                  start_i = end_i;
-                 translation += this.HiraganaCharacter[temp];
+             } else if (index !== -1) {
+                 start_i = end_i;
+                 translation += this.HiraganaCharacter[index];
              }
-             end_i++;
          };
 
          return translation;

@@ -121,3 +121,24 @@ p {
 .changeBack_2 {
     left: var(--modeBtn-_4-left);
 }
+
+.hint {
+    position: relative;
+    top: -90%;
+    width: 100%;
+    border: 1px solid gray;
+    background-color: rgb(215, 215, 215);
+    cursor: pointer;
+}
+
+.hint:hover {
+    background-color: rgb(171, 171, 171);
+}
+
+.hidden {
+    display: none;
+}
+
+.visible {
+    display: block;
+}

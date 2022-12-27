@@ -1,4 +1,5 @@
 // Animation when choosing between modes
+const Container_1 = document.querySelector(".container#_1");
 const ModeContainer = document.querySelector(".Mode");
 const ModeBtns = document.querySelectorAll(".Modebtn");
 const lineAnim = createLineAnim("line1");
@@ -6,17 +7,32 @@ const lineAnim2 = createLineAnim("line2");
 lineAnim.classList.add("changeBack_1");
 lineAnim2.classList.add("changeBack_2");
 const ModeSelected = [true, false, false, true];
+let VietnameseSrc = [];
+let JapaneseSrc = [];
+let hint = [];
 
 //Detect p tag changes
 const target = document.querySelector("#_1 > p");
 const result = document.querySelector("#_2 > p");
 const observer = new MutationObserver(mutation => {
     mutation.forEach((e) => {
+        if (target.innerText !== "") {
+            for (let i = 0; i < hint.length; i++) {
+                let temp = hint[i].innerText !== "undefined";
+                console.log({ hint: hint[i].innerText });
+                if (temp) {
+                    console.log(temp);
+                    hint[i].classList.remove("hidden");
+                } else {
+                    hint[i].classList.add("hidden");
+                }
+            }
+            createHint(target.innerText);
+        }
         postSearch();
         getSearchResult();
     });
 });
-console.log(target.innerText);
 const observerConfig = {
     attributes: true,
     characterData: true,
@@ -27,6 +43,10 @@ observer.observe(target, observerConfig);
 
 // Interact with back-end
 const baseURL = "http://localhost:3000/";
+
+// This make VietnameseSrc and JapaneseSrc become available
+getSearchResult();
+
 async function postSearch() {
     const res = await fetch(baseURL, {
         method: "POST",
@@ -40,15 +60,35 @@ async function postSearch() {
 }
 async function getSearchResult() {
     const res = await fetch(baseURL + "result", {
-        method: "GET"
-    })
-
-    // console.log(res);
+            method: "GET"
+        })
+        // console.log(res);
     const data = await res.json();
-    console.log(data);
     result.innerText = data.result;
+    VietnameseSrc = data.VieSrc;
+    JapaneseSrc = data.JapSrc;
 }
-
+//Create hint text
+function createHint(text) {
+    let nearly_match = JapaneseSrc.filter(t => t.includes(text));
+    console.log(nearly_match);
+    for (let i = 0; i < 3; i++) {
+        hint[i].innerText = nearly_match[i];
+    }
+}
+for (let i = 0; i < 3; i++) {
+    hint[i] = document.createElement('div');
+    hint[i].setAttribute('class', 'hint hidden');
+    hint[i].innerText = "hello world";
+    hint[i].addEventListener("click", (e) => {
+        let value = e.target;
+        target.innerText = value.innerText;
+        for (let i = 0; i < 3; i++) {
+            hint[i].classList.add("hidden");
+        }
+    })
+    Container_1.append(hint[i]);
+}
 //Animation
 for (let i = 0; i < ModeBtns.length; i++) {
     ModeBtns[i].addEventListener("click", (e) => {

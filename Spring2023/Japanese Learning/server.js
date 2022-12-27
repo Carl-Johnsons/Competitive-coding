@@ -23,6 +23,8 @@ app.get('/result', (req, res) => {
     // res.sendFile(__dirname + '/result.html');
     res.status(200).json({
         result: translation,
+        VieSrc: VietnameseSrc,
+        JapSrc: JapaneseSrc,
     });
 });
 // Handle post request
@@ -47,3 +49,4 @@ app.get('/', (req, res) => {
 app.listen(port, () => {
     console.log(`Server listening on ${port}`);
 });
+//192.168.1.5

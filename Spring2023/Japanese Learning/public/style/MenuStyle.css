@@ -1,0 +1,126 @@
+body {
+    padding: 0;
+    margin: 0;
+    ---menu-panel-bg-color: #65647C;
+    ---menu-panel-bg-color-2: #F1D3B3;
+    ---menu-btn-bg-color: #C7BCA1;
+    ---menu-btn-bg-color-hover: rgb(232, 231, 200);
+    ---menu-btn-bg-color-active: #8B7E74;
+    ---menu-bg-cover-color: rgba(0, 0, 0, 0.404);
+}
+
+.web-whole-bg {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(315deg, var(---menu-panel-bg-color-2), var(---menu-panel-bg-color));
+    z-index: 0;
+}
+
+.body-cover {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(---menu-bg-cover-color);
+    transform: all ease-in-out 1s forwards;
+    z-index: 198;
+}
+
+.menu-icon {
+    position: absolute;
+    top: 2%;
+    left: 0.5%;
+    width: 30px;
+    z-index: 200;
+    border: 2px solid black;
+    box-shadow: 5px 5px 5px rgb(125, 125, 125);
+    background-color: white;
+    cursor: pointer;
+    border-radius: 50%;
+}
+
+.menu-panel {
+    position: absolute;
+    right: 101%;
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(135deg, var(---menu-panel-bg-color) 0%, var(---menu-panel-bg-color-2)120%);
+    border-radius: 10px;
+    box-shadow: 10px 10px 10px rgb(81, 81, 81);
+    z-index: 199;
+}
+
+.menu-item {
+    position: relative;
+    width: 95%;
+    height: 5%;
+    left: 2.5%;
+    top: 15%;
+    border: 1px solid black;
+    background-color: var(---menu-btn-bg-color);
+    margin-top: 3%;
+    margin-bottom: 3%;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    font-family: 'Open Sans';
+    font-size: 150%;
+}
+
+.menu-item-active {
+    background-color: var(---menu-btn-bg-color-active);
+}
+
+.menu-item:hover {
+    background-color: var(---menu-btn-bg-color-hover);
+}
+
+.menu-item-anchor {
+    text-decoration: none;
+}
+
+.hidden {
+    display: none;
+}
+
+.IconAnim {
+    animation: IconAnim 2s linear forwards;
+}
+
+.moveIn {
+    animation: moveIn ease-in-out 0.3s forwards;
+}
+
+.moveOut {
+    animation: moveOut ease-in-out 0.3s forwards;
+}
+
+.menu-btn {
+    pointer-events: all;
+}
+
+@keyframes moveIn {
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes moveOut {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes IconAnim {
+    50% {
+        transform: rotate(180);
+    }
+    100% {
+        transform: rotate(180);
+    }
+}

@@ -1,154 +1,154 @@
-con mực
+Con mực
 ika
-bạch tuộc
+Bạch tuộc
 tako
-dưa hấu
+Dưa hấu
 suika
-con dốc
+Con dốc
 saka
-ca chep
+Cá chép
 koi
-con bò 
+Con bò 
 ushi
-cái trống
+Cái trống
 taiko
-thác nước
+Thác nước
 taki
-kẻ thù
+Kẻ thù
 teki
-sắt
+Sắt
 tetsu
+Sushi
 sushi
-sushi
-con nai (deer)
-shika
-cây dù (umbrella)
+Con nai (deer)
+Shika
+Cây dù (umbrella)
 kasa
-mặt trăng
+Mặt trăng
 tsuki
-con chó (dog)
+Con chó (dog)
 inu
-con cua (crab)
+Con cua (crab)
 kani
-cá (Fish)
+Cá (Fish)
 sakana
-cát (Sand)
+Cát (Sand)
 suna
-quỷ (demon)
+Quỷ (demon)
 oni
-cà tím (eggplant)
+Cà tím (eggplant)
 nasu
-áo (cloth) or vải (fabric)
+Áo (cloth) or vải (fabric)
 nuno
-bụi gạo (chaff) or lụa gạo(husk)
+Bụi gạo (chaff) or lụa gạo(husk)
 nuka
-con mèo (cat)
+Con mèo (cat)
 neko
-hôp (box)
+Hôp (box)
 hako
-tàu thuyền (boat)
+Tàu thuyền (boat)
 fune
-sao (flute)
+Sáo (flute)
 fue
-cai bụng (navel)
+Cái bụng (navel)
 heso
-ngôi sao (star)
+Ngôi sao (star)
 hoshi
-mẹ (mother)
+Mẹ (mother)
 mama
-lễ hội (festival)
+Lễ hội (festival)
 matsuri
-lỗ tai (ear)
+Lỗ tai (ear)
 mimi
-quýt (mandarin orange)
+Quýt (mandarin orange)
 mikan
-bọ (incest or bug)
+Bọ (incest or bug)
 mushi
-ngôi làng(village)
+Ngôi làng(village)
 mura
-màu đỏ (Red)
+Màu đỏ (Red)
 aka
-màu vàng (yellow)
+Màu vàng (yellow)
 kiiro
-màu xanh lá (Green)
+Màu xanh lá (Green)
 midori
-màu xanh dương (blue)
+Màu xanh dương (blue)
 ao
-màu tím (purple)
+Màu tím (purple)
 murasaki
-màu nâu (Brown)
+Màu nâu (Brown)
 chairo
-màu trắng (white)
+Màu trắng (white)
 shiro
-màu đen (black)
+Màu đen (black)
 kuro
-con gái (female)
+Con gái (female)
 mesu
-ghi chú (memo)
+Ghi chú (memo)
 memo
-bánh gạo (rice cake)
+Bánh gạo (rice cake)
 mochi
-trái đào (peach)
+Trái đào (peach)
 momo
-giá đỗ (bean sprouts)
+Giá đỗ (bean sprouts)
 moyashi
-núi (mountain)
+Núi (mountain)
 yama
-rau củ (vegetable)
+Rau củ (vegetable)
 vegetable
-mái nhà (roof)
+Mái nhà (roof)
 yane
-bóng chày (baseball)
+Bóng chày (baseball)
 yakyuu
-tuyết (snow)
+Tuyết (snow)
 yuki
-sàn nhà (floor)
+Sàn nhà (floor)
 yuka
-áo yukata
+Áo yukata
 yukata
-ban đêm (night)
+Ban đêm (night)
 yoru
-ban ngày (day)
+Ban ngày (day)
 nicchi
-đọc (read)
+Đọc (read)
 yomu
-con sư tử (lion)
+Con sư tử (lion)
 raion
-con sóc (squirrel)
+Con sóc (squirrel)
 risu
-quả chanh (lemon)
+Quả chanh (lemon)
 remon
-củ sen (lotus root)
+Củ sen (lotus root)
 renkon
-hành lang (corridor)
+Hành lang (corridor)
 rouka
-ngọn nến (candle)
+Ngọn nến (candle)
 rousoku
-cá sấu (crocodile)
+Cá sấu (crocodile)
 wani
-đạii bàng (eagle)
+Đại bàng (eagle)
 washi
-rong biển (seaweed)
+Rong biển (seaweed)
 wakame
-cô-tông (cotton)
+Cô-tông (cotton)
 wata
-dây sợi (straw)
+Dây sợi (straw)
 wara
-rửa bàn tay (wash hand)
+Rửa bàn tay (wash hand)
 te o arau
-rửa mắt (wash eyes)
+Rửa mắt (wash eyes)
 me o arau
-rửa (wash or clean)
+Rửa (wash or clean)
 arau
-leo núi (climb the mountain)
+Leo núi (climb the mountain)
 yama o noburu
-leo dốc (climb the hill/slope)
+Leo dốc (climb the hill/slope)
 saka o noburu
-cuốn sách (book)
+Cuốn sách (book)
 Hon
-cái này (this)
+Cái này (this)
 kore
-mọi người (everyone)
+Mọi người (everyone)
 minna
 1
 ichi
@@ -169,4 +169,32 @@ hachi
 9
 kyu or ku
 10
-jū
+juu
+Giáo viên (Teacher)
+sensei
+Bác sĩ (Doctor)
+isha
+Tôi (me)
+watashi
+Trường đại học (university)
+daigaku
+Đèn điện
+denki
+nhân viên ngân hàng
+ginkoin
+học sinh
+gakusei
+ai (who)
+dare
+ai (who : lịch sự)
+donata
+yes (có)
+Hai
+không (no)
+iie
+Nước Mỹ
+Amerika
+Nước Anh
+Igirisu
+Ấn Độ
+Indo

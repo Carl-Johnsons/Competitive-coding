@@ -1,4 +1,3 @@
-// Animation when choosing between modes
 const Container_1 = document.querySelector(".container#_1");
 const ModeContainer = document.querySelector(".Mode");
 const ModeBtns = document.querySelectorAll(".Modebtn");
@@ -7,6 +6,7 @@ const lineAnim2 = createLineAnim("line2");
 lineAnim.classList.add("changeBack_1");
 lineAnim2.classList.add("changeBack_2");
 const ModeSelected = [true, false, false, true];
+let currentMode = "JAP";
 let VietnameseSrc = [];
 let JapaneseSrc = [];
 let hint = [];
@@ -17,16 +17,6 @@ const result = document.querySelector("#_2 > p");
 const observer = new MutationObserver(mutation => {
     mutation.forEach((e) => {
         if (target.innerText !== "") {
-            for (let i = 0; i < hint.length; i++) {
-                let temp = hint[i].innerText !== "undefined";
-                console.log({ hint: hint[i].innerText });
-                if (temp) {
-                    console.log(temp);
-                    hint[i].classList.remove("hidden");
-                } else {
-                    hint[i].classList.add("hidden");
-                }
-            }
             createHint(target.innerText);
         }
         postSearch();
@@ -60,31 +50,46 @@ async function postSearch() {
 }
 async function getSearchResult() {
     const res = await fetch(baseURL + "result", {
-            method: "GET"
-        })
-        // console.log(res);
+        method: "GET"
+    })
     const data = await res.json();
     result.innerText = data.result;
     VietnameseSrc = data.VieSrc;
     JapaneseSrc = data.JapSrc;
 }
+async function postMode() {
+    const res = await fetch(baseURL + "changeMode", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            mode: currentMode
+        })
+    })
+}
 //Create hint text
 function createHint(text) {
-    let nearly_match = JapaneseSrc.filter(t => t.includes(text));
-    console.log(nearly_match);
+    text = text.trim().toLowerCase();
+    let nearly_match = (currentMode === "JAP" ? JapaneseSrc.filter(t => t.includes(text)) : -1);
     for (let i = 0; i < 3; i++) {
         hint[i].innerText = nearly_match[i];
+        if (nearly_match[i]) {
+            hint[i].classList.remove("hidden");
+        } else {
+            hint[i].classList.add("hidden");
+        }
     }
 }
 for (let i = 0; i < 3; i++) {
     hint[i] = document.createElement('div');
     hint[i].setAttribute('class', 'hint hidden');
-    hint[i].innerText = "hello world";
+    hint[i].innerText = "";
     hint[i].addEventListener("click", (e) => {
         let value = e.target;
         target.innerText = value.innerText;
         for (let i = 0; i < 3; i++) {
-            hint[i].classList.add("hidden");
+            hint[i].innerText = undefined;
         }
     })
     Container_1.append(hint[i]);
@@ -102,6 +107,8 @@ for (let i = 0; i < ModeBtns.length; i++) {
             for (let j = 0; j < ModeSelected.length; j++) {
                 ModeSelected[j] = !ModeSelected[j];
             }
+            currentMode = "JAP";
+            postMode();
         } else if ((valueID === '__2' || valueID === "__3") && ModeSelected[0]) {
             lineAnim.classList.toggle("changeMode_1");
             lineAnim2.classList.toggle("changeMode_2");
@@ -110,6 +117,8 @@ for (let i = 0; i < ModeBtns.length; i++) {
             for (let j = 0; j < ModeSelected.length; j++) {
                 ModeSelected[j] = !ModeSelected[j];
             }
+            currentMode = "VIE";
+            postMode();
         }
     });
 }

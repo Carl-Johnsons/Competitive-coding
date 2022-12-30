@@ -13,7 +13,10 @@ body {
     width: 35%;
     height: 50%;
     border: 2px solid black;
+    background-color: rgba(255, 255, 255, 0.413);
+    backdrop-filter: blur(3px);
     font-size: 200%;
+    z-index: 1;
 }
 
 .Mode {
@@ -49,8 +52,8 @@ body {
     position: absolute;
     left: var(--initial-left);
     top: 30%;
-    border-top: 1px solid rgba(99, 99, 99, 0.3);
-    border-right: 1px solid rgba(99, 99, 99, 0.3);
+    border-top: 1px solid rgba(62, 62, 62, 0.537);
+    border-right: 1px solid rgba(62, 62, 62, 0.537);
     border-bottom-left-radius: 20px;
     padding-left: 1%;
     padding-right: 1%;
@@ -60,8 +63,8 @@ body {
     position: absolute;
     left: calc( var(--initial-left) +var(--initial-width) + 2.21%);
     top: 30%;
-    border-top: 1px solid rgba(99, 99, 99, 0.3);
-    border-left: 1px solid rgba(99, 99, 99, 0.3);
+    border-top: 1px solid rgba(62, 62, 62, 0.537);
+    border-left: 1px solid rgba(62, 62, 62, 0.537);
     border-bottom-right-radius: 20px;
     padding-left: 1%;
     padding-right: 1%;
@@ -82,12 +85,12 @@ p {
     cursor: pointer;
     width: var(--modeBtn-width);
     border: transparent;
-    background: white;
+    background: transparent;
     height: 80%;
 }
 
 .Modebtn:hover {
-    background: rgb(234, 234, 234);
+    background: rgba(205, 220, 255, 0.582);
 }
 
 .Modebtn#__1 {

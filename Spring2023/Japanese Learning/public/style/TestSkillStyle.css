@@ -1,0 +1,76 @@
+body {
+    font-family: 'Open Sans', sans-serif;
+}
+
+input {
+    position: absolute;
+    top: 77%;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 125%;
+    outline: none;
+}
+
+.container {
+    position: absolute;
+    left: 15%;
+    top: 15%;
+    width: 70%;
+    height: 70%;
+    background-color: rgba(255, 0, 0, 0.132);
+    border-radius: 15px;
+}
+
+.question {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    width: 90%;
+    height: 60%;
+    font-size: 400%;
+    text-shadow: 4px 4px 4px rgba(31, 31, 31, 0.5);
+    line-height: 100px;
+    /* Vertically center the text */
+    text-align: center;
+    /* Horizontally center the text */
+}
+
+.question-btn {
+    position: relative;
+    top: 87.5%;
+    width: 7%;
+    height: 6%;
+    margin: 1.5%;
+    border-radius: 10%;
+    background-color: rgba(248, 242, 180, 0.648);
+    font-weight: bold;
+    font-size: 125%;
+    box-shadow: 5px 5px 5px rgba(58, 58, 58, 0.644);
+    cursor: pointer;
+}
+
+.question-btn:hover {
+    background-color: rgba(207, 205, 180, 0.648);
+}
+
+.question-btn-active {
+    background-color: rgba(254, 254, 118, 0.852)
+}
+
+.submit-btn {
+    position: absolute;
+    top: 87.5%;
+    width: 10%;
+    left: 45%;
+    height: 4.5%;
+    border-radius: 5px;
+    background-color: rgb(235, 187, 110);
+    z-index: 1;
+}
+
+.hidden {
+    display: none;
+}

@@ -116,7 +116,6 @@ function createSubmitButton() {
     submit.innerText = "Submit";
     submit.addEventListener("click", e => {
         handleSubmitBtnEvent();
-
     });
 
     document.body.appendChild(submit);
@@ -201,7 +200,7 @@ async function handleSubmitBtnEvent() {
         }
         let score = 0;
         for (let i = 0; i < Question.length; i++) {
-            if (Answer[i] === input[i].value) {
+            if (Answer[i].trim().toLowerCase() === input[i].value.toLowerCase().trim()) {
                 score++;
                 trow[i].classList.add("right-ans");
             } else {

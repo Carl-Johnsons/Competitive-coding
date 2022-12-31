@@ -1,6 +1,5 @@
 const express = require('express');
 const fs = require("fs");
-const { config } = require('process');
 const Language = require('./public/src/Language');
 
 const app = express();

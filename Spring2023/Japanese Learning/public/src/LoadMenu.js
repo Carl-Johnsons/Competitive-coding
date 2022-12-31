@@ -4,7 +4,6 @@ const Menu_ = new Menu();
 const URL = document.URL.toString().split("/");
 Menu_.addItem("Translator", "/");
 Menu_.addItem("Test Skill", "/mode/TestSkill.html");
-Menu_.addItem("Translator", "/");
 
 let currentMode = URL[URL.length - 1];
 switch (currentMode) {

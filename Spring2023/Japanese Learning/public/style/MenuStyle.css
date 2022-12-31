@@ -39,6 +39,10 @@ body {
     border-radius: 50%;
 }
 
+.menu-icon:hover {
+    animation: hover-anim 0.1s ease-in-out forwards;
+}
+
 .menu-panel {
     position: absolute;
     right: 101%;
@@ -122,5 +126,12 @@ body {
     }
     100% {
         transform: rotate(180);
+    }
+}
+
+@keyframes hover-anim {
+    100% {
+        transform: translateX(-1px) translateY(-2px);
+        box-shadow: 7px 7px 7px gray;
     }
 }

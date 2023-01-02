@@ -1,3 +1,4 @@
+// DECLARATION
 const startPanel = document.querySelector(".start-panel");
 const ResultTable = document.querySelector(".result-table");
 const TableBody = document.querySelector(".result-table > tbody");

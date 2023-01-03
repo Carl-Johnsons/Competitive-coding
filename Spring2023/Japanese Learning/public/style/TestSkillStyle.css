@@ -118,18 +118,6 @@ th:hover {
     animation: hover-anim 0.1s ease-in-out forwards;
 }
 
-input {
-    position: absolute;
-    top: 77%;
-    width: 80%;
-    height: 6%;
-    left: 10%;
-    border-radius: 10px;
-    font-weight: bolder;
-    font-size: 125%;
-    outline: none;
-}
-
 .retry-btn {
     position: relative;
     margin-top: 1%;
@@ -155,6 +143,18 @@ input {
     border-radius: 15px;
     backdrop-filter: blur(10px);
     z-index: var(---z-index-container);
+}
+
+input {
+    position: absolute;
+    top: 77%;
+    width: 80%;
+    height: 6%;
+    left: 10%;
+    border-radius: 10px;
+    font-weight: bolder;
+    font-size: 125%;
+    outline: none;
 }
 
 .question {

@@ -13,24 +13,18 @@ const tdata = [],
 const QuestionBtn = [];
 const Question = [];
 const Answer = [];
-const input = [];
 const AnswerHiragana = [];
+const input = [];
 const MAX_QUESTION = 10;
 let isAnimating = false;
 let submit;
 let QuestionBank;
 let AnswerBank;
 
+
+
 createUI();
-
-startBtn.addEventListener("click", () => {
-    handleStartBtnEvent();
-})
-retryBtn.addEventListener("click", () => {
-    handleRetryBtnEvent();
-});
-
-
+//Initialize
 function createUI() {
     for (let i = 0; i < MAX_QUESTION; i++) {
         createQuestionLabel(i);
@@ -38,11 +32,7 @@ function createUI() {
         createInput(i);
     }
     createSubmitButton();
-}
-async function handleData() {
-    await getQuestionBank();
-    let RandomQ = generateQuestion();
-    setQuestionLabel(RandomQ);
+
 }
 
 function createQuestionLabel(index) {
@@ -56,13 +46,6 @@ function createQuestionLabel(index) {
     container.appendChild(Question[index]);
 }
 
-async function setQuestionLabel(Random) {
-    for (let i = 0; i < Question.length; i++) {
-        Question[i].innerText = QuestionBank[Random[i]];
-        Answer[i] = AnswerBank[Random[i]];
-    }
-}
-
 function createInput(index) {
     input[index] = document.createElement("input");
     input[index].classList.add("hidden");
@@ -73,8 +56,21 @@ function createInput(index) {
     if (index === 0) {
         input[0].classList.remove("hidden");
     }
+    input[index].addEventListener("input", async function(e) {
+        let value = e.target.value;
+        await postAnswer(value);
+        await getAnswerTranslations()
+            .then(data => {
+                data = data.split('\n');
+                e.target.value = data[data.length - 1];
+            });
+    });
 
     container.appendChild(input[index]);
+
+    // Auto convert to Hiragana
+
+
 }
 
 function createQuestionButton(index, text) {
@@ -95,22 +91,6 @@ function createQuestionButton(index, text) {
     container.appendChild(QuestionBtn[index]);
 }
 
-function handleQuestionBtnEvent(btn) {
-    QuestionBtn.forEach((Qbtn) => {
-        Qbtn.classList.remove("question-btn-active");
-    });
-    for (let i = 0; i < QuestionBtn.length; i++) {
-        if (input[i].value !== "") {
-            QuestionBtn[i].classList.add("input-occupied");
-        } else {
-            QuestionBtn[i].classList.remove("input-occupied");
-        }
-    }
-    let questionIndex = QuestionBtn.indexOf(btn);
-    UpdateQuestion(questionIndex);
-    btn.classList.add("question-btn-active");
-}
-
 function createSubmitButton() {
     submit = document.createElement("button");
     submit.setAttribute("class", "submit-btn");
@@ -122,35 +102,7 @@ function createSubmitButton() {
     document.body.appendChild(submit);
 
 }
-
-function UpdateQuestion(index) {
-    Question.forEach(i => {
-        i.classList.add("hidden");
-    })
-    input.forEach(i => {
-        i.classList.add("hidden");
-    })
-    Question[index].classList.remove("hidden");
-    input[index].classList.remove("hidden");
-    input[index].focus();
-}
-
-function generateQuestion() {
-    let temp, next = 0,
-        Random = [];
-    while (true) {
-        if (next === 10) {
-            break;
-        }
-        temp = Math.floor(Math.random() * QuestionBank.length);
-        if (!Random.includes(temp)) {
-            Random[next] = temp;
-            next++;
-        }
-    }
-    return Random;
-}
-
+//Post Request and get Response from server
 async function getQuestionBank() {
     const res = await fetch('/mode/TestSkill/src', {
         method: 'GET',
@@ -158,61 +110,6 @@ async function getQuestionBank() {
     const data = await res.json();
     QuestionBank = data.Question;
     AnswerBank = data.Answer;
-}
-
-function handleStartBtnEvent() {
-    if (!isAnimating) {
-        isAnimating = true;
-        startPanel.classList.add("move-out");
-        handleData();
-        input[0].focus();
-        setTimeout(() => {
-            isAnimating = false;
-        }, 1000);
-    }
-}
-
-async function handleSubmitBtnEvent() {
-    if (!isAnimating) {
-        isAnimating = true;
-        resultContainer.classList.add("move-in");
-        resultContainer.classList.remove("move-out");
-        for (let i = 0; i < QuestionBtn.length; i++) {
-            trow[i] = document.createElement("tr");
-            for (let j = 0; j < 4; j++) {
-                tdata[j] = document.createElement("td");
-                trow[i].appendChild(tdata[j]);
-            }
-            tdata[0].innerText = Question[i].innerText;
-            tdata[1].innerText = input[i].value;
-            tdata[2].innerText = Answer[i];
-            await postAnswer(Answer[i])
-            await getAnswerTranslations()
-                .then((data) => {
-                    data = data.split('\n');
-                    tdata[3].innerText = data[data.length - 1];
-                })
-        }
-
-        for (let i = 0; i < QuestionBtn.length; i++) {
-            setTimeout(() => {
-                TableBody.appendChild(trow[i]);
-            }, 300 + (i % QuestionBtn.length) * 50);
-        }
-        let score = 0;
-        for (let i = 0; i < Question.length; i++) {
-            if (Answer[i].trim().toLowerCase() === input[i].value.toLowerCase().trim()) {
-                score++;
-                trow[i].classList.add("right-ans");
-            } else {
-                trow[i].classList.add("wrong-ans");
-            }
-        }
-        console.log(score);
-        setTimeout(() => {
-            isAnimating = false;
-        }, 1000);
-    }
 }
 async function postAnswer(ans) {
     const res = await fetch('/', {
@@ -233,39 +130,11 @@ async function getAnswerTranslations() {
             return data.result;
         });
 }
+//Handling Event
 
-function handleRetryBtnEvent() {
-    if (!isAnimating) {
-        isAnimating = true;
-        startPanel.classList.add("move-in");
-        startPanel.classList.remove("move-out");
-        setTimeout(() => {
-            resultContainer.classList.remove("move-in");
-            resultContainer.classList.add("move-out");
-
-            //Reset table data
-            while (TableBody.firstChild) {
-                TableBody.removeChild(TableBody.firstChild);
-            }
-            TableBody.innerHTML = `                
-        <tr>
-            <th>Question</th>
-            <th>Your Answer</th>
-            <th>The Answer</th>
-            <th>Hiragana</th>
-        </tr>`;
-        }, 300);
-        input.forEach(i => {
-            i.value = "";
-        })
-        QuestionBtn.forEach(Qbtn => {
-            Qbtn.classList.remove("input-occupied");
-        })
-        setTimeout(() => {
-            isAnimating = false;
-        }, 1000);
-    }
-}
+// Add Event Listener for Button
+startBtn.addEventListener("click", handleStartBtnEvent);
+retryBtn.addEventListener("click", handleRetryBtnEvent);
 
 document.onkeydown = (e) => {
     if (e.which === 9) { //TAB key
@@ -288,5 +157,171 @@ document.onkeydown = (e) => {
         } else {
             handleStartBtnEvent();
         }
+    }
+}
+
+function handleStartBtnEvent() {
+    if (!isAnimating) {
+        isAnimating = true;
+        startPanel.classList.add("move-out");
+        container.classList.remove("hidden");
+        setTimeout(() => {
+            startPanel.classList.add("hidden");
+        }, 500);
+
+        handleData();
+        input[0].focus();
+        setTimeout(() => {
+            isAnimating = false;
+        }, 1000);
+    }
+};
+
+async function handleSubmitBtnEvent() {
+    if (!isAnimating) {
+        isAnimating = true;
+        resultContainer.classList.add("move-in");
+        resultContainer.classList.remove("move-out");
+        resultContainer.classList.remove("hidden");
+        setTimeout(() => {
+            container.classList.add("hidden");
+        }, 500);
+
+        await handleResults();
+        for (let i = 0; i < QuestionBtn.length; i++) {
+            setTimeout(() => {
+                TableBody.appendChild(trow[i]);
+            }, 300 + (i % QuestionBtn.length) * 50);
+        }
+        await handleScoreResults();
+        setTimeout(() => {
+            isAnimating = false;
+        }, 1000);
+    }
+};
+
+function handleRetryBtnEvent() {
+    if (!isAnimating) {
+        isAnimating = true;
+        startPanel.classList.add("move-in");
+        startPanel.classList.remove("move-out");
+        startPanel.classList.remove("hidden");
+        setTimeout(() => {
+            resultContainer.classList.remove("move-in");
+            resultContainer.classList.add("move-out");
+
+            //Reset table data
+            while (TableBody.firstChild) {
+                TableBody.removeChild(TableBody.firstChild);
+            }
+            TableBody.innerHTML = `                
+        <tr>
+            <th>Question</th>
+            <th>Your Answer</th>
+            <th>The Answer</th>
+            <th>Hiragana</th>
+        </tr>`;
+        }, 500);
+        input.forEach(i => {
+            i.value = "";
+        })
+        QuestionBtn.forEach(Qbtn => {
+            Qbtn.classList.remove("input-occupied");
+        })
+
+        setTimeout(() => {
+            isAnimating = false;
+        }, 1000);
+    }
+};
+
+function handleQuestionBtnEvent(btn) {
+    QuestionBtn.forEach((Qbtn) => {
+        Qbtn.classList.remove("question-btn-active");
+    });
+    for (let i = 0; i < QuestionBtn.length; i++) {
+        if (input[i].value !== "") {
+            QuestionBtn[i].classList.add("input-occupied");
+        } else {
+            QuestionBtn[i].classList.remove("input-occupied");
+        }
+    }
+    let questionIndex = QuestionBtn.indexOf(btn);
+    UpdateQuestion(questionIndex);
+    btn.classList.add("question-btn-active");
+};
+//Handle Data From Server
+
+async function handleData() {
+    await getQuestionBank();
+    let RandomQ = generateQuestion();
+    setQuestionLabel(RandomQ);
+}
+async function handleResults() {
+    for (let i = 0; i < QuestionBtn.length; i++) {
+        trow[i] = document.createElement("tr");
+        for (let j = 0; j < 4; j++) {
+            tdata[j] = document.createElement("td");
+            trow[i].appendChild(tdata[j]);
+        }
+        tdata[0].innerText = Question[i].innerText;
+        tdata[1].innerText = input[i].value;
+        tdata[2].innerText = Answer[i];
+        tdata[3].innerText = AnswerHiragana[i];
+    }
+}
+
+async function handleScoreResults() {
+    let score = 0;
+    for (let i = 0; i < Question.length; i++) {
+        if (Answer[i].trim().toLowerCase() === input[i].value.toLowerCase().trim() || AnswerHiragana[i] === input[i].value) {
+            score++;
+            trow[i].classList.add("right-ans");
+        } else {
+            trow[i].classList.add("wrong-ans");
+        }
+    }
+    console.log(score);
+    return score;
+}
+
+function generateQuestion() {
+    let temp, next = 0,
+        Random = [];
+    while (true) {
+        if (next === 10) {
+            break;
+        }
+        temp = Math.floor(Math.random() * QuestionBank.length);
+        if (!Random.includes(temp)) {
+            Random[next] = temp;
+            next++;
+        }
+    }
+    return Random;
+}
+
+function UpdateQuestion(index) {
+    Question.forEach(i => {
+        i.classList.add("hidden");
+    })
+    input.forEach(i => {
+        i.classList.add("hidden");
+    })
+    Question[index].classList.remove("hidden");
+    input[index].classList.remove("hidden");
+    input[index].focus();
+}
+
+async function setQuestionLabel(Random) {
+    for (let i = 0; i < Question.length; i++) {
+        Question[i].innerText = QuestionBank[Random[i]];
+        Answer[i] = AnswerBank[Random[i]];
+        await postAnswer(Answer[i])
+        await getAnswerTranslations()
+            .then((data) => {
+                data = data.split('\n');
+                AnswerHiragana[i] = data[data.length - 1];
+            })
     }
 }

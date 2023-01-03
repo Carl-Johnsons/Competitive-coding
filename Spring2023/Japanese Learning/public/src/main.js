@@ -1,3 +1,4 @@
+//DECLARATION
 const Container_1 = document.querySelector(".container#_1");
 const ModeContainer = document.querySelector(".Mode");
 const ModeBtns = document.querySelectorAll(".Modebtn");
@@ -10,29 +11,16 @@ let currentMode = "JAP";
 let VietnameseSrc = [];
 let JapaneseSrc = [];
 let hint = [];
-
-//Detect p tag changes
 const target = document.querySelector("#_1 > p");
 const result = document.querySelector("#_2 > p");
-const observer = new MutationObserver(mutation => {
-    mutation.forEach((e) => {
-        if (target.innerText !== "") {
-            createHint(target.innerText);
-        }
-        postSearch();
-        getSearchResult();
-    });
-});
 const observerConfig = {
     attributes: true,
     characterData: true,
     childList: true,
     subtree: true
 }
-observer.observe(target, observerConfig);
-
-// Interact with back-end
 const baseURL = "http://localhost:3000/";
+//Interact with back-end
 
 // This make VietnameseSrc and JapaneseSrc become available
 getSearchResult();
@@ -68,7 +56,7 @@ async function postMode() {
         })
     })
 }
-//Create hint text
+//Creating Elements
 function createHint(text) {
     text = text.trim().toLowerCase();
     let nearly_match = (currentMode === "JAP" ? JapaneseSrc.filter(t => t.includes(text)) : -1);
@@ -81,6 +69,17 @@ function createHint(text) {
         }
     }
 }
+
+function createLineAnim(id) {
+    if (id !== undefined) {
+        let lineAnim = document.createElement("div");
+        lineAnim.classList.add("LineAnim");
+        lineAnim.id = id;
+        return lineAnim;
+    }
+    return;
+}
+
 for (let i = 0; i < 3; i++) {
     hint[i] = document.createElement('div');
     hint[i].setAttribute('class', 'hint hidden');
@@ -94,6 +93,20 @@ for (let i = 0; i < 3; i++) {
     })
     Container_1.append(hint[i]);
 }
+//Handling Events
+
+//Detect p tag changes
+const observer = new MutationObserver(mutation => {
+    mutation.forEach((e) => {
+        if (target.innerText !== "") {
+            createHint(target.innerText);
+        }
+        postSearch();
+        getSearchResult();
+    });
+});
+
+observer.observe(target, observerConfig);
 //Animation
 for (let i = 0; i < ModeBtns.length; i++) {
     ModeBtns[i].addEventListener("click", (e) => {
@@ -122,19 +135,6 @@ for (let i = 0; i < ModeBtns.length; i++) {
         }
     });
 }
-
-
 // MODE CONTAINER ADD ELEMENT
 ModeContainer.appendChild(lineAnim);
 ModeContainer.appendChild(lineAnim2);
-
-
-function createLineAnim(id) {
-    if (id !== undefined) {
-        let lineAnim = document.createElement("div");
-        lineAnim.classList.add("LineAnim");
-        lineAnim.id = id;
-        return lineAnim;
-    }
-    return;
-}

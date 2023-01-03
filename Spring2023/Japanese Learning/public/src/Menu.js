@@ -15,6 +15,7 @@ export default class Menu {
         document.head.appendChild(this.cssFile);
     }
     init() {
+        //Creating Element Object
         this.MenuSection = document.createElement("section");
         this.MenuSection.setAttribute("class", "menu-section");
 
@@ -30,8 +31,7 @@ export default class Menu {
 
         this.bodyCover = document.createElement("div");
         this.bodyCover.setAttribute("class", "body-cover hidden");
-
-        // Append child
+        //Append child
         this.MenuSection.appendChild(this.MenuIcon);
         this.MenuSection.appendChild(this.Panel);
         this.MenuSection.appendChild(this.bodyCover);
@@ -39,8 +39,8 @@ export default class Menu {
         document.body.insertAdjacentElement("afterbegin", this.wholeBg);
         this.makeMenuFunctional();
     }
-
     addItem(title, reference) {
+        //Creating Element Object
         let ItemLenght = this.items.length;
         this.items[ItemLenght] = document.createElement("button");
         this.items[ItemLenght].setAttribute("class", "menu-item menu-item-anchor menu-btn hidden");
@@ -52,7 +52,7 @@ export default class Menu {
         this.itemsRef[ItemLenght].href = reference;
 
         this.itemActive[ItemLenght] = false;
-
+        //Append child
         this.itemsRef[ItemLenght].appendChild(this.items[ItemLenght]);
         this.Panel.appendChild(this.itemsRef[ItemLenght]);
     }
@@ -85,7 +85,6 @@ export default class Menu {
         });
     }
     MenuIconClickHandler() {
-
         if (this.Panel.classList.contains("moveIn")) {
             this.Panel.classList.toggle("moveIn");
             this.Panel.classList.toggle("moveOut");

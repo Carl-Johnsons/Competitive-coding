@@ -1,6 +1,6 @@
 public class Palindrome_Number {
     public static void main(String[] args) {
-        int x = 1000001;
+        int x = 1100011;
         System.out.println(isPalindrome(x));
     }
 
@@ -8,17 +8,14 @@ public class Palindrome_Number {
         if (x < 0) {
             return false;
         }
-        String str = Integer.toString(x);
-        int len = str.length();
-        int i = 0;
-        int j = len - 1;
-        do {
-            if (str.charAt(i) != str.charAt(j))
-                return false;
-            i++;
-            j--;
-        } while (i < j);
-        return true;
+        int reverse = 0;
+        int x2 = x;
+        while (x2 != 0) {
+            reverse = x2 % 10 + reverse * 10;
+            x2 /= 10;
+        }
+
+        return x == reverse;
     }
 
 }

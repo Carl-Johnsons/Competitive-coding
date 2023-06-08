@@ -9,7 +9,7 @@ public class Integer_to_Roman {
     }
 
     public static String intToRoman(int num) {
-        String res = "";
+        StringBuilder res = new StringBuilder();
 
         int arr[] = new int[] { 1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1 };
         String roman[] = new String[] { "M", "CM", "D", "CD", "C", "XC", "L", "XL", "X", "IX", "V", "IV", "I" };
@@ -18,13 +18,13 @@ public class Integer_to_Roman {
         while (num > 0) {
             if (num >= initialKey) {
                 num -= initialKey;
-                res += roman[i];
+                res.append(roman[i]);
             } else {
                 i++;
                 initialKey = arr[i];
             }
         }
-        return res;
+        return res.toString();
     }
 
     public static int romanToInt(String s) {

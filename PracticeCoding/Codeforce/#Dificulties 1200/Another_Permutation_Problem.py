@@ -1,3 +1,5 @@
+# https://codeforces.com/problemset/problem/1859/C
+
 def solve():
     length = int(input())
     list_number = []

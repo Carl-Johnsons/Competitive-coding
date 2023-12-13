@@ -1,5 +1,5 @@
 //https://leetcode.com/problems/house-robber-ii/description/
-public class House_Robber_II {
+public class House_Robber_II_unsolved {
     public static void main(String[] args) {
         int[] nums;
         // nums = new int[] { 1, 2, 3, 1 };
@@ -50,7 +50,7 @@ public class House_Robber_II {
             if (nums[nums.length - 1] > nums[nums.length - 2]) {
                 max[index] -= nums[nums.length - 1];
             }
-            if(nums[nums.length-1]  )
+            // if(nums[nums.length-1]  )
         }
 
         helper(nums, max, index - 1);

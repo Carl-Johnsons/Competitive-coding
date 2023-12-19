@@ -1,2 +1,2 @@
-# Noob
+# Compettive-coding
 This repo is for keep education resource plus my practice coding in various coding competition website such as Leetcode, Codeforce, Kattis, ...

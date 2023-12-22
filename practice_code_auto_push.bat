@@ -33,6 +33,19 @@ if "!option!" == "1" (
         )
     )
 )
-git add .
-git commit -m "!commit!"
-git push origin main
+:askConfirmation
+set /p confirm="^"!commit!^" will be pushed to the branch ^"main^" ? (Y/N): "
+if /i "!confirm!" == "Y" (
+    git add .
+    git commit -m "!commit!"
+    git push origin main
+) else (
+    if /i "!confirm!" == "N" (
+        goto askProblem
+    ) else (
+        echo Please input Y or N
+        goto askConfirmation
+    )
+)
+
+

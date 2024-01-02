@@ -1,7 +1,17 @@
-print(sol.calculate(s="3+2*2"))  # 7
-print(sol.calculate(s=" 3/2 "))  # 1
-print(sol.calculate(s=" 3+5 / 2 "))  # 5
-print(sol.calculate(s=" 33+5 / 2 +2+1*3"))  # 40
-print(sol.calculate(s=" 33+5 / 2 +2+1*3*4 +1"))  # 50
-print(sol.calculate(s=" 12-2+3-4"))  # 9
-print(sol.calculate(s=" 12345"))  # 12345
+    # Hash map method
+    def pathSum(self, root: Optional[TreeNode], targetSum: int) -> int:
+        self.counter = 0
+
+        def dfs(root: Optional[TreeNode], currentSum: int, targetSum: int, memo=dict()):
+            if root is None:
+                return 0
+            currentSum += root.val
+            oldSum = currentSum - targetSum
+            self.counter += memo.get(oldSum, 0)
+            memo[currentSum] = memo.get(currentSum, 0) + 1
+            dfs(root.left, currentSum, targetSum, memo)
+            dfs(root.right, currentSum, targetSum, memo)
+            memo[currentSum] -= 1
+
+        dfs(root, 0, targetSum)
+        return self.counter

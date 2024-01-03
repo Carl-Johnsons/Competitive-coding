@@ -9,25 +9,35 @@ class Solution:
         count = 0
         cur = head
         prev = None
-        nxt = None
+        prev_next = cur
+        nxt = cur.next
 
         while cur is not None:
             count += 1
-            if count >= left and count <= right:
-                nxt = cur.next
-                cur.next = prev
+            nxt = cur.next
+            if count >= left and count < right:
+                if left == 1: # if the head need to reverse
+                    cur.next = nxt.next
+                    nxt.next = head
 
-                prev = cur
-                cur = nxt
-                head = prev
+                    head = nxt
+                else:
+                    prev.next = cur.next
+                    cur.next = nxt.next
+                    nxt.next = prev_next
+
+                    prev_next = prev.next
+                    nxt = cur.next
             else:
+                prev = cur
+                prev_next = prev.next
                 cur = cur.next
         return head
 
 
 input = [1, 2, 3, 4, 5]
-left = 1
-right = 5
+left = 2
+right = 3
 
 head = ListNode(input[0])
 cur = head

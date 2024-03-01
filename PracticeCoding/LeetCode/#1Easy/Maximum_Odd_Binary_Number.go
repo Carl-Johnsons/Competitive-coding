@@ -1,10 +1,7 @@
 package main
 
 import "C" // For telling this directory has the C file
-import (
-	"fmt"
-	"strings"
-)
+import "strings"
 
 func prependString(oldString string, addString string) string {
 	var builder strings.Builder
@@ -32,7 +29,4 @@ func maximumOddBinaryNumber(s string) string {
 		builder.WriteString("1")
 	}
 	return builder.String()
-}
-func main() {
-	fmt.Printf(maximumOddBinaryNumber("00110"))
 }

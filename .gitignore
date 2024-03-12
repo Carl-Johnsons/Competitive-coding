@@ -1,4 +1,9 @@
 .vscode/
+
+# C file
 **/*.exe
 **/*.o
 **/*build
+**/tempCodeRunnerFile.cpp
+# java file
+**/*class

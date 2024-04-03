@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <string>
 
 #define fto(i, a, b) for (int i = (int)a; i <= (int)b; ++i)
 #define fdto(i, a, b) for (int i = (int)a; i >= (int)b; --i)
@@ -15,42 +16,43 @@
 #define pb push_back
 
 #define ll long long
-#define ull unsigned long long
+#define ull long long
 
 #define maxm (int)()
-#define maxn (int)(1e6 + 5)
+#define maxn (int)()
+
+#define println(_string) cout << (string)_string << "\n"
+#define printok(_isOk) cout << ((bool)_isOk ? "YES" : "NO") \
+                            << "\n"
 
 using namespace std;
 
-int n;
-ull memo[maxn];
-int mod = 1e9 + 7;
+string s;
 
-ll fact(int n)
+bool isPalindrome(string str, int low, int high)
 {
-    if (n == 0 || n == 1)
-        return 1;
-    if (!memo[n])
+    if (low >= high)
     {
-        memo[n] = (n * fact(n - 1)) % mod;
+        return true;
     }
-    return memo[n];
+    if (str[low] != str[high])
+    {
+        return false;
+    }
+
+    return isPalindrome(str, low + 1, high - 1);
 }
 
 void solve()
 {
-    cin >> n;
-    cout << fact(n) << "\n";
+    cin >> s;
+    printok(isPalindrome(s, 0, s.length() - 1));
 }
 
 int main()
 {
     FAST;
-    fto(i, 0, maxn - 1) memo[i] = 0;
-    int t;
-    cin >> t;
-    fto(i, 0, t - 1)
-        solve();
+    solve();
     // TIME;
     return 0;
 }

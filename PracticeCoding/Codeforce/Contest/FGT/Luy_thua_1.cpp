@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+#include <string>
 
 #define fto(i, a, b) for (int i = (int)a; i <= (int)b; ++i)
 #define fdto(i, a, b) for (int i = (int)a; i >= (int)b; --i)
@@ -15,42 +16,44 @@
 #define pb push_back
 
 #define ll long long
-#define ull unsigned long long
+#define ull long long
 
 #define maxm (int)()
-#define maxn (int)(1e6 + 5)
+#define maxn (int)()
 
 using namespace std;
 
-int n;
-ull memo[maxn];
+ull a, b;
+int res;
 int mod = 1e9 + 7;
-
-ll fact(int n)
+ull temp;
+int pow(ull base, ull exp)
 {
-    if (n == 0 || n == 1)
-        return 1;
-    if (!memo[n])
+    if (exp <= 0)
     {
-        memo[n] = (n * fact(n - 1)) % mod;
+        return 1;
     }
-    return memo[n];
+    if (exp & 1)
+    {
+        temp = pow(base, exp - 1);
+        res = (temp * base) % mod;
+        return res;
+    }
+    temp = pow(base, exp / 2);
+    res = (int)((temp * temp) % mod);
+    return res;
 }
 
 void solve()
 {
-    cin >> n;
-    cout << fact(n) << "\n";
+    cin >> a >> b;
+    cout << pow(a, b) << "\n";
 }
 
 int main()
 {
     FAST;
-    fto(i, 0, maxn - 1) memo[i] = 0;
-    int t;
-    cin >> t;
-    fto(i, 0, t - 1)
-        solve();
+    solve();
     // TIME;
     return 0;
 }
